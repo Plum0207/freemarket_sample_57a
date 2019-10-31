@@ -1,0 +1,154 @@
+*{
+  box-sizing: border-box;
+}
+.header{
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
+}
+.header-box{
+  width: 1020px;
+  margin: 0px auto;
+  padding: 8px 0px 0px;
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    &__logo{
+      height: 40px;
+      margin-right: 45px;
+    }
+    .form{
+      width: 100%;
+      position: relative;
+      .input-box__text{
+        background-color: rgb(245, 245, 245);
+        font-size: 16px;
+        height: 40px;
+        line-height: 1.4em;
+        position: relative;
+        width: 100%;
+        -webkit-appearance: none;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(204, 204, 204);
+        border-image: initial;
+        border-radius: 4px;
+        outline: none;
+        padding: 0px 50px 0px 10px;
+        transition: all 0.3s ease-out 0s;
+      }
+      .icon-search{
+        background-color: transparent;
+        cursor: pointer;
+        height: 40px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 40px;
+        -webkit-appearance: none;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        border-radius: 0px 4px 4px 0px;
+        padding: 0px;
+        i{
+          font-size: 16px;
+          max-width: 100%;
+          max-height: 100%;
+          color: rgb(34, 34, 34);
+          height: 14px;
+          margin-top: 2px;
+          width: 14px;
+        }
+      }
+    }
+  }
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    &__left{
+      display: flex;
+      &__menu{
+        padding: 0 11px;
+        font-size: 14px;
+        &--category{
+          padding-left: 0;
+        }
+        &__link{
+          color: #333;
+          font-weight: 700;
+          height: 44px;
+          line-height: 32px;
+          text-decoration: none;
+          &__icon{
+            color: $red;
+            font-size: 16px;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+    &__right{
+      display: flex;
+      &__menu{
+        padding: 0px 14px;
+        display: flex;
+        &--like{
+          padding-left: 0px;
+        }
+        &--mypage{
+          padding-right: 0px;
+        }
+        &__link{
+          height: 44px;
+          line-height: 32px;
+          color: #333;
+          text-decoration: none;
+          &__icon{
+            font-size: 18px;
+            color: #ccc;
+          }
+          span{
+            margin-left: 5px;
+            font-size: 14px;
+          }
+        }
+      }
+      &__btn{
+        text-align: center;
+        margin-bottom: 8px;
+        &--login{
+          margin-left: 11px;
+        }
+        &__link{
+          font-size: 14px;
+          display: block;
+          border-width: 1px;
+          border-style: solid;
+          border-radius: 4px;
+          padding: 8px 10px;
+          line-height: 14px;
+          text-decoration: none;
+          &--signup{
+            background-color: $red;
+            color: $white;
+            border-color: $red;
+          }
+          &--login{
+            background-color: $white;
+            color: $light-blue;
+            border-color: $light-blue;
+            transition: all 0.3s ease-out 0s;
+            &:hover{
+              background-color: $light-blue;
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
