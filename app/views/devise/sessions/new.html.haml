@@ -1,0 +1,38 @@
+= render "devise/user/user_header"
+
+%main.main
+  .login-panel
+    .login-panel__new-account
+      -# TODO linkを付与すること
+      %p アカウントをお持ちでない方はこちら
+      = link_to "新規会員登録", registration_users_path
+
+    .login-panel__inherit
+      %button#facebook
+        =link_to "", class: '' do
+          =fa_icon 'facebook-square', class: 'facebook-icon'
+        Facebookでログイン
+
+      %button#Google
+        =link_to "", class: '' do
+          = image_tag "google.svg", class: 'google-icon'
+        Googleで登録
+
+    -# %h2.login Log in
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .login-form
+        .field
+          = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "メールアドレス", value: "test@gmail.com"
+        .field
+          = f.password_field :password, class: "field__input", autocomplete: "current-password", placeholder: "パスワード", value: "123456"
+        .field
+        -#  = recaptcha_tags
+      .login-form__captcha
+      .login-submit
+        = f.submit "ログイン", class: "login-submit__btn"
+        
+      -# -# TODO link作成後変更する
+      -# todo テーブル作成後 遷移先を"/users/password/edit"にすること
+      = link_to "パスワードをお忘れの方", new_user_password_path, class: "forgot-password"
+        
+= render "devise/user/user_footer"
