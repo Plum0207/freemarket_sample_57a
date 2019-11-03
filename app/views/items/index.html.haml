@@ -1,6 +1,6 @@
 = render "shared/header"
 
-%main
+%main.items-index-main
   .main-image
     = link_to "", target: "_blank" do
       =image_tag 'top_visual_camp', alt: 'メルカリなら新品も中古もお得！キャンプ用品 大特集！'
@@ -17,6 +17,15 @@
         %li.popular-menu__links__list__link
           =link_to 'おもちゃ・ホビー・グッズ', "", class: 'popular-menu__links__list__link_btn'
 
+  .items-container-wrapper.items-container-wrapper--category
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        =render 'items'
+
   .popular-menu.popular-menu--category
     %h2 人気のブランド
     .popular-menu__links
@@ -29,4 +38,3 @@
           =link_to 'シュプリーム', "", class: 'popular-menu__links__list__link_btn'
         %li.popular-menu__links__list__link
           =link_to 'ナイキ', "", class: 'popular-menu__links__list__link_btn'
-

@@ -1,3 +1,7 @@
+.items-index-main{
+  width: 100%;
+  background-color: #f5f5f5;
+}
 .main-image{
   width: 100%;
   background: #E9E8E4 url(../../../images/top_visual_back_pattern.jpg) repeat;
@@ -39,6 +43,46 @@
           padding: 8px 16px;
           text-decoration: none;
           color: inherit;
+        }
+      }
+    }
+  }
+}
+.items-container-wrapper{
+  padding: 42px 0px 100px;
+  .items-container{
+    width: 1020px;
+    margin: 0 auto;
+    &__upper-part{
+      margin-bottom: 16px;
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
+      &__title{
+        font-size: 24px;
+        line-height: 1.4em;
+      }
+      &__more{
+        color: $light-blue;
+        font-size: 14px;
+        padding: 5px 16px 5px 5px;
+        counter-reset: $light-blue;
+        text-decoration: none;
+        position: relative;
+        &:before {
+          bottom: 0px;
+          content: "";
+          height: 8px;
+          position: absolute;
+          right: 2px;
+          top: 0px;
+          transform: rotate(-45deg);
+          width: 8px;
+          border-bottom: 2px solid $light-blue;
+          border-right: 2px solid $light-blue;
+          margin: auto;
         }
       }
     }
