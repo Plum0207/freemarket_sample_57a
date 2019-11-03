@@ -14,11 +14,13 @@
             メールアドレスで登録
       
         %button#facebook
-          %i.fab.fa-facebook-square.facebook-icon
+          =link_to "", class: '' do
+            =fa_icon 'facebook-square', class: 'facebook-icon'
           Facebookで登録
           
         %button#Google
-          %i.fab.fa-google.google-icon
+          =link_to "", class: '' do
+            = image_tag "google.svg", class: 'google-icon'
           Googleで登録
           
 = render "devise/user/user_footer"
