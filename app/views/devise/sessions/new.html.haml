@@ -9,12 +9,14 @@
 
     .login-panel__inherit
       %button#facebook
-        %i.fab.fa-facebook-square.facebook-icon
-        %a  Facebookでログイン
+        =link_to "", class: '' do
+          =fa_icon 'facebook-square', class: 'facebook-icon'
+        Facebookでログイン
 
       %button#Google
-        %i.fab.fa-google.google-icon
-        Googleでログイン
+        =link_to "", class: '' do
+          = image_tag "google.svg", class: 'google-icon'
+        Googleで登録
 
     -# %h2.login Log in
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

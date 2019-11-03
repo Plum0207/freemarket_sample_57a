@@ -40,11 +40,11 @@
         .sign-up-btn {
           width: 320px;
           margin: 0 auto;
-          border: #979797 solid 1px;
           border-radius: 4px;
           .btn-mail {
             background: $red;
             color: $white;
+            border-radius: 4px;
             @include btn-pass;
           }
           .btn-mail:focus {
@@ -63,11 +63,11 @@
           margin: 0 auto;
           position: relative;
           .mail-icon {
+            color:$white;
             font-size: 20px;
             position: absolute;
             top: 13px;
             left: 15px;
-            color: $white;
           }
         }              
         #facebook {
