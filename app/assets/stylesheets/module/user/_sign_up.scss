@@ -1,0 +1,211 @@
+.signup-header {
+  height: 128px;
+  text-align: center;
+  background-color: $main-background;
+  
+  &__containar {
+    display: inline-flex;
+    h1 {
+      padding: 40px 35px 0;
+      a {
+        width: 185px;
+        height: 49px;
+        line-height: 49px;
+        img {
+          width: 185px;
+          height: 49px;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    // HACK 以下はuserテーブル設計後jQueryにより記述を最適化する
+    .signup-bar {
+      border: 0;
+      padding: 40px 0 0 24px;
+      ol {
+        display: inline-flex;
+        li {
+          margin: 0 40px 0 0;
+          position: relative;
+          min-width: 60px;
+          font-size: 12px;
+          .border-radius {
+            @include border-radius;
+          }
+          // OPIMEZE 1page-header
+          .border-radius--after {
+            @include border-radius;
+            background: $red;
+          }
+          
+          // TODO userテーブル作成後ページ遷移方法検討すること
+          .progress-status {
+            @include signup-border;
+          }
+          .progress-status--after {
+            @include signup-border;
+            border: 1px solid $red;
+          }
+        }
+        // TODO userテーブル作成後ページ遷移方法検討すること
+        .li--after {
+          color: $red;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  text-align: center;
+  .signup-panel {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: $white;
+    
+    &__title {
+      padding: 32px 16px;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+    &__title--tell {
+      padding: 8px 24px;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+    &__title--address {
+      padding: 32px 16px;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 1px solid #eee;
+    }
+
+    #new_user {
+      padding: 24px 0px  32px;
+      width: 320px;
+      margin: 0 auto;
+
+      .signup-form {
+        .field:first-child {
+          margin: 24px 0 0;
+        }
+        .field {
+          text-align: left;
+          margin: 40px 0 0;
+          label {
+            font-weight: 600;
+          }
+          .form-require::after {
+            @include require;
+            content: "必須";
+            background: $red;
+          }
+          .form-require--gray::after {
+            @include require;
+            content: "任意";
+            background: $darkgray;            
+          } 
+          h3 {
+            font-size: 16px;
+            font-weight: 700;
+          }
+          p {
+            margin: 8px 0 0;
+            padding: 0;
+            line-height: 1.5;
+          }
+          .constitution {
+            text-align: center;
+            a {
+            color: $light-blue;
+            text-decoration: none;
+            }
+            a:hover {
+              @include link_hover();
+            }
+          }
+          .form-info {
+            color: $darkgray;
+          }
+          .forn-info--tell {
+            color: $black;
+          }
+          
+          &__input, #user_user_address_attributes_area_id {
+            width: 100%;
+            @include input-status;
+          }
+          &__input:focus,#user_user_address_attributes_area_id:focus {
+            @include input-focus;
+          }
+          .pulldown {
+            padding:10px 0 0 0;
+            display: flex;
+            font-weight: 100;
+            .select-wrap {
+              display: inline-block;
+              &__default, #user_credit_card_attributes_year, #user_credit_card_attributes_month, #user_birthday_1i, #user_birthday_2i, #user_birthday_3i {
+                @include pulldown;
+                option {
+                  font-weight: normal; 
+                }
+              }
+              &__default:focus, #user_credit_card_attributes_year:focus, #user_credit_card_attributes_month:focus,#user_birthday_1i:focus, #user_birthday_2i:focus, #user_birthday_3i:focus {
+                @include input-focus;
+              }
+              .pref {
+                width: 320px;
+              }
+            }
+            input:focus {
+              outline: 0;
+              border: 1px solid $light-blue;
+            }
+            // TODO 枠色考慮すること
+            .select-wrap:focus {
+              outline: 0;
+              border: 1px solid $light-blue;
+            }
+            span {
+              margin: 0 5px;
+              line-height: 50px;
+            }
+          }
+        }
+      }
+      .thankyou { 
+        font-size: 15px;
+        padding: 30px 0 15px;
+      }
+      
+      .sign-up-btn {
+        margin: 40px 0;
+        .btn-red {
+          background: $red;
+          border: 1px solid $red;
+          color: $white;
+          @include btn-pass;
+        }
+        p {
+          margin: 8px 0 0;
+          padding: 0;
+          line-height: 1.5;
+          text-align: left;
+        }
+      }
+
+      .forgot-password {
+        margin: 40px 0 0;    
+        @include link_to_bulue;
+      }
+      .forgot-password--credit-card {
+        margin: 5px 0 0 ;    
+        @include link_to_bulue;
+      }
+    }
+  }
+}
