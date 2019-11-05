@@ -19,7 +19,7 @@
         }
       }  
       &__inner__icon{
-      //@include clearfix();
+      @include clearfix();
         margin: 20px 0 0;
         .banner-icon{
             float: left;
