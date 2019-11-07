@@ -66,3 +66,8 @@ namespace :deploy do
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end
+
+set :default_env,{
+  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"]
+  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
+}
