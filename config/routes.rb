@@ -5,15 +5,25 @@ Rails.application.routes.draw do
   # devise_user_controller
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'signup'
   }
 
-  resource "users", path: 'sign_up' , only: :registration do
+  resources :signup do
     collection do
-      get "registration", action: :show
-      get "done"
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' # ここで、入力の全てが終了する
+      get 'done' # 登録完了後のページ
     end
   end
+
+# resource "users", path: 'sign_up' , only: :registration do
+#   collection do
+#     get "registration", action: :show
+#     get "done"
+#   end
+# end
 
 #   resources "users",only: :logout, path: '' do
 #     collection do

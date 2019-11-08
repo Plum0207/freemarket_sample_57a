@@ -1,0 +1,76 @@
+= render "devise/registrations/user_header"
+
+%main.main
+
+  .signup-panel
+    %p.signup-panel__title 会員情報入力
+
+    = form_for @user, url: step2_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+      -# = devise_error_messages!
+
+      .signup-form
+        -# first-page TODO JSで動的な動き導入予定
+        .field
+          %label{for: "nickname"} ニックネーム
+          %span.form-require
+          = f.text_field :nickname, class: "field__input", placeholder: "例）メルカリ太郎"
+        .field
+          %label{for: "email"} メールアドレス
+          %span.form-require
+          %input{class: "field__input", autocomplete: "email", placeholder: "PC・携帯どちらでも可"}
+        .field
+          %label{for: "password"} パスワード
+          %span.form-require
+          %input{class: "field__input", autocomplete: "email", placeholder: "6文字以上"}
+        .field
+          %label{for: "password"} パスワード（確認）
+          %span.form-require
+          %input{class: "field__input", autocomplete: "password", placeholder: "6文字以上"}
+
+        .field
+          %h3 本人確認
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
+
+        .field
+          %label{for: "fitst_name_kanji"} 姓（全角）
+          %span.form-require
+          %input{class: "field__input", autocomplete: "family_name_kanji", placeholder: "例）山田"}
+        .field
+          %label{for: "last_name_kanji"} 名（全角）
+          %span.form-require
+          %input{class: "field__input", autocomplete: "farst_name_kanji", placeholder: "例）太郎"}
+        .field
+          %label{for: "first-name-katakana"} 姓カナ（全角）
+          %span.form-require
+          %input{class: "field__input", placeholder: "例）ヤマダ"}
+        .field
+          %label{for: "last_name_katakana"} 名カナ（全角）
+          %span.form-require
+          %input{class: "field__input",  placeholder: "例）タロウ"}
+        .field
+          %label{for: "birthday"} 生年月日
+          %span.form-require
+          .pulldown
+            .select-wrap
+              -# TODO 日付を閏年に対応させること
+              = raw sprintf(f.date_select( :birthday, 
+                prompt: "--",
+                 use_two_digit_numbers: true,
+                 start_year: Time.now.year,
+                 end_year: 1900,
+                 date_separator: '%s'),
+                 '年 ', '月 ') + '日'
+      
+          %p.form-info
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        
+        .field
+          %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          %p 
+      .sign-up-btn
+        %button{type: "submit",class: "btn-red"}
+          次へ進む
+      -#     .field
+      -#       -# TODO userテーブル作成後紐付け反映させるすること
+      -#     = recaptcha_tags
+= render "devise/user/user_footer"
