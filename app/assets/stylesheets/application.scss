@@ -22,8 +22,13 @@
 // header
 @import 'modules/header';
 
-// footer ←　読みこむ順番があるらしいっす
+// footer
 @import 'modules/footer';
 
 // intems/index (top-page)
-@import 'modules/items/index'
+@import 'modules/items/index';
+
+// intems/items (top-page-items)
+@import 'modules/items/items';
+
+
