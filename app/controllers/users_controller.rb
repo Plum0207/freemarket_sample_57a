@@ -8,6 +8,17 @@ class UsersController < ApplicationController
     @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
   end
 
+  def new
+    @user = User.new
+    @user.build_user_address
+  end
+
+  def create
+    @user = User.new(user_params)
+    @user.save
+    redirect_to users_path(@user)
+  end
+
 #   def done
 #     # TODO view遷移を限定すること
 #     render layout: 'application'
@@ -51,11 +62,11 @@ class UsersController < ApplicationController
 #     @identity_information = IdentityInformation.create(params[:area_id])
 #   end
 
-#   private
+  private
 
-#   def user_params
-#     params.require(:user).permit(:nickname, :introduction, :icon)
-#   end
+  def user_params
+    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, user_address_attributes:[:id, :postal_code, :prefecture, :city, :address, :building])
+  end
 
 #   def image_params
 #     params.permit(:image)

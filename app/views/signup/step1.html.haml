@@ -17,36 +17,36 @@
         .field
           %label{for: "email"} メールアドレス
           %span.form-require
-          %input{class: "field__input", autocomplete: "email", placeholder: "PC・携帯どちらでも可"}
+          = f.text_field :email, class: "field__input",  placeholder: "PC・携帯どちらでも可"
         .field
           %label{for: "password"} パスワード
           %span.form-require
-          %input{class: "field__input", autocomplete: "email", placeholder: "6文字以上"}
+          = f.text_field :password, class: "field__input", placeholder: "6文字以上"
         .field
-          %label{for: "password"} パスワード（確認）
+          %label{for: "password_confirmation"} パスワード（確認）
           %span.form-require
-          %input{class: "field__input", autocomplete: "password", placeholder: "6文字以上"}
+          = f.text_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
 
         .field
           %h3 本人確認
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
 
         .field
-          %label{for: "fitst_name_kanji"} 姓（全角）
+          %label{for: "last_name"} 姓（全角）
           %span.form-require
-          %input{class: "field__input", autocomplete: "family_name_kanji", placeholder: "例）山田"}
+          = f.text_field :last_name, class: "field__input", placeholder: "例）山田"
         .field
-          %label{for: "last_name_kanji"} 名（全角）
+          %label{for: "first_name"} 名（全角）
           %span.form-require
-          %input{class: "field__input", autocomplete: "farst_name_kanji", placeholder: "例）太郎"}
+          = f.text_field :first_name, class: "field__input", placeholder: "例）太郎"
         .field
-          %label{for: "first-name-katakana"} 姓カナ（全角）
+          %label{for: "last_name_kana"} 姓カナ（全角）
           %span.form-require
-          %input{class: "field__input", placeholder: "例）ヤマダ"}
+          = f.text_field :last_name_kana, class: "field__input", placeholder: "例）ヤマダ"
         .field
-          %label{for: "last_name_katakana"} 名カナ（全角）
+          %label{for: "first_name_kana"} 名カナ（全角）
           %span.form-require
-          %input{class: "field__input",  placeholder: "例）タロウ"}
+          = f.text_field :first_name_kana, class: "field__input",  placeholder: "例）タロウ"
         .field
           %label{for: "birthday"} 生年月日
           %span.form-require

@@ -9,9 +9,9 @@
       -# = devise_error_messages!
       .signup-form
         .field
-          %label{for: "phone_number"} 携帯電話の番号
+          %label{for: "telephone"} 携帯電話の番号
           %span.form-require
-          %input{class: "field__input", autocomplete: "phone_number", placeholder: "携帯電話の番号を入力"}
+          = f.text_field :telephone, class: "field__input", placeholder: "携帯電話の番号を入力"
           %p.form-info--tell
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .sign-up-btn
