@@ -1,10 +1,10 @@
 class SignupController < ApplicationController
-  def step1
+  def user_signup_step1
     @user = User.new
     @user.build_user_address
   end
 
-  def step2
+  def user_signup_step2
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -17,12 +17,12 @@ class SignupController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def step3
+  def user_signup_step3
     session[:telephone] = user_params[:telephone]
     @user = User.new # 新規インスタンス作成
   end
 
-  def step4
+  def user_signup_step4
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
@@ -52,7 +52,7 @@ class SignupController < ApplicationController
     if @user.save
 　　　# ログインするための情報を保管
       session[:id] = @user.id
-      redirect_to done_signup_index_path
+      redirect_to user_signup_done_signup_index_path
     else
       render '/signup/registration'
     end
