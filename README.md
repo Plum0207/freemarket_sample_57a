@@ -23,6 +23,7 @@
 - has_one :user_address
 - has_one :card
 - has_one :sns_credential
+- has_many :orders
 
 ## user_addressesテーブル
 |Column|Type|Options|
@@ -80,6 +81,7 @@
 - has_many :images, dependent: :destroy
 - belongs_to :brand
 - belongs_to :category
+- has_one :order
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -107,3 +109,13 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
