@@ -1,4 +1,4 @@
-= render "devise/registrations/user_header"
+= render "devise/registrations/user_header_2"
 
 %main.main
 
@@ -6,7 +6,6 @@
     %p.signup-panel__title 電話番号の確認   
 
     = form_for @user, url: step3_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
-      -# = devise_error_messages!
       .signup-form
         .field
           %label{for: "telephone"} 携帯電話の番号

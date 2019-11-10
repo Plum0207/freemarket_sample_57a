@@ -1,4 +1,4 @@
-= render "devise/registrations/user_header"
+= render "devise/registrations/user_header_1"
 
 %main.main
 
@@ -6,10 +6,7 @@
     %p.signup-panel__title 会員情報入力
 
     = form_for @user, url: step2_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
-      -# = devise_error_messages!
-
       .signup-form
-        -# first-page TODO JSで動的な動き導入予定
         .field
           %label{for: "nickname"} ニックネーム
           %span.form-require

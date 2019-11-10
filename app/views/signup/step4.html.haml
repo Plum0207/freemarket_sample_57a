@@ -1,63 +1,46 @@
-= render "devise/registrations/user_header"
+= render "devise/registrations/user_header_4"
 
 %main.main
 
   .signup-panel
-    %p.signup-panel__title 会員情報入力
+    %p.signup-panel__title 支払い方法
 
-    = form_for @user, url: step4_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
-      -# = devise_error_messages!
-      .signup-panel
-        %p.signup-panel__title 住所入力
-        -# = f.fields_for :user_address, @user.build_user_address do |i|     
+    = form_for @user, url: done_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+      .signup-panel  
         .signup-form
-          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-            .signup-form
-              .field
-                %label{for: "nickname"} カード番号
-                %span.form-require
-                = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "例）山田"
-              .field
-                %label{for: "nickname"} 有効期限
-                %span.form-require 必須
-                .pulldown
-                  .select-wrap
-                    %select{name: "year", class: "select-wrap__default"}
-                      %option --
-                      = (01..12).each do |year|
-                        %option{value: year}
-                          = year
-                  %span 年
-              
-                
-                .pulldown
-                  .select-wrap
-                    %select{name: "year", class: "select-wrap__default"}
-                      %option --
-                      = (01..12).each do |month|
-                        %option{value: month}
-                          = month
-                  %span 月
-              .field
-                %label{for: "nickname"} セキュリティコード
-                %span.form-require
-                = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "カード背面4桁もしくは3桁の番号"
-          .forgot-password--credit-card
-            = link_to "カード背面番号とは?", new_user_session_path
-          .sign-up-btn
-            %button{type: "submit",class: "btn-red"}
-              次へ進む
+          .field
+            %label{for: "nickname"} カード番号
+            %span.form-require
+            = f.email_field :email, class: "field__input", placeholder: "例）半角数字のみ"
+
+          .field
+            %label{for: "nickname"} 有効期限
+            %span.form-require 必須
+            .pulldown
+              .select-wrap
+                %select{name: "year", class: "select-wrap__default"}
+                  %option --
+                  = (1930..2020).each do |year|
+                    %option{value: year}
+                      = year
+              %span 年
           
-      .signup-panel
-      %p.signup-panel__title--address 会員登録完了
-
-      #new_user
-        .thankyou
-          %p ありがとうございます。
-          %p 会員登録が完了しました。
-
+            
+            .pulldown
+              .select-wrap
+                %select{name: "year", class: "select-wrap__default"}
+                  %option --
+                  = (01..12).each do |month|
+                    %option{value: month}
+                      = month
+              %span 月
+          .field
+            %label{for: "nickname"} セキュリティコード
+            %span.form-require
+            = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "カード背面4桁もしくは3桁の番号"
+        .forgot-password--credit-card
+          = link_to "カード背面番号とは?", new_user_session_path
         .sign-up-btn
           %button{type: "submit",class: "btn-red"}
-            メルカリをはじめる
-            
+            次へ進む
 = render "devise/user/user_footer"

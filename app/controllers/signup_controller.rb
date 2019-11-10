@@ -1,7 +1,7 @@
 class SignupController < ApplicationController
   def step1
     @user = User.new
-    @user_address = User_address.new
+    @user.build_user_address
   end
 
   def step2
