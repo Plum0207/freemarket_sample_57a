@@ -23,6 +23,7 @@
 - has_one :user_address
 - has_one :card
 - has_one :sns_credential
+- has_many :orders
 
 ## user_addressesテーブル
 |Column|Type|Options|
@@ -73,13 +74,13 @@
 |prefecture_from|string|null: false|
 |shipping-date|string|null: false|
 |price|integer|null: false|
-|buyer-id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :images, dependent: :destroy
 - belongs_to :brand
 - belongs_to :category
+- has_one :order
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -107,3 +108,13 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
