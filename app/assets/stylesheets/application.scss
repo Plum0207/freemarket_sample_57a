@@ -17,4 +17,8 @@
 // password-new CSS
 //@import "module/user/password_edit";
 // user-header-footer CSS
-@import "module/user/user_header_footer";@import "module/mypage/side_bar";
+@import "module/user/user_header_footer";
+
+// マイページ関係
+@import "module/mypage/mypage";
+@import "module/mypage/side_bar";
