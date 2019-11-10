@@ -10,11 +10,11 @@ Rails.application.routes.draw do
 
   resources :signup do
     collection do
-      get 'user_signup_step1'
-      get 'user_signup_step2'
-      get 'user_signup_step3'
-      get 'user_signup_step4' # ここで、入力の全てが終了する
-      get 'user_signup_done' # 登録完了後のページ
+      get 'user_info'
+      get 'user_tel'
+      get 'user_address'
+      get 'user_card' # ここで、入力の全てが終了する
+      get 'user_complete' # 登録完了後のページ
     end
   end
 

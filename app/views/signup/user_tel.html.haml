@@ -5,7 +5,7 @@
   .signup-panel
     %p.signup-panel__title 電話番号の確認   
 
-    = form_for @user, url: user_signup_step3_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+    = form_for @user, url: user_address_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
       .signup-form
         .field
           %label{for: "telephone"} 携帯電話の番号

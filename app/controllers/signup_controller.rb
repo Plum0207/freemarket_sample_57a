@@ -1,10 +1,10 @@
 class SignupController < ApplicationController
-  def user_signup_step1
+  def user_info
     @user = User.new
     @user.build_user_address
   end
 
-  def user_signup_step2
+  def user_tel
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -17,12 +17,12 @@ class SignupController < ApplicationController
     @user = User.new # 新規インスタンス作成
   end
 
-  def user_signup_step3
+  def user_address
     session[:telephone] = user_params[:telephone]
     @user = User.new # 新規インスタンス作成
   end
 
-  def user_signup_step4
+  def user_card
     session[:last_name] = user_params[:last_name]
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]

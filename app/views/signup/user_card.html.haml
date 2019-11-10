@@ -5,7 +5,7 @@
   .signup-panel
     %p.signup-panel__title 支払い方法
 
-    = form_for @user, url: user_signup_done_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+    = form_for @user, url: user_complete_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
       .signup-panel  
         .signup-form
           .field
