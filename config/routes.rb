@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 #     end
 #   end
 
+  resources :mypages, path: 'mypage'
 #   resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
 #     collection do
 #       get 'profile'
