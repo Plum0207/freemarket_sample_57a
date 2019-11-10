@@ -74,7 +74,6 @@
 |prefecture_from|string|null: false|
 |shipping-date|string|null: false|
 |price|integer|null: false|
-|buyer-id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
