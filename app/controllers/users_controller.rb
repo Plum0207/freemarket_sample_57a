@@ -15,8 +15,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to users_path(@user)
+    if @user.save
+      session[:id] = @user.id
+      redirect_to done_signup_index_path
+    else
+      render '/signup/registration'
+    end
   end
 
 #   def done
