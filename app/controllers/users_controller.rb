@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  layout "second_application"
-  before_action :set_user, only: [ :update, :show_profile]
-  before_action :authenticate_user! , except: [:show]
+  # layout "second_application"
+  # before_action :set_user, only: [ :update, :show_profile]
+  # before_action :authenticate_user! , except: [:show]
 
   def index
-    @number = Product.where(seller_id: current_user.id, status: 0).length
-    @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
+    # @number = Product.where(seller_id: current_user.id, status: 0).length
+    # @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
   end
 
   def new

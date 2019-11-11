@@ -25,11 +25,11 @@ Rails.application.routes.draw do
 #   end
 # end
 
-#   resources "users",only: :logout, path: '' do
-#     collection do
-#       get 'logout'
-#     end
-#   end
+  resources "users",only: :logout, path: '' do
+    collection do
+      get 'logout'
+    end
+  end
 
 #   resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
 #     collection do
