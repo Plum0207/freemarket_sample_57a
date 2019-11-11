@@ -1,0 +1,9 @@
+-# - breadcrumb :logout
+.mypage_container
+  .left-container
+    .left-content
+      -# ここへサイドバーの各要素を追加する
+      .log-out
+        = button_to destroy_user_session_path, method: :delete ,class: "log-out__button" do
+          ログアウト
+    = render "users/side_bar"
