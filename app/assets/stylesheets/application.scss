@@ -19,5 +19,7 @@
 // user-header-footer CSS
 @import "module/user/user_header_footer";
 
-@import "module/user/side_bar";
+// マイページ関係
 @import "module/user/mypage_common";
+@import "module/user/index";
+@import "module/user/side_bar";
