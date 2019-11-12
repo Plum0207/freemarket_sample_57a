@@ -25,46 +25,46 @@ Rails.application.routes.draw do
 #   end
 # end
 
-#   resources "users",only: :logout, path: '' do
-#     collection do
-#       get 'logout'
-#     end
-#   end
+  resources "users",only: :logout, path: '' do
+    collection do
+      get 'logout'
+    end
+  end
 
-#   resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
-#     collection do
-#       get 'profile'
-#       get 'card'
-#       get 'notifications'
-#       get 'todo'
-#       get 'purchase'
-#     end
-#   end
+  resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
+    collection do
+      get 'profile'
+      get 'card'
+      get 'notifications'
+      get 'todo'
+      get 'purchase'
+    end
+  end
   
   
-#   patch 'mypage/profile/:id' => 'users#update', as: "mypage_profile"
+  patch 'mypage/profile/:id' => 'users#update', as: "mypage_profile"
   
-#   resources :users, only: [:listing, :in_progress, :completed], path: '/mypage/listings' do
-#     collection do
-#       get 'listing'
-#       get 'in_progress'
-#       get 'completed'
-#     end
-#   end
+  resources :users, only: [:listing, :in_progress, :completed], path: '/mypage/listings' do
+    collection do
+      get 'listing'
+      get 'in_progress'
+      get 'completed'
+    end
+  end
   
 
-#   resources :users, only: [:identification,:purchased], path: '/mypage' do
-#     collection do
-#       get 'identification'
-#       get 'purchased'
-#     end
-#   end 
+  resources :users, only: [:identification,:purchased], path: '/mypage' do
+    collection do
+      get 'identification'
+      get 'purchased'
+    end
+  end 
   
-#   resource :users, action: :create_identification, only: :create_identification, path: '/mypage' do
-#     collection do
-#       post 'identification'
-#     end
-#   end
+  resource :users, action: :create_identification, only: :create_identification, path: '/mypage' do
+    collection do
+      post 'identification'
+    end
+  end
 
 #   resources "users", path: "/u/:id", only: :show_profile do
 #     collection do
