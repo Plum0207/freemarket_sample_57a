@@ -1,0 +1,296 @@
+.content__box
+  -# -items.where(category_id: 1..17).where.not(category_id: 2..4).last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# -items.where(category_id: [2, 18..30]).last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# items.where(category_id: [3, 31..45]).last(10).each do |item| 
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# -items.where(category_id: [4, 46..65]).last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# -items.where('brand like ?',"%シャネル%").last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# -items.where('brand like ?',"%ルイヴィトン%").last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# -items.where('brand like ?',"%シュプリーム%").last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+
+.content__box
+  -# -items.where('brand like ?',"%ナイキ%").last(10).each do |item|
+    .item{style: "height:280px; width:180px; margin-bottom:15px"}
+      =link_to detail_item_path(item) do
+        .item__image
+        -# -item.images.each_with_index do |p, i|
+        -#   - if i==0
+        -#     - if (item.soldout == "sold")
+        -#       .item-sold-out-badge{style: "position:relative;"}
+        -#         .div{style: "display: block; position: absolute; top: -90px;"} SOLD
+        -#       %img{src: p.photo,class: "thumbnail-image",style: "position:relative; top: -120px;"}
+        -#     - else
+        -#       %img{src: p.photo,class: "thumbnail-image"}
+        -#   - else
+        -# - if (item.soldout == "sold")
+          .item__text{style: "position: relative; top: -120px;"}
+            .item__text__name 
+              -# = item.name
+            .item__text__num  
+              -# %li.item__text__num--price  
+              -#   = "¥#{item.price.to_s(:delimited)}"
+              -# %li.item__text__num--font
+              -#   =render partial:'goods/good', locals:{item:item}
+              -# - if user_signed_in?
+              -#   .good-count{style:"padding-left:6px"}= item.goods.count
+        -# - else 
+        -#   .item__text
+        -#     .item__text__name 
+        -#       = item.name
+        -#     .item__text__num  
+        -#       %li.item__text__num--price  
+        -#         = "¥#{item.price.to_s(:delimited)}"
+        -#       %li.item__text__num--font
+        -#         =render partial:'goods/good', locals:{item:item}
+        -#       - if user_signed_in?
+        -#         .good-count{style:"padding-left:6px"}= item.goods.count
+

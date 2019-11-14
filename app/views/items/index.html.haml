@@ -4,94 +4,104 @@
   .main-image
     = link_to "", target: "_blank" do
       =image_tag 'top_visual_camp', alt: 'メルカリなら新品も中古もお得！キャンプ用品 大特集！'
-  .popular-menu.popular-menu--category
-    %h2 人気のカテゴリー
-    .popular-menu__links
-      %ul.popular-menu__links__list
-        %li.popular-menu__links__list__link
-          =link_to 'レディース', "", class: 'popular-menu__links__list__link_btn'
-        %li.popular-menu__links__list__link
-          =link_to 'メンズ', "", class: 'popular-menu__links__list__link_btn'
-        %li.popular-menu__links__list__link
-          =link_to '家電・スマホ・カメラ', "", class: 'popular-menu__links__list__link_btn'
-        %li.popular-menu__links__list__link
-          =link_to 'おもちゃ・ホビー・グッズ', "", class: 'popular-menu__links__list__link_btn'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          レディース新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          メンズ新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          家電・スマホ・カメラ新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          おもちゃ・ホビー・グッズ新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
+  .popular-menu
+    .popular-menu--category
+      %h2 人気のカテゴリー
+      .popular-menu__links
+        %ul.popular-menu__links__list
+          %li.popular-menu__links__list__link
+            =link_to 'レディース', "", class: 'popular-menu__links__list__link_btn'
+          %li.popular-menu__links__list__link
+            =link_to 'メンズ', "", class: 'popular-menu__links__list__link_btn'
+          %li.popular-menu__links__list__link
+            =link_to '家電・スマホ・カメラ', "", class: 'popular-menu__links__list__link_btn'
+          %li.popular-menu__links__list__link
+            =link_to 'おもちゃ・ホビー・グッズ', "", class: 'popular-menu__links__list__link_btn'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            レディース新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            メンズ新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            家電・スマホ・カメラ新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            おもちゃ・ホビー・グッズ新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
   
-  .popular-menu.popular-menu--category
-    %h2 人気のブランド
-    .popular-menu__links
-      %ul.popular-menu__links__list
-        %li.popular-menu__links__list__link
-          =link_to 'シャネル', "", class: 'popular-menu__links__list__link_btn'
-        %li.popular-menu__links__list__link
-          =link_to 'ルイヴィトン', "", class: 'popular-menu__links__list__link_btn'
-        %li.popular-menu__links__list__link
-          =link_to 'シュプリーム', "", class: 'popular-menu__links__list__link_btn'
-        %li.popular-menu__links__list__link
-          =link_to 'ナイキ', "", class: 'popular-menu__links__list__link_btn'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          シャネル新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          ルイヴィトン新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          シュプリーム新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
-  .items-container-wrapper.items-container-wrapper--category
-    .items-container
-      .items-container__upper-part
-        %h3.items-container__upper-part__title
-          ナイキ新着アイテム
-        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-      .items-container__lower-part
-        =render 'items'
+  .popular-menu
+    .popular-menu--category
+      %h2 人気のブランド
+      .popular-menu__links
+        %ul.popular-menu__links__list
+          %li.popular-menu__links__list__link
+            =link_to 'シャネル', "", class: 'popular-menu__links__list__link_btn'
+          %li.popular-menu__links__list__link
+            =link_to 'ルイヴィトン', "", class: 'popular-menu__links__list__link_btn'
+          %li.popular-menu__links__list__link
+            =link_to 'シュプリーム', "", class: 'popular-menu__links__list__link_btn'
+          %li.popular-menu__links__list__link
+            =link_to 'ナイキ', "", class: 'popular-menu__links__list__link_btn'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            シャネル新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            ルイヴィトン新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            シュプリーム新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
+  .items-container-wrapper
+    .items-container-wrapper--category
+      .items-container
+        .items-container__upper-part
+          %h3.items-container__upper-part__title
+            ナイキ新着アイテム
+          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+        .items-container__lower-part
+          =render 'items'
   
 = render "shared/footer"
