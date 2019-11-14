@@ -1,0 +1,23 @@
+-# -breadcrumb :profile
+.wrapper
+  .container-mypage
+
+    = render "users/side_bar"
+
+    .content
+      -# = form_for(current_user, url: mypage_profile_path(current_user), action: :patch) do |f|
+      .content-chapter
+        .content-chapter-head
+          プロフィール
+        .content-chapter-icon
+          .content-chapter-icon-face
+            %figure
+              %label.form-mask
+                = image_tag "noavatar.png"
+              %input{class: 'hidden'}
+              %input{class: 'input', value: "テストユーザーだよ"}
+        .content-chapter-profile
+          %textarea{class: "textarea-default", placeholder: "(例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+          %button{type: "submit", class: "content-chapter-profile__button"}
+            変更する
+-# =render "shared/cameraicon"
