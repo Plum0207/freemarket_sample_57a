@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'items#index'
-
+  resources :items
   # devise_user_controller
   devise_for :users, controllers: {
     sessions: 'users/sessions',
