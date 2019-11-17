@@ -33,7 +33,7 @@
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
@@ -62,17 +62,17 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|seller-id|references|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |description|text|null: false|
 |category_id|references|null: false, foreign_key: true|
-|size|string|null: false|
-|brand_id|references|null: false, foreign_key: true|
-|condition|string|null: false|
-|postage_burden|string|null: false|
-|sending_method|string|null: false|
-|prefecture_from|string|null: false|
-|shipping-date|string|null: false|
+|size|integer||
+|brand_id|references|foreign_key: true|
+|condition|integer|null: false|
+|postage_burden|integer|null: false|
+|sending_method|integer|null: false|
+|prefecture_from|integer|null: false|
+|shipping_date|integer|null: false|
 |price|integer|null: false|
 
 ### Association
@@ -86,7 +86,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|image|string||
+|image|string|null: false|
 
 ### Association
 - belongs_to :item
@@ -95,7 +95,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|
+
 ### Association
 - has_many :items
 
