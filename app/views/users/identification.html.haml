@@ -31,28 +31,28 @@
           %p
             1月1日
             -# =current_user.birthday
-          = fields_for :user_address do |p|
-            .signup-form
-              .field
-                %label{for: "postal_code"} 郵便番号
-                %span.form-require
-                = p.text_field :postal_code, class: "field__input", placeholder: "例）123−4567"
-              .field
-                %label{for: "prefecture"} 都道府県
-                %span.form-require
-                = p.text_field :prefecture, class: "field__input", placeholder: "例）東京都"
-              .field  
-                %label{for: "city"} 市区町村
-                %span.form-require
-                = p.text_field :city, class: "field__input", placeholder: "例）港区"
-              .field
-                %label{for: "address"} 番地
-                %span.form-require
-                = p.text_field :address, class: "field__input", placeholder: "例）青山1-1-1"
-              .field
-                %label{for: "building"} 建物名
-                %span.form-require--gray
-                = p.text_field :building, class: "field__input", placeholder: "例）テキスパタワー101"
+        = fields_for :user_address do |p|
+          .signup-form
+            .field
+              %label{for: "postal_code"} 郵便番号
+              %span.form-require--gray
+              = p.text_field :postal_code, class: "field__input", placeholder: "例）123−4567"
+            .field
+              %label{for: "prefecture"} 都道府県
+              %span.form-require--gray
+              = p.text_field :prefecture, class: "field__input", placeholder: "例）東京都"
+            .field  
+              %label{for: "city"} 市区町村
+              %span.form-require--gray
+              = p.text_field :city, class: "field__input", placeholder: "例）港区"
+            .field
+              %label{for: "address"} 番地
+              %span.form-require--gray
+              = p.text_field :address, class: "field__input", placeholder: "例）青山1-1-1"
+            .field
+              %label{for: "building"} 建物名
+              %span.form-require--gray
+              = p.text_field :building, class: "field__input", placeholder: "例）テキスパタワー101"
           .sign-up-btn2
             %button{type: "submit",class: "btn-red2"}
               登録する

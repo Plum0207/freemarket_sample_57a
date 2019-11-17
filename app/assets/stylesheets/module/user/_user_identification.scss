@@ -28,7 +28,7 @@
       color: $light-blue;
       line-height: 1;
       margin:20px 0 0;
-      padding-left: 330px;
+      padding-left: 400px;
       &:hover{
         text-decoration: underline;
       }
@@ -51,94 +51,92 @@
       font-weight: bold;
       }
     }
-    #new_identity_information {
+    .signup-form {
       padding: 24px 0px  32px 50px;
-      width: 320px;
-      .signup-form {
+      text-align: left;
+      .field:first-child {
+        margin: 24px 0 0;
+      }
+      .field {
         text-align: left;
-        .field:first-child {
-          margin: 24px 0 0;
+        margin: 40px 0 0;
+        label {
+          font-weight: 600;
         }
-        .field {
-          text-align: left;
-          margin: 40px 0 0;
-          label {
-            font-weight: 600;
+        .form-require--gray::after {
+          @include require;
+          content: "任意";
+          background: $darkgray;            
+        } 
+        #identity_information_area_id {
+          width: 600px;
+          height: 48px;
+          @include input-status;
+          &:focus {
+            @include input-focus;
           }
-          .form-require--gray::after {
-            @include require;
-            content: "任意";
-            background: $darkgray;            
-          } 
-          #identity_information_area_id {
-            width: 600px;
+        }
+        .form-info {
+          color: $darkgray;
+        }
+        .forn-info--tell {
+          color: $black;
+        }      
+        &__input {
+          width: 600px;
+          height: 48px;
+          @include input-status;
+          &:focus {
+            @include input-focus;
+          }
+        }
+        &__area-form {
+          position: relative;
+          width: 600px;
+          margin-top: 8px;
+          select {
+            padding: 0 16px;
+            width: 100%;
             height: 48px;
-            @include input-status;
-            &:focus {
-              @include input-focus;
-            }
+            background-color: $white;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            cursor: pointer;
+            -webkit-appearance: none;
           }
-          .form-info {
-            color: $darkgray;
-          }
-          .forn-info--tell {
-            color: $black;
-          }      
-          &__input {
-            width: 600px;
-            height: 48px;
-            @include input-status;
-            &:focus {
-              @include input-focus;
-            }
-          }
-          &__area-form {
-            position: relative;
-            width: 600px;
-            margin-top: 8px;
-            select {
-              padding: 0 16px;
-              width: 100%;
-              height: 48px;
-              background-color: $white;
-              border: 1px solid #ccc;
-              font-size: 16px;
-              cursor: pointer;
-              -webkit-appearance: none;
-            }
-            .fa-chevron-down {
-              position: absolute;
-              right: 16px;
-              top: 50%;
-              color: #888;
-              font-size: 20px;
-              z-index: 2;
-            }
+          .fa-chevron-down {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            color: #888;
+            font-size: 20px;
+            z-index: 2;
           }
         }
       }
-      .sign-up-btn2 {
-        margin: 40px 0;
-        .btn-red2 {
-          background: $red;
-          border: 1px solid $red;
-          color: $white;
-          width: 600px;
-          height: 50px;
-        }
-        p {
-          margin: 8px 0 0;
-          padding: 0;
-          line-height: 1.5;
-          text-align: left;
-        }
+    }
+    .sign-up-btn2 {
+      padding: 24px 0px  32px 50px;
+      margin: 40px 0;
+      .btn-red2 {
+        background: $red;
+        border: 1px solid $red;
+        color: $white;
+        width: 600px;
+        height: 50px;
+      }
+      p {
+        margin: 8px 0 0;
+        padding: 0;
+        line-height: 1.5;
+        text-align: left;
       }
     }
   }
 }
 .text-lower-bottom{
   color: $light-blue;
-  padding-left: 400px;
+  padding-left: 500px;
   width:700px;
   height: 60px;
   a {
