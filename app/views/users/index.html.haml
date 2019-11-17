@@ -1,0 +1,85 @@
+-# = render "shared/_header"
+.wrapper
+  .container-mypage
+    = render"users/side_bar"  
+    .container-mypage__content
+      .container-mypage__content-usericon
+        .container-mypage__usericon-member
+          %figure
+            = image_tag "noavatar.png"
+          -# = image_tag current_user.icon
+          .user
+            テストユーザーだよ
+            -# = link_to "#{current_user.nickname} ", show_profile_users_path(current_user)
+          .user-number
+            .user-number-evaluation
+              評価数０
+            .user-number-exhibitin
+              出品数 #{@number}
+
+
+      
+      .container-mypage__news
+        %ul.news-tab
+          %li.news-tab-active
+            .news-tab-active__notice
+              お知らせ
+          %li.news-tab-activelist
+            .news-tab-activelist__notice
+              やることリスト
+
+      .new
+        .news
+          .new-contents-image
+        .new-content
+          .new-content-message
+            %figure
+              = image_tag "custom-banner-icon.png"
+            .new-content-message__text  
+              友達を招待したら必ずポイントがもらえるキャンペーン開催中
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "custom-banner-icon.png"
+            .new-content-message__text
+              事務局から個別メッセージ「ログイン通知」
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "custom-banner-icon.png"
+            .new-content-message__text
+              事務局から個別メッセージ「ログイン通知」
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "custom-banner-icon.png"
+            .new-content-message__text
+              最大P1,000がもらえるキャンペーンが開催中
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "custom-banner-icon.png"
+            .new-content-message__text
+              友達を招待したら必ずポイントがもらえるキャンペーン開催中！
+            %i.fa.fa-chevron-right
+      .new-content-message__all 
+        .new-content-message__all_buttom
+          一覧を見る
+      .content-buy
+        .content-buy-head
+          購入した商品
+        .content-buy-tab
+          .content-buy-tab-new
+            .content-buy-tab-new__latest
+              取引中
+          .content-buy-tab-low
+            .content-buy-tab-low__past
+              過去の取引
+        .list-content-transaction
+          = image_tag "mypage.buy.jpg"
+          -# - if @products.blank?
+          -#   .listing-buy
+          -#     = image_tag "mypage.buy.jpg" , class: "listing-buy-completed"
+          -# %ul.list-content-transaction-active__now
+          -#   = render partial: 'shared/product', collection: @products
+-# =render "shared/_footer"
