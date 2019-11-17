@@ -25,5 +25,14 @@
 @import "module/user/side_bar";
 @import "module/user/mypage_profile";
 
+// header
+@import 'module/header';
+
+// footer
+@import 'module/footer';
+
+// intems/index (top-page)
+@import 'module/items/index';
+
 // 商品出品ページ
 @import "module/items/sell";
