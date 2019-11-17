@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  # layout "second_application"
+# MEMO(yokota): ユーザー登録関係のサーバーサイド実装後に使用
   # require "date"
   # require "payjp"
 
