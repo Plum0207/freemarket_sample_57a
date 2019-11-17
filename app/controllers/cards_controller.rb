@@ -19,4 +19,6 @@ class CardsController < ApplicationController
     #   now_year += 1
     # end
   end
+  def pay
+  end
 end

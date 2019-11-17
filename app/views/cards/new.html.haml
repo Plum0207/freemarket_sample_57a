@@ -35,7 +35,7 @@
                     - month_zero = "%02d" % month
                     %option{value: month,class: "select--item--month"}
                       = month_zero
-                %i.fas.fa-angle-down
+                = fa_icon("angle-down", class: "fa")
               %span 月
             .card__form__content--expired--year
               .card__form__content--expired--year__select-box
@@ -44,14 +44,14 @@
                     - full_year = "20" + year.to_s
                     %option{value: full_year,class: "select--item--year"}
                       = year
-                %i.fas.fa-angle-down
+                = fa_icon("angle-down", class: "fa")
               %span 年
           .card__form__content--security
             = label_tag "security", "セキュリティコード"
             %span 必須
             = number_field_tag "security","",id:"card_cvc",class:"security",name: "cvc",placeholder: "カード背面4桁もしくは3桁の番号",value: "123"
           .card__form__content--help.form_space
-            %i.fas.fa-question-circle
+            = fa_icon("question-circle", class: "fa")
             カード裏面の番号とは？
           .card__form__content--btn
             %button{type: "submit",class: "btn-red",id:"submit_btn"}
