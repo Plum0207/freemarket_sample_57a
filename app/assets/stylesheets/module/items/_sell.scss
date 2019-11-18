@@ -10,7 +10,7 @@
   }
 
   & a {
-    color: $liteblue;
+    color: $light-blue;
     text-decoration: none;
     &:hover {
       @include link_hover;
