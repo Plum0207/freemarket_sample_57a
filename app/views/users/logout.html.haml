@@ -1,3 +1,4 @@
+= render "shared/header"
 -# - breadcrumb :logout
 .mypage_container
   .left-container
@@ -7,3 +8,4 @@
         = button_to destroy_user_session_path, method: :delete ,class: "log-out__button" do
           ログアウト
     = render "users/side_bar"
+= render "shared/footer"
