@@ -72,13 +72,13 @@ Rails.application.routes.draw do
 #     end
 #   end
   
-#   resources :cards, only: [:index, :new, :show] do
-#     collection do
-#       post 'show', to: 'cards#show'
-#       post 'pay', to: 'cards#pay'
-#       delete 'delete', to: 'cards#delete'
-#     end
-#   end
+  resources :cards, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      delete 'delete', to: 'cards#delete'
+    end
+  end
   
 #   resource "products", path: "sell", only: :show, action: :new, as: "new_products"
 #   resource "products", path: "sell", only: :create
