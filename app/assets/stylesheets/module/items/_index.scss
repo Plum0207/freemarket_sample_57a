@@ -87,7 +87,7 @@
       }
     }
     // ここから付け足し
-    .main-products__items-box {
+    .items-container__lower-part__items-box {
       display: flex;
       &__list {
         margin: 0 0 0 20px;
@@ -126,7 +126,7 @@
             -webkit-transform: rotate(-45deg);
           }
         }
-        .product_item__link__information {
+        .item_link__information {
           padding: 16px 16px 10px 16px;
           h3 {
             height: 3em;

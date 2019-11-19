@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   # before_action :authenticate_user! , except: [:show]
 
   def index
-    # @number = Product.where(seller_id: current_user.id, status: 0).length
-    # @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
+    # @number = item.where(seller_id: current_user.id, status: 0).length
+    # @items = item.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
   end
 
   def new
@@ -43,19 +43,19 @@ class UsersController < ApplicationController
   end
 
 #   def listing
-#     @products = Product.where(seller_id: current_user.id, status: 0).order("id DESC").limit(5)
+#     @items = item.where(seller_id: current_user.id, status: 0).order("id DESC").limit(5)
 #   end
 
 #   def completed
-#     @products = Product.where(seller_id: current_user.id , status: 1).order("id DESC").limit(5)
+#     @items = item.where(seller_id: current_user.id , status: 1).order("id DESC").limit(5)
 #   end
 
 #   def show_profile
-#     @number = Product.where(seller_id: @user.id, status: 0).length
+#     @number = item.where(seller_id: @user.id, status: 0).length
 #   end
 
 #   def purchased
-#     @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
+#     @items = item.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
 #   end
 
 #   def identification

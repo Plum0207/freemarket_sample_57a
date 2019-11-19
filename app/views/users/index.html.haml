@@ -77,9 +77,9 @@
               過去の取引
         .list-content-transaction
           = image_tag "mypage.buy.jpg"
-          -# - if @products.blank?
+          -# - if @items.blank?
           -#   .listing-buy
           -#     = image_tag "mypage.buy.jpg" , class: "listing-buy-completed"
           -# %ul.list-content-transaction-active__now
-          -#   = render partial: 'shared/product', collection: @products
+          -#   = render partial: 'shared/item', collection: @items
 -# =render "shared/_footer"
