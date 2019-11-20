@@ -5,22 +5,22 @@
   .signup-panel
     %p.signup-panel__title 会員情報入力
 
-    = form_for @user, url: user_tel_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+    = form_for @user, url: user_tel_signup_index_path, method: :post, html: {class: "inputForm"} do |f|
       .signup-form
         .field
-          %label{for: "nickname"} ニックネーム
+          = f.label :nickname, "ニックネーム"
           %span.form-require
           = f.text_field :nickname, class: "field__input", placeholder: "例）メルカリ太郎"
         .field
-          %label{for: "email"} メールアドレス
+          = f.label :email, "メールアドレス"
           %span.form-require
-          = f.text_field :email, class: "field__input",  placeholder: "PC・携帯どちらでも可"
+          = f.text_field :email, class: "field__input", placeholder: "PC・携帯どちらでも可"
         .field
-          %label{for: "password"} パスワード
+          = f.label :password, "パスワード"
           %span.form-require
           = f.text_field :password, class: "field__input", placeholder: "6文字以上"
         .field
-          %label{for: "password_confirmation"} パスワード（確認）
+          = f.label :password_confirmation, "パスワード（確認）"
           %span.form-require
           = f.text_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
 
@@ -29,23 +29,23 @@
           %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません
 
         .field
-          %label{for: "last_name"} 姓（全角）
+          = f.label :last_name, "姓（全角）"
           %span.form-require
           = f.text_field :last_name, class: "field__input", placeholder: "例）山田"
         .field
-          %label{for: "first_name"} 名（全角）
+          = f.label :first_name, "名（全角）"
           %span.form-require
           = f.text_field :first_name, class: "field__input", placeholder: "例）太郎"
         .field
-          %label{for: "last_name_kana"} 姓カナ（全角）
+          = f.label :last_name_kana, "姓カナ（全角）"
           %span.form-require
           = f.text_field :last_name_kana, class: "field__input", placeholder: "例）ヤマダ"
         .field
-          %label{for: "first_name_kana"} 名カナ（全角）
+          = f.label :first_name_kana, "名カナ（全角）"
           %span.form-require
-          = f.text_field :first_name_kana, class: "field__input",  placeholder: "例）タロウ"
+          = f.text_field :first_name_kana, class: "field__input", placeholder: "例）タロウ"
         .field
-          %label{for: "birthday"} 生年月日
+          = f.label :birthday, "生年月日"
           %span.form-require
           .pulldown
             .select-wrap
@@ -65,8 +65,9 @@
           %p 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
           %p 
       .sign-up-btn
-        %button{type: "submit",class: "btn-red"}
-          次へ進む
+        = f.submit "次へ進む", class: "btn-red"
+
+          
       -#     .field
       -#       -# TODO userテーブル作成後紐付け反映させるすること
       -#     = recaptcha_tags

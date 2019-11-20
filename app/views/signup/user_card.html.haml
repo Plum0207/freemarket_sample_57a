@@ -1,5 +1,6 @@
 = render "devise/registrations/user_header_4"
 -# 保存先のテーブル要注意
+-# card_number、expiration_date、security_codeは仮名
 %main.main
 
   .signup-panel
@@ -9,12 +10,12 @@
       .signup-panel  
         .signup-form
           .field
-            %label{for: "nickname"} カード番号
+            =f.label :card_number, "カード番号"
             %span.form-require
             = f.email_field :email, class: "field__input", placeholder: "例）半角数字のみ"
 
           .field
-            %label{for: "nickname"} 有効期限
+            =f.label :expiration_date, "有効期限"
             %span.form-require 必須
             .pulldown
               .select-wrap
@@ -35,12 +36,11 @@
                       = month
               %span 月
           .field
-            %label{for: "nickname"} セキュリティコード
+            =f.label :security_code, "セキュリティコード"
             %span.form-require
             = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "カード背面4桁もしくは3桁の番号"
         .forgot-password--credit-card
           = link_to "カード背面番号とは?", new_user_session_path
         .sign-up-btn
-          %button{type: "submit",class: "btn-red"}
-            次へ進む
+          = f.submit "次へ進む", class: "btn-red"
 = render "devise/user/user_footer"

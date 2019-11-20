@@ -1,8 +1,19 @@
 class SignupController < ApplicationController
+  
+  before_action :save_user_info_to_session, only: :user_tel
+  before_action :save_user_address_to_session, only: :user_card
+  
   def user_info
     @user = User.new
-    @user.build_user_address
   end
+
+  # 以下バリデーション
+  def save_user_info_to_session
+    session[:user_params] = user_params
+    session[:user_attributes_after_user_info] = user_params[:user_attributes]
+    @user = User.new(session[:user_params])
+    render '/signup/user_info' unless @user.valid?
+  end 
 
   def user_tel
     session[:nickname] = user_params[:nickname]
@@ -20,6 +31,15 @@ class SignupController < ApplicationController
   def user_address
     session[:telephone] = user_params[:telephone]
     @user = User.new # 新規インスタンス作成
+  end
+
+  # 以下バリデーション
+  def save_user_address_to_session
+    session[:user_address_attributes_after_user_tel] = user_params[:user_address_attributes]
+    session[:user_address_attributes_after_user_tel].merge!(session[:user_attributes_after_user_tel])
+    @user = User.new
+    @user.build_user_address(session[:user_address_attributes_after_user_info])
+    render '/signup/user_address' unless session[:user_address_attributes_after_user_tel][:telephone].present?
   end
 
   def user_card
@@ -52,9 +72,9 @@ class SignupController < ApplicationController
     if @user.save
 　　　# ログインするための情報を保管
       session[:id] = @user.id
-      redirect_to user_signup_done_signup_index_path
+      redirect_to user_complete_signup_index_path
     else
-      render '/signup/registration'
+      render '/signup/user_info'
     end
   end
 
@@ -71,11 +91,7 @@ class SignupController < ApplicationController
       :first_name_kana, 
       :telephone,
       :birthday, 
-      :postal_code,
-      :prefecture,
-      :city,
-      :address,
-      :building
+      user_address_attributes: [:id, :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :prefecture, :city, :address, :building]
     )
   end
 end
