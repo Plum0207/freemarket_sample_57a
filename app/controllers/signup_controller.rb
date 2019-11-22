@@ -1,10 +1,11 @@
 class SignupController < ApplicationController
   
   before_action :save_user_info_to_session, only: :user_tel
-  before_action :save_user_address_to_session, only: :user_card
+  # before_action :save_user_address_to_session, only: :user_card
   
   def user_info
     @user = User.new
+    @user.build_user_address
   end
 
   # 以下バリデーション
@@ -16,16 +17,9 @@ class SignupController < ApplicationController
   end 
 
   def user_tel
-    session[:nickname] = user_params[:nickname]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
-    session[:last_name] = user_params[:last_name]
-    session[:first_name] = user_params[:first_name]
-    session[:last_name_kana] = user_params[:last_name_kana]
-    session[:first_name_kana] = user_params[:first_name_kana]
-    session[:birthday] = user_params[:birthday]
+    session[:user_params] = user_params  #userモデルの値をぶっこむ。
     @user = User.new # 新規インスタンス作成
+    @user.build_user_address
   end
 
   def user_address
@@ -43,35 +37,18 @@ class SignupController < ApplicationController
   end
 
   def user_card
-    session[:last_name] = user_params[:last_name]
-    session[:first_name] = user_params[:first_name]
-    session[:last_name_kana] = user_params[:last_name_kana]
-    session[:first_name_kana] = user_params[:first_name_kana]
-    session[:postal_code] = user_params[:postal_code]
-    session[:prefecture] = user_params[:prefecture]
-    session[:city] = user_params[:city]
-    session[:building] = user_params[:building]
-    session[:telephone] = user_params[:telephone]
-    @user = User.new # 新規インスタンス作成
+    session[:user_address_attributes_after_user_address] = user_params[:user_address_attributes]  # step2で入力された情報をsessionにぶっこむ。
+    session[:user_address_attributes_after_user_address].merge!(session[:user_address_attributes_after_user_info])  # step2のsessionにstep1のsessionの中身を合わせる。
+    @user = User.new
+    @user.build_user_address
   end
 
   def create
-    @user = User.new(
-      nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password_confirmation],
-      last_name: session[:last_name], 
-      first_name: session[:first_name], 
-      last_name_kana: session[:last_name_kana], 
-      first_name_kana: session[:first_name_kana], 
-      birthday: session[:birthday], 
-      telephone: session[:telephone], 
-      postal_code: session[:postal_code]
-    )
+    @user = User.new(session[:user_params])  # ここでuserモデルのsessionを引数で渡す。
+    @user.build_user_address(session[:user_address_attributes_after_info])  # ここでprofileモデルのsessionを引数で渡す。
+    @user.build_user_address(user_params[:user_address_attributes])  # 今回のビューで入力された情報を代入。
     if @user.save
-　　　# ログインするための情報を保管
-      session[:id] = @user.id
+      session[:id] = @user.id  #　ここでidをsessionに入れることでログイン状態に持っていける。
       redirect_to user_complete_signup_index_path
     else
       render '/signup/user_info'
