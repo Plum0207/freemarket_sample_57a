@@ -1,6 +1,17 @@
 ja:
   enums:
     item:
+      size:
+        XXS: "XXS以下"
+        XS: "XS(SS)"
+        S: "S"
+        M: "M"
+        L: "L"
+        XL: "XL(LL)"
+        XXXL: "2XL(3L)"
+        XXXXL: "3XL(4L)"
+        XXXXXL: "4XL(5L)以上"
+        free_size: "FREE SIZE"
       condition:
         unused: "新品、未使用品"
         like_new: "未使用に近い"
