@@ -5,5 +5,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = Image.new
+    @categories = Category.all.roots
   end
 end
