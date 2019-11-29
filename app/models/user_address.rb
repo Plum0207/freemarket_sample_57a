@@ -1,6 +1,6 @@
 class UserAddress < ApplicationRecord
   belongs_to :user, inverse_of: :user_address
-  belongs_to :prefecture
+  # belongs_to :prefecture
   
   validates :last_name, presence: true
   validates :first_name, presence: true

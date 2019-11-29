@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# カテゴリのレコード追加
-require './db/seeds/area.rb'
+
 require './db/seeds/brand.rb'
 require './db/seeds/category.rb'
-require './db/seeds/condition.rb'
-require './db/seeds/sending_method.rb'
-require './db/seeds/size.rb'
+
+
+# 30.times do |number|
+#     Item.create(id: "#{number}", seller_id: 1, name: '女物', discription: '先週購入しました', category_id: 1, size: 0, brand_id: , condition: 0, postage_burden: 0, sending_method: 0, prefecture_from: 13, shipping_date: 0, price: 999)
+#   end
+
