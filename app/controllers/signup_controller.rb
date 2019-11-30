@@ -16,14 +16,14 @@ class SignupController < ApplicationController
   def user_address
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to user_tel_signup_index_path
-    else
-      render '/signup/user_info'
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     redirect_to user_tel_signup_index_path
+  #   else
+  #     render '/signup/user_info'
+  #   end
+  # end
 
   private
 
