@@ -1,4 +1,5 @@
--# = render "shared/_header"
+= render "shared/header"
+
 .wrapper
   .container-mypage
     = render"users/side_bar"  
@@ -82,4 +83,6 @@
           -#     = image_tag "mypage.buy.jpg" , class: "listing-buy-completed"
           -# %ul.list-content-transaction-active__now
           -#   = render partial: 'shared/item', collection: @items
--# =render "shared/_footer"
+  
+  =render "shared/_footer"
+

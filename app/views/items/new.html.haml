@@ -1,0 +1,109 @@
+.item-listing
+  .header
+    = link_to root_path, class: 'link' do
+      = image_tag('logo.svg', class: 'link__logo')
+  .item-container
+    %h2.title 商品の情報を入力
+    .form
+      = form_with(model: @item, local: true) do |f|
+        .image
+          %h3.image__title
+            出品画像
+            %span.required 必須
+          %p.image__attention 最大10枚までアップロードできます
+          = fields_for @image do |fi|
+            = fi.label :image, class: 'image__upload' do
+              = fi.file_field :image, class: 'upload-file'
+              %p.upload-discription クリックしてファイルをアップロード
+        .item
+          = f.label :name, '商品名', class: 'item__title'
+          %span.required 必須
+          = f.text_field :name, class: 'item__text', placeholder: '商品名（必須40文字まで）'
+          = f.label :discription, '商品の説明', class: 'item__title'
+          %span.required 必須
+          = f.text_area :discription, class: 'item__textarea', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+        .detail
+          %h3.detail__title 商品の詳細
+          .detail__form
+            .category
+              = f.label :categories, 'カテゴリー', class: 'category__name'
+              %span.required 必須
+              .category__form
+                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box'}
+                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box'}
+                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box'}
+                -# = f.collection_select :category_id, @categories.children, :id, :name, {prompt: "---"}
+                -# = f.collection_select :category_id, @categories.children.subtree, :id, :name, {prompt: "---"}
+            .size
+              = f.label :size, 'サイズ' ,class: 'size__name'
+              %span.required 必須
+              .size__form
+                = f.select :size, Item.sizes.map { |k,v| [t("enums.item.size.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+            .brand
+              = f.label :brand, 'ブランド' ,class: 'brand__name'
+              %span.required 任意
+              .brand__form
+                = f.text_field :brand, class: 'form-box', placeholder: '例）シャネル'
+            .condition
+              = f.label :condition, '商品の状態' ,class: 'condition__name'
+              %span.required 必須
+              .condition__form
+                = f.select :condition, Item.conditions.map { |k,v| [t("enums.item.condition.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+        .delivery
+          %h3.delivery__title 配送について
+          .delivery__form
+            .postage-burden
+              = f.label :postage_burden, '配送料の負担', class: 'postage-burden__name'
+              %span.required 必須
+              .postage-burden__form
+                = f.select :postage_burden, Item.postage_burdens.map { |k,v| [t("enums.item.postage_burden.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+            .sending-method
+              = f.label :sending_method, '配送の方法', class: 'postage-burden__name'
+              %span.required 必須
+              .sending-method__form
+                = f.select :sending_method, Item.sending_methods.map { |k,v| [t("enums.item.sending_method.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+            .prefecture-from
+              = f.label :prefecture_from, '発送元の地域', class: 'prefecture-from__name'
+              %span.required 必須
+              .prefecture-from__form
+                = f.collection_select :prefecture_from, Pref.all, :id, :name, {prompt: "---"}, {class: 'form-box'}
+            .shipping-date
+              = f.label :shipping_date, '発送までの日数', class: 'shipping-date__name'
+              %span.required 必須
+              .shipping-date__form
+                = f.select :shipping_date, Item.shipping_dates.map { |k,v| [t("enums.item.shipping_date.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+        .selling-price
+          %h3.selling-price__title 販売価格(300〜9,999,999)
+          %ul.selling-price__form
+            %li.price
+              %div
+                = f.label :price, '価格', class: 'price__name'
+                %span.required 必須
+              %div.price__form
+                %p.yen ¥
+                = f.text_field :price, class: 'input', placeholder: '例）300'
+            %li.fee
+              .fee__left 販売手数料(10%)
+              .fee__right -
+            %li.profit
+              .profit__left 販売利益
+              .profit__right -
+        .btn-box
+          %div.btn-box__attention
+            %p
+              = link_to '禁止されている出品', '#', class: 'attention-link'
+              、
+              = link_to '行為', '#', class: 'attention-link'
+              を必ずご確認ください。
+            %p
+              また、ブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to '偽ブランドの販売', '#', class: 'attention-link'
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品をもちまして
+              = link_to '加盟店規約', '#', class: 'attention-link'
+              に同意したことになります。
+          = f.submit '出品する', class: 'list-btn'
+          = link_to('もどる', root_path, class: 'back-btn')
+= render "devise/user/user_footer"
+            
