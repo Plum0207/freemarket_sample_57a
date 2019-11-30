@@ -3,25 +3,25 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [ :update, :show_profile]
   # before_action :authenticate_user! , except: [:show]
 
-  def index
-    # @number = Product.where(seller_id: current_user.id, status: 0).length
-    # @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
-  end
+  # def index
+  #   # @number = Product.where(seller_id: current_user.id, status: 0).length
+  #   # @products = Product.where(buyer_id: current_user.id, status: 1).order("id DESC").limit(5)
+  # end
 
-  def new
-    @user = User.new
-    @user.build_user_address
-  end
+  # def new
+  #   @user = User.new
+  #   @user.build_user_address
+  # end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      session[:id] = @user.id
-      redirect_to done_signup_index_path
-    else
-      render '/signup/registration'
-    end
-  end
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     session[:id] = @user.id
+  #     redirect_to done_signup_index_path
+  #   else
+  #     render '/signup/registration'
+  #   end
+  # end
 
 #   def done
 #     # TODO view遷移を限定すること
@@ -38,9 +38,9 @@ class UsersController < ApplicationController
 #     end
 #   end
   
-  def show
-    render layout: 'application'
-  end
+  # def show
+  #   render layout: 'application'
+  # end
 
 #   def listing
 #     @products = Product.where(seller_id: current_user.id, status: 0).order("id DESC").limit(5)
@@ -66,11 +66,11 @@ class UsersController < ApplicationController
 #     @identity_information = IdentityInformation.create(params[:area_id])
 #   end
 
-  private
+  # private
 
-  def user_params
-    params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, user_address_attributes:[:id, :postal_code, :prefecture, :city, :address, :building])
-  end
+  # def user_params
+  #   params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, user_address_attributes:[:id, :postal_code, :prefecture, :city, :address, :building])
+  # end
 
 #   def image_params
 #     params.permit(:image)

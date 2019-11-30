@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   resources :signup do
     collection do
       get 'user_info'
-      post 'user_tel'
-      post 'user_address'
-      post 'user_card' # 入力の全てが完了
+      get 'user_tel'
+      get 'user_address'
+      get 'user_card' # 入力の全てが完了
       get 'user_complete' # 登録完了後のページ
     end
   end
