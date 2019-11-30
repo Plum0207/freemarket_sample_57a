@@ -1,99 +1,100 @@
 .banner{
-    background-position: center;
-    background-size: cover;
-    color: Swhite;
-    height: 270px;
-    position: relative;
-    &__inner{
-        position: absolute;
-        top:0;
-        margin-left: 320px;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        h2{
-          padding-top: 30px;
-          font-weight: bold;
-          font-size:25px;
-        }
-        p{
-          font-size:35px;
-        }
-      }  
-      &__inner__icon{
-      @include clearfix();
-        margin: 20px 0 0;
-        .banner-icon{
-            float: left;
-          }
-          ul{
-            display: flex;
-            margin-left: 24px;
-            a{
-              padding: 15px 0 0 20px;
-              &:hover{opacity:0.6;}
-            }
-          }
-        }
-        .banner-image{
-          position: absolute;
-          top: 0;
-          left:480px;
-        }
+  background-position: center;
+  background-size: cover;
+  color: $white;
+  height: 270px;
+  position: relative;
+  &__inner{
+    position: absolute;
+    top:0;
+    right: 50%;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    h2{
+      padding-top: 30px;
+      font-weight: bold;
+      font-size:25px;
+    }
+    p{
+      font-size:35px;
+    }
+  }  
+  &__inner__icon{
+  @include clearfix();
+    margin: 20px 0 0;
+    .banner-icon{
+      float: left;
+    }
+    ul{
+      display: flex;
+      margin-left: 24px;
+      a{
+        padding: 15px 0 0 20px;
+        &:hover{opacity:0.6;}
+      }
+    }
   }
-  
+  .banner-image{
+    position: absolute;
+    top: 0;
+    left:480px;
+  }
+}
+.footer-container {
+  height: 400px;
+  background: #212121;
+  color: $white;
   .footer{
-      height: 400px;
-      padding: 0 50px 0 190px;
-      background: #212121;
-      color: $white;
-      &__cell{
-          float: left;
-          width: 230px;
-          &--head{
-            padding-top: 20px;
-            width: 350px;
-            &--sns .sns{
-                font-size: 35px;
-                padding: 5px 14px 5px 0;
-            }
-          }
-          &--list{
-            width: 350px;
-            display: flex;
-          }
-          &--inner{
-            float: left;
-            width: 350px;
-  
-          }
-          li{
-              margin-top:15px;
-              a{
-                color: $white;
-                opacity: 0.7;
-                font-size:11px;
-                text-decoration: none;
-                &:hover{text-decoration:underline;}
-              }
-          }
-          &.footer-nav-lang{
-            padding-left: 150px;
-          }
-      }
-      &__bottom{
-        clear: both;
-        padding-top: 10px;
-        height: 40px;
-        line-height: 35px;
-        &--logo{
-          float: left;
-          &:hover{opacity:0.7;}
-        }
-        &--copyright{
-          font-size: 10px;
-          padding-left: 350px;
+    width: 1000px;
+    margin: 0 calc(50% - 500px);
+    &__cell{
+      float: left;
+      width: 230px;
+      &--head{
+        padding-top: 20px;
+        width: 350px;
+        &--sns .sns{
+          font-size: 35px;
+          padding: 5px 14px 5px 0;
         }
       }
+      &--list{
+        width: 350px;
+        display: flex;
+      }
+      &--inner{
+        float: left;
+        width: 350px;
+      }
+      li{
+        margin-top:15px;
+        a{
+          color: $white;
+          opacity: 0.7;
+          font-size:11px;
+          text-decoration: none;
+          &:hover{text-decoration:underline;}
+        }
+      }
+      &.footer-nav-lang{
+        padding-left: 150px;
+      }
+    }
+    &__bottom{
+      clear: both;
+      padding-top: 10px;
+      height: 40px;
+      line-height: 35px;
+      &--logo{
+        float: left;
+        &:hover{opacity:0.7;}
+      }
+      &--copyright{
+        font-size: 10px;
+        padding-left: 350px;
+      }
+    }
   }
+  
   .footer-self-btn{
       color: $white;
       background-color: $red;
@@ -110,18 +111,19 @@
       .camera{
         font-size: 54px;
         margin-bottom: 0px;
-        }
-  }
-  .sold-items{
-    position: relative;
-    .sold-item{
-      width: 100px;
-      height: 100px;
-      background-color: Sred;
-      position: absolute;
-      top:-219px;
-      color: swhite;
-      font-weight: bold;
-      font-size: 20px;
+       }
+      }
     }
+.sold-items{
+  position: relative;
+  .sold-item{
+    width: 100px;
+    height: 100px;
+    background-color: $red;
+    position: absolute;
+    top:-219px;
+    color: $white;
+    font-weight: bold;
+    font-size: 20px;
   }
+}
