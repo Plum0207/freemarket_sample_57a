@@ -98,6 +98,7 @@
 .footer-self-btn{
   color: $white;
   background-color: $red;
+  text-decoration: none;
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -117,10 +118,10 @@
   .sold-item{
     width: 100px;
     height: 100px;
-    background-color: Sred;
+    background-color: $red;
     position: absolute;
     top:-219px;
-    color: swhite;
+    color: $white;
     font-weight: bold;
     font-size: 20px;
   }
