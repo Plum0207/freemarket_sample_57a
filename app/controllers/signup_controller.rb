@@ -16,15 +16,6 @@ class SignupController < ApplicationController
   def user_address
   end
 
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     redirect_to user_tel_signup_index_path
-  #   else
-  #     render '/signup/user_info'
-  #   end
-  # end
-
   private
 
     def user_params
@@ -42,7 +33,7 @@ class SignupController < ApplicationController
 
 end
 
-# MEMO：スプリントレビュー前の編集中のコード。余裕があればsessionで登録できるようにする
+# MEMO：以下、余裕があればsessionで登録できるようにするため
   
 #   # before_action :save_user_info_to_session, only: :user_tel
 #   # before_action :save_user_address_to_session, only: :user_card

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # params => devise_controller
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # MEMO??????????session?????????????
   # protected
 
   # def configure_permitted_parameters
