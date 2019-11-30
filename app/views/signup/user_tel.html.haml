@@ -18,9 +18,7 @@
             
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
         .forgot-password
-          %a{href: "new_user_password"}
-            電話番号が必要な理由
-            %i.fa.fa-chevron-right.arrow
+          = link_to '電話番号が必要な理由', new_user_password_path
+          %i.fa.fa-chevron-right.arrow
 
-              
 = render "devise/user/user_footer"
