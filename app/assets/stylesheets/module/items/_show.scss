@@ -1,0 +1,16 @@
+.item-detail {
+  &__top {
+    background-color: $white;
+    width: 700px;
+    margin: 40px auto 0;
+    padding: 24px 40px 40px;
+    &__item-name {
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.4em;
+      h1 {
+        font-weight: bold;
+      }
+    }
+  }
+}

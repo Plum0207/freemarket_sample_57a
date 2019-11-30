@@ -1,3 +1,9 @@
 = render "shared/header"
 
+.item-detail
+  -# 商品詳細
+  %section.item-detail__top
+    .item-detail__top__item-name
+      %h1 #{@item.name}
+
 = render "shared/footer"
