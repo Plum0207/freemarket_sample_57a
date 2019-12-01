@@ -29,11 +29,7 @@
               = f.label :categories, 'カテゴリー', class: 'category__name'
               %span.required 必須
               .category__form
-                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box'}
-                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box'}
-                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box'}
-                -# = f.collection_select :category_id, @categories.children, :id, :name, {prompt: "---"}
-                -# = f.collection_select :category_id, @categories.children.subtree, :id, :name, {prompt: "---"}
+                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box', id: 'parent_category'}
             .size
               = f.label :size, 'サイズ' ,class: 'size__name'
               %span.required 必須

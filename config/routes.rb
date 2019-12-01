@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root 'items#index'
-  resources :items
+  resources :items do
+    collection do
+      get 'get_children_category', defaults: { format: 'json' }
+      get 'get_grandchildren_category', defaults: { format: 'json' }
+    end
+  end
 
   # devise_user_controller
   devise_for :users, controllers: {
