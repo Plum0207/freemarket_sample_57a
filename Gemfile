@@ -73,6 +73,7 @@ gem 'faker'
 gem 'fog-aws'
 gem "font-awesome-rails"
 gem 'haml-rails'
+gem 'erb2haml'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'pry-rails'
