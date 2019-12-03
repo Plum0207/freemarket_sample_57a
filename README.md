@@ -53,7 +53,7 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |costomer_id|string|null: false|
 |card_id|string|null: false|
 
