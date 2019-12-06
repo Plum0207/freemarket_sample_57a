@@ -49,4 +49,15 @@
       %li.item-detail__social-media-container__btns__btn
         =link_to "https://www.pinterest.jp/", class: 'item-detail__social-media-container__btns__btn__link' do
           =fa_icon 'pinterest', class: "item-detail__social-media-container__btns__btn__link__icon-pinterest"
+  .item-detail__items-in-user-profile
+    %section.item-detail__items-in-user-profile__items-box-container.item-detail__items-in-user-profile__items-box-container__related-item-column
+      %h2.item-detail__items-in-user-profile__items-box-container__head ユーザーさんのその他の出品
+      .item-detail__items-in-user-profile__items-box-container__content
+        - 6.times do
+          =render "items-box"
+    %section.item-detail__items-in-user-profile__items-box-container.item-detail__items-in-user-profile__items-box-container__related-item-column
+      %h2.item-detail__items-in-user-profile__items-box-container__head 同カテゴリーその他の出品
+      .item-detail__items-in-user-profile__items-box-container__content
+        - 6.times do
+          =render "items-box"
 = render "shared/footer"

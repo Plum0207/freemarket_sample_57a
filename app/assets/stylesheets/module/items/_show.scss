@@ -154,7 +154,7 @@
         vertical-align: middle;
         &:last-child{
           margin: 0 0 8px;
-        }  
+        }
         &__link{
           text-decoration: none;
           i{
@@ -177,6 +177,98 @@
             background: #aa262a;
           }
 
+        }
+      }
+    }
+  }
+  &__items-in-user-profile{
+    width: 700px;
+    margin: 0 auto;
+    &__items-box-container{
+      &__head{
+        font-size: 22px;
+        margin: 24px 0 8px;
+        color:$light-blue;
+        font-weight: 700;
+      }
+      &__content{
+        display: flex;
+        flex-wrap: wrap;
+        &__items-box{
+          width: 220px;
+          margin: 0 20px 20px 0;
+          background-color:$white;
+          text-decoration: none;
+          &:nth-child(3n){
+            margin-right: 0;
+          }
+          &__link{
+            color: $black;
+            text-decoration: none;
+            &__photo{
+              width: 220px;
+              height: 220px;
+              position: relative;
+              img{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+              }
+              &__sold-out-badge{
+                &__caption{
+                  position: absolute;
+                  left: 0;
+                  z-index: 2;
+                  top: 20px;
+                  font-size: 26px;
+                  line-height: 26px;
+                  transform: rotate(-45deg);
+                  color:$white;
+                }
+                &:after{
+                  border-width: 100px 100px 0 0;
+                  border-color: $red transparent transparent;
+                  border-style: solid;
+                  display: block;
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  z-index: 1;
+                }
+              }
+            }
+            &__body{
+              padding: 16px;
+              height: 110px;
+              &__name{
+                overflow: hidden;
+                font-weight: 400;
+                height: 3rem;
+                line-height: 1.5;
+                font-size: 16px;
+              }
+              &__nums{
+                margin: 8px 0 0;
+                display: flex;
+                justify-content: space-between;
+                &__price{
+                  font-size: 17px;
+                  font-weight: 600;
+                }
+                &__like{
+                  font-size: 16px;
+                  font-weight: 400;
+                  i{
+                    color: #ccc;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

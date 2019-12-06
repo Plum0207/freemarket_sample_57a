@@ -1,0 +1,13 @@
+%section.item-detail__items-in-user-profile__items-box-container__content__items-box
+  =link_to "", class: "item-detail__items-in-user-profile__items-box-container__content__items-box__link" do
+    %figure.item-detail__items-in-user-profile__items-box-container__content__items-box__link__photo
+      = image_tag 'https://placehold.jp/220x220.png?text=item', alt: ''
+      %figcaption.item-detail__items-in-user-profile__items-box-container__content__items-box__link__photo__sold-out-badge
+        .item-detail__items-in-user-profile__items-box-container__content__items-box__link__photo__sold-out-badge__caption SOLD
+    .item-detail__items-in-user-profile__items-box-container__content__items-box__link__body
+      %h3.item-detail__items-in-user-profile__items-box-container__content__items-box__link__body__name 関連アイテム
+      .item-detail__items-in-user-profile__items-box-container__content__items-box__link__body__nums
+        .item-detail__items-in-user-profile__items-box-container__content__items-box__link__body__nums__price ¥1,000
+        .item-detail__items-in-user-profile__items-box-container__content__items-box__link__body__nums__like
+          =fa_icon 'heart'
+          %span 10
