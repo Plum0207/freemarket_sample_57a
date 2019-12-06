@@ -138,4 +138,47 @@
       text-align: right;
     }
   }
+  &__social-media-container{
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+    background-color: $white;
+    &__btns{
+      margin: 16px 0 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      &__btn{
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        &:last-child{
+          margin: 0 0 8px;
+        }  
+        &__link{
+          text-decoration: none;
+          i{
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            line-height: 44px;
+            color: $white;
+          }
+          &__icon-facebook{
+            font-size: 34px;
+            background: #385185;
+          }
+          &__icon-twitter{
+            font-size: 34px;
+            background: #5d9dc9;
+          }
+          &__icon-pinterest{
+            font-size: 22px;
+            background: #aa262a;
+          }
+
+        }
+      }
+    }
+  }
 }

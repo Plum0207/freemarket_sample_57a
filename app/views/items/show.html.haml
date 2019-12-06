@@ -38,4 +38,15 @@
     %li.item-detail__nav-links__link.item-detail__nav-links__link-next
       =link_to "" do
         =fa_icon 'chevron-right', text: '次のアイテム', right: true
+  .item-detail__social-media-container
+    %ul.item-detail__social-media-container__btns
+      %li.item-detail__social-media-container__btns__btn
+        =link_to "https://www.facebook.com/", class: 'item-detail__social-media-container__btns__btn__link' do
+          =fa_icon 'facebook-square', class: 'item-detail__social-media-container__btns__btn__link__icon-facebook'
+      %li.item-detail__social-media-container__btns__btn
+        =link_to "https://twitter.com/", class: 'item-detail__social-media-container__btns__btn__link' do
+          =fa_icon 'twitter', class: 'item-detail__social-media-container__btns__btn__link__icon-twitter'
+      %li.item-detail__social-media-container__btns__btn
+        =link_to "https://www.pinterest.jp/", class: 'item-detail__social-media-container__btns__btn__link' do
+          =fa_icon 'pinterest', class: "item-detail__social-media-container__btns__btn__link__icon-pinterest"
 = render "shared/footer"
