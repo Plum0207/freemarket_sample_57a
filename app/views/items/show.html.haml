@@ -31,4 +31,11 @@
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %textarea
       %input{type: "submit", value:"コメントする", class:"item-detail__message__message-container__submit-btn"}
+  .item-detail__nav-links
+    %li.item-detail__nav-links__link
+      =link_to "" do
+        =fa_icon 'chevron-left', text: '前のアイテム'
+    %li.item-detail__nav-links__link.item-detail__nav-links__link-next
+      =link_to "" do
+        =fa_icon 'chevron-right', text: '次のアイテム', right: true
 = render "shared/footer"
