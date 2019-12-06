@@ -26,5 +26,9 @@
         =link_to "https://www.mercari.com/jp/safe/description/", target: '_blank' do
           =fa_icon 'lock'
           %span あんしん・あんぜんへの取り組み
-
+  .item-detail__message
+    .item-detail__message__message-container
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea
+      %input{type: "submit", value:"コメントする", class:"item-detail__message__message-container__submit-btn"}
 = render "shared/footer"
