@@ -1,5 +1,5 @@
 .item-detail {
-  &__top {
+  &__top-container {
     background-color: $white;
     width: 700px;
     margin: 40px auto 0;
@@ -7,9 +7,84 @@
     &__item-name {
       font-size: 24px;
       text-align: center;
-      line-height: 1.4em;
-      h1 {
-        font-weight: bold;
+      line-height: 1.4;
+    }
+    &__main-content{
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      &__photos{
+        height: 420px;
+        width: 300px;
+        background-color: lightgray;
+      }
+      &__table{
+        width: 300px;
+        height: 420px;
+        background-color: lightgrey;
+      }
+    }
+    &__price-box{
+      margin: 24px 0 0;
+      text-align: center;
+      &__price{
+        margin: 0 16px 0 0;
+        font-size: 50px;
+      }
+      &__tax{
+        font-size: 10px;
+      }
+      &__shipping-fee{
+        font-size: 16px;
+      }
+    }
+    &__item-description{
+      padding: 32px 0 0;
+      p{
+        font-size: 18px;
+      }
+    }
+    &__button-container{
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      &__left{
+        display: flex;
+        color: $black;
+        font-size: 14px;
+        &__like-btn{
+          padding: 8px 16px;
+          border-radius: 40px;
+          border: 1px solid $main-background;
+          background: $main-background;
+          cursor: pointer;
+          span{
+            margin: 1px 0 0 8px;
+          }
+        }
+        &__report-link{
+          margin: 0 0 0 16px;
+          padding: 8px 16px;
+          border-radius: 40px;
+          background: $main-background;
+          a{
+            text-decoration: none;
+            color: $black;
+            span{
+              margin: 1px 0 0 8px;
+            }
+          }
+        }
+      }
+      &__right{
+        margin: 8px 0 0;
+        a{
+          text-decoration: none;
+          color: $light-blue;
+          span{
+            margin: 1px 0 0 8px;
+          }
+        }
       }
     }
   }

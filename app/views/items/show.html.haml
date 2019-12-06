@@ -1,9 +1,30 @@
 = render "shared/header"
 
 .item-detail
-  -# 商品詳細
-  %section.item-detail__top
-    .item-detail__top__item-name
-      %h1 #{@item.name}
+  %section.item-detail__top-container
+    %h1.item-detail__top-container__item-name サンプル
+    .item-detail__top-container__main-content
+      .item-detail__top-container__main-content__photos photos
+      .item-detail__top-container__main-content__table table
+    .item-detail__top-container__price-box
+      %span.item-detail__top-container__price-box__price ¥1,000
+      %span.item-detail__top-container__price-box__tax &#040;税込&#041;
+      %span.item-detail__top-container__price-box__shipping-fee 送料込み
+    .item-detail__top-container__item-description
+      %p サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。
+    .item-detail__top-container__button-container
+      .item-detail__top-container__button-container__left
+        %button.item-detail__top-container__button-container__left__like-btn
+          =fa_icon 'heart'
+          %span いいね!
+          %span 10
+        .item-detail__top-container__button-container__left__report-link
+          =link_to "" do
+            =fa_icon 'flag'
+            %span 不適切な商品の報告
+      .item-detail__top-container__button-container__right
+        =link_to "https://www.mercari.com/jp/safe/description/", target: '_blank' do
+          =fa_icon 'lock'
+          %span あんしん・あんぜんへの取り組み
 
 = render "shared/footer"
