@@ -34,17 +34,18 @@
               = f.label :size, 'サイズ' ,class: 'size__name'
               %span.required 必須
               .size__form
-                = f.select :size, Item.sizes.map { |k,v| [t("enums.item.size.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+                = f.select :size, Item.sizes.keys.map { |k| [t("enums.item.size.#{k}"), k]}, { include_blank: "---", selected: "---" }, {class: 'form-box'}
             .brand
-              = f.label :brand, 'ブランド' ,class: 'brand__name'
-              %span.required 任意
-              .brand__form
-                = f.text_field :brand, class: 'form-box', placeholder: '例）シャネル'
+              = fields_for @brand do |fb|
+                = fb.label :name, 'ブランド' ,class: 'brand__name'
+                %span.required 任意
+                .brand__form
+                  = fb.text_field :name, class: 'form-box', placeholder: '例）シャネル'
             .condition
               = f.label :condition, '商品の状態' ,class: 'condition__name'
               %span.required 必須
               .condition__form
-                = f.select :condition, Item.conditions.map { |k,v| [t("enums.item.condition.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+                = f.select :condition, Item.conditions.keys.map { |k| [t("enums.item.condition.#{k}"), k]}, { prompt: "---"}, {class: 'form-box'}
         .delivery
           %h3.delivery__title 配送について
           .delivery__form
@@ -52,12 +53,12 @@
               = f.label :postage_burden, '配送料の負担', class: 'postage-burden__name'
               %span.required 必須
               .postage-burden__form
-                = f.select :postage_burden, Item.postage_burdens.map { |k,v| [t("enums.item.postage_burden.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+                = f.select :postage_burden, Item.postage_burdens.keys.map { |k| [t("enums.item.postage_burden.#{k}"), k]}, { prompt: "---"}, {class: 'form-box'}
             .sending-method
               = f.label :sending_method, '配送の方法', class: 'postage-burden__name'
               %span.required 必須
               .sending-method__form
-                = f.select :sending_method, Item.sending_methods.map { |k,v| [t("enums.item.sending_method.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+                = f.select :sending_method, Item.sending_methods.keys.map { |k| [t("enums.item.sending_method.#{k}"), k]}, { prompt: "---"}, {class: 'form-box'}
             .prefecture-from
               = f.label :prefecture_from, '発送元の地域', class: 'prefecture-from__name'
               %span.required 必須
@@ -67,7 +68,7 @@
               = f.label :shipping_date, '発送までの日数', class: 'shipping-date__name'
               %span.required 必須
               .shipping-date__form
-                = f.select :shipping_date, Item.shipping_dates.map { |k,v| [t("enums.item.shipping_date.#{k}"), v]}, { prompt: "---"}, {class: 'form-box'}
+                = f.select :shipping_date, Item.shipping_dates.keys.map{|k| [t("enums.item.shipping_date.#{k}"), k]}, { prompt: '---'}, {class: 'form-box'}
         .selling-price
           %h3.selling-price__title 販売価格(300〜9,999,999)
           %ul.selling-price__form
@@ -102,4 +103,3 @@
           = f.submit '出品する', class: 'list-btn'
           = link_to('もどる', root_path, class: 'back-btn')
 = render "devise/user/user_footer"
-            
