@@ -2,8 +2,7 @@ class CardsController < ApplicationController
   before_action :get_payjp_info, only: [:create, :delete, :show]
 
   def index
-    # MEMO(yokota) : current_user.idとする必要があるかも？
-    card = Card.where(user_id: current_user)
+    card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
   end
 
@@ -19,7 +18,7 @@ class CardsController < ApplicationController
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
       )
-      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Cards.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
       else
@@ -29,22 +28,22 @@ class CardsController < ApplicationController
   end
 
   def delete
-    card = current_user.credit_cards.first
+    card = current_user.cards.first
     if card.present?
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
     end
-      redirect_to action: "confirmation", id: current_user.id
+      redirect_to action: "index", id: current_user.id
   end
 
   def show
-    card = current_user.credit_cards.first
+    card = current_user.cards.first
     if card.present?
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     else
-      redirect_to action: "confirmation", id: current_user.id
+      redirect_to action: "index", id: current_user.id
     end
   end
 
