@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     registrations: 'signup'
   }
 
-  resources :signup do
+  resources "signup", only: [:user_info, :create, :user_tel, :user_address, :user_card, :user_complete], path: "/signup" do
     collection do
       get 'user_info'
       get 'user_tel'
       get 'user_address'
-      get 'user_card' # ここで、入力の全てが終了する
+      get 'user_card' # 入力の全てが完了
       get 'user_complete' # 登録完了後のページ
     end
   end
