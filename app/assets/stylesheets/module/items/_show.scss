@@ -16,7 +16,21 @@
       &__photos{
         height: 420px;
         width: 300px;
-        background-color: lightgray;
+        background-color: #fafafa;
+        &__selected-photo{
+          height: 300px;
+          width: 300px;
+          overflow: hidden;
+        }
+        &__all-photos{
+          display: flex;
+          flex-wrap: wrap;
+          &__photo{
+            height: 60px;
+            width: 60px;
+            overflow: hidden;
+          }
+        }
       }
       &__table{
         width: 300px;
