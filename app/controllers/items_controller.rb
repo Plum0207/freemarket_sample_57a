@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
     @brand = Brand.where(name: brand_params[:name]).first_or_create
     @item = Item.new(items_params)
     @item.save
+    
+    images_params[:image].each do |img|
+      new_image = Image.new(image: img, item_id: @item.id)
+      new_image.save
+    end
   end
 
   def get_children_category
@@ -40,7 +45,7 @@ class ItemsController < ApplicationController
   def items_params 
     params.require(:item).permit(
       :name, 
-      :discription, 
+      :description, 
       :category_id, 
       :size, 
       :condition, 
@@ -51,6 +56,10 @@ class ItemsController < ApplicationController
       :price
     )
     .merge(brand_id: @brand.id)
+  end
+
+  def images_params
+    params.require(:image).permit({image: []})
   end
 
 

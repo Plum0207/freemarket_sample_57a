@@ -5,7 +5,7 @@
   .item-container
     %h2.title 商品の情報を入力
     .form
-      = form_with(model: @item, local: true) do |f|
+      = form_with(model: @item, local: true, multipart: true) do |f|
         .image
           %h3.image__title
             出品画像
@@ -13,7 +13,7 @@
           %p.image__attention 最大10枚までアップロードできます
           = fields_for @image do |fi|
             = fi.label :image, class: 'image__upload' do
-              = fi.file_field :image, class: 'upload-file'
+              = fi.file_field :image, multiple: true, class: 'upload-file'
               %p.upload-discription クリックしてファイルをアップロード
         .item
           = f.label :name, '商品名', class: 'item__title'
@@ -21,7 +21,7 @@
           = f.text_field :name, class: 'item__text', placeholder: '商品名（必須40文字まで）'
           = f.label :discription, '商品の説明', class: 'item__title'
           %span.required 必須
-          = f.text_area :discription, class: 'item__textarea', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+          = f.text_area :description, class: 'item__textarea', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
         .detail
           %h3.detail__title 商品の詳細
           .detail__form
