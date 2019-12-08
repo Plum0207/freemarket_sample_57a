@@ -11,7 +11,50 @@
           - 10.times do
             .item-detail__top-container__main-content__photos__all-photos__photo
               = image_tag 'https://placehold.jp/dddddd/333333/60x60.png?text=item', alt: ''
-      .item-detail__top-container__main-content__table table
+      %table.item-detail__top-container__main-content__table
+        %tr
+          %th 出品者
+          %td
+            =link_to 'ユーザー', ''
+            .item-detail__top-container__main-content__table__user-ratings-box
+              .item-detail__top-container__main-content__table__user-ratings-box__ratings
+                =fa_icon 'smile-o', class:'item-detail__top-container__main-content__table__user-ratings-box__ratings__icon-good'
+                %span 100
+              .item-detail__top-container__main-content__table__user-ratings-box__ratings
+                =fa_icon 'meh-o', class:'item-detail__top-container__main-content__table__user-ratings-box__ratings__icon-normal'
+                %span 0
+              .item-detail__top-container__main-content__table__user-ratings-box__ratings
+                =fa_icon 'frown-o', class:'item-detail__top-container__main-content__table__user-ratings-box__ratings__icon-bad'
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to '親カテゴリー',''
+            = link_to '' do
+              =fa_icon 'chevron-right',text: '子カテゴリー'
+            = link_to '' do
+              =fa_icon 'chevron-right',text: '孫カテゴリー'
+
+        %tr
+          %th ブランド
+          %td
+            = link_to 'ブランド',''
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 配送元地域
+          %td
+            = link_to '都道府県',''
+        %tr
+          %th 発送日の目安
+          %td 1~2日で発送
     .item-detail__top-container__price-box
       %span.item-detail__top-container__price-box__price ¥1,000
       %span.item-detail__top-container__price-box__tax &#040;税込&#041;
