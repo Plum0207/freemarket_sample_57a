@@ -50,7 +50,7 @@
   }
 }
 .items-container-wrapper{
-  padding: 42px 0px 100px;
+  padding: 42px 0px 20px;
   .items-container{
     width: 1020px;
     margin: 0 auto;
@@ -87,70 +87,77 @@
         }
       }
     }
-    // ここから付け足し
-    .main-products__items-box {
+    &__lower-part{
       display: flex;
-      &__list {
-        margin: 0 0 0 20px;
-        width: 213px;
-        background: $white;
-        img {
-          width: 100%;
-          height: 213px;
-        }
-        &--sold-out {
-          margin: 0;
-          position: relative;
-          & img {
-            object-fit: cover;
-          }
-          &--box {
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 100px 100px 0 0;
-            border-color: $red transparent transparent transparent;
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
-          &--text {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            font-size: 20px;
-            color: $white;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transform: rotate(-45deg);
-            -moz-transform: rotate(-45deg);
-            -webkit-transform: rotate(-45deg);
-          }
-        }
-        .product_item__link__information {
-          padding: 16px 16px 10px 16px;
-          h3 {
-            height: 3em;
-            font-size: 16px;
-            overflow: hidden;
-          }
-          &__num {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-            font-weight: bold;
-            &--price {
-              font-size: 15px;
-            }
-            &--good {
-              font-size: 15px;
-            }
-          }
-          p {
-            font-size: 11px;
-          }
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 1044px;
+      &__nothing-block {
+        background-color:$white;
+        height: 272px;
+        width: 1044px;
+        &-icon {
+          margin: 0 auto;
+          display: block;
+          width: 250px;
+          font-size: 250px;
         }
       }
-    }
-  }
+      .items-list {
+        position: relative;
+        background-color: $white;
+        margin: 10px;
+        width: 188px;
+        height: 252px;
+        &:hover {
+          opacity: 0.5;
+        }
+        .items-list-link {
+          width: 100%;
+          &__items-image {
+            width: 100%;
+            object-fit: cover;
+          }
+          .items-detail {
+            box-sizing: border-box;
+            color: #222;
+            font-size: 14px;
+            height: 64px;
+            line-height: 1.4em;
+            padding: 0 12px;
+            white-space: normal;
+            word-break: break-word;
+            }
+          .items-price {
+            z-index: 2;
+            position: absolute;
+            height: 0;
+            overflow: hidden;
+            padding: 0 0 90px;
+            left: 0px;
+            bottom: 10px;
+            .price-yen {
+              margin: 0;
+              padding: 0 12px;
+              height: 28px;
+              letter-spacing: .02em;
+              display: inline-flex;
+              font-size: 17px;
+              align-items: center;
+              background: rgba(0,0,0,.4);
+              border-radius: 0 14px 14px 0;
+              bottom: 8px;
+              color: $white;
+            }
+          }
+            .items-name {
+              display: inline-block;
+              height: 2.8em;
+              overflow: hidden;
+              position: relative;
+            }
+       }
+     }
+   }
+ }
 }

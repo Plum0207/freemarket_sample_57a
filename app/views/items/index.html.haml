@@ -19,49 +19,97 @@
             =link_to 'おもちゃ・ホビー・グッズ', "", class: 'popular-menu__links__list__link_btn'
   
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            レディース新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @lady, as:"product"
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          レディース新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @lady_items.present?
+          - @lady_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
 
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            メンズ新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @man, as:"product"  
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          メンズ新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @man_items.present?
+          - @man_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
 
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            家電・スマホ・カメラ新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @appliance, as:"product"
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          家電・スマホ・カメラ新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @appliance_items.present?
+          - @appliance_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
   
   
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            おもちゃ・ホビー・グッズ新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @hobby, as:"product"
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          おもちゃ・ホビー・グッズ新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @hobby_items.present?
+          - @hobby_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
   
   .popular-menu
     .popular-menu--category
@@ -79,49 +127,97 @@
   
   
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            シャネル新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @chanel, as:"product"
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          シャネル新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @channel_items.present?
+          - @channel_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
   
   
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            ルイヴィトン新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @vuitton, as:"product"
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          ルイヴィトン新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @vuitton_items.present?
+          - @vuitton_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
   
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            シュプリーム新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @supreme, as:"product"
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          シュプリーム新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @supreme_items.present?
+          - @supreme_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
   
   .items-container-wrapper
-    .items-container-wrapper--category
-      .items-container
-        .items-container__upper-part
-          %h3.items-container__upper-part__title
-            ナイキ新着アイテム
-          =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
-        .items-container__lower-part
-          .items-container__lower-part__itembox
-          -# = render partial: "item_images", collection: @nike, as:"product"
-  
+    .items-container
+      .items-container__upper-part
+        %h3.items-container__upper-part__title
+          ナイキ新着アイテム
+        =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
+      .items-container__lower-part
+        - if @nike_items.present?
+          - @nike_items.each do |item|
+            .items-list
+              = link_to "/items/#{item.id}", class: "items-list-link" do
+                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
+                  .items-price
+                    %span.price-yen
+                      -# #{converting_to_jpy(item.price)}
+                      ¥1,000
+                  %h3.items-name
+                    #{item.name}
+        - else
+          .nothing-block
+            = fa_icon "ban", class: "nothing-block-icon"
+
 = render "shared/footer"
 = render "shared/sell-button"

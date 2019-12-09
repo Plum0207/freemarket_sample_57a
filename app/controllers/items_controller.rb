@@ -1,24 +1,24 @@
 class ItemsController < ApplicationController
   def index
-    # @ladycategory =  Category.find_by(name: 'レディース')
-    # @mancategory =  Category.find_by(name: 'メンズ')
-    # @appliancecategory =  Category.find_by(name: '家電・スマホ・カメラ')
-    # @hobbycategory =  Category.find_by(name: 'おもちゃ・ホビー・グッズ')
-    # @lady = Item.active(@ladycategory.subtree).sorted
-    # @man = Item.active(@mancategory.subtree).sorted
-    # @appliance = Item.active(@appliancecategory.subtree).sorted
-    # @hobby = Item.active(@hobbycategory.subtree).sorted
-    # @category_parent =  Category.where(ancestry: nil)
-
-    # @chanelbrand =  Brand.find_by(name: 'シャネル')
-    # @vittonbrand =  Brand.find_by(name: 'ルイヴィトン')
-    # @supremebrand =  Brand.find_by(name: 'シュプリーム')
-    # @nikebrand =  Brand.find_by(name: 'ナイキ')
-    # @chanel = Item.active(@chanelbrand.subtree).sorted
-    # @vuitton = Item.active(@vuittonbrand.subtree).sorted
-    # @supreme = Item.active(@supremebrand.subtree).sorted
-    # @nike = Item.active(@nikebrand.subtree).sorted
-    # @brand_parent =  Brand.where(ancestry: nil)
+    #condition等その他のオプションは後で追記出来ます（例）@lady_items = Item.where(category: 1.14..215).where(condition: 0).order('created_at DESC').limit(10).where.not(condition: 1)
+    #カテゴリー名の脇に書いてある数字（14..215）はそのカテゴリーに当てはまる番号ですが今は上手く書けないので保留
+    #レディース + 14..215
+    @lady_items = Item.where(category: 1).order('created_at DESC').limit(10)
+    #メンズ + 216..360
+    @man_items = Item.where(category: 2).order('created_at DESC').limit(10)
+    #家電 + 906..989
+    @appliance_items = Item.where(category: 8).order('created_at DESC').limit(10)
+    #おもちゃ・ホビー・グッズ + 695..806
+    @hobby_items = Item.where(category: 6).order('created_at DESC').limit(10)
+  
+    #シャネル
+    @channel_items = Item.where(brand: 1).order('created_at DESC').limit(10)
+    #ルイ・ヴィトン
+    @vuitton_items = Item.where(brand: 3).order('created_at DESC').limit(10)
+    #シュプリーム
+    @supreme_items = Item.where(brand: 4).order('created_at DESC').limit(10)
+    #ナイキ
+    @nike_items = Item.where(brand: 6).order('created_at DESC').limit(10)
   end
 
   def new
