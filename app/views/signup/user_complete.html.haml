@@ -11,6 +11,7 @@
 
       .sign-up-btn
         %button{type: "submit",class: "btn-red"}
-          メルカリをはじめる
+          = link_to 'メルカリをはじめる', root_path()
+          
             
 = render "devise/user/user_footer"

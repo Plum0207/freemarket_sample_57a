@@ -1,25 +1,24 @@
 = render "devise/registrations/user_header_2"
 
 %main.main
-
   .signup-panel
-    %p.signup-panel__title 電話番号の確認   
-
-    = form_for @user, url: user_address_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+    %p.signup-panel__title 電話番号の確認
+    %form#new_user.inputForm
+      %input{type: "hidden"}
       .signup-form
         .field
-          %label{for: "telephone"} 携帯電話の番号
+          %label 携帯電話の番号
           %span.form-require
-          = f.text_field :telephone, class: "field__input", placeholder: "携帯電話の番号を入力"
+          %input#user_telephone.field__input{placeholder: "携帯電話の番号を入力", type: "text"}
           %p.form-info--tell
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .sign-up-btn
-          %button{type: "submit",class: "btn-red"}
-            SMSを送信する
-          %p  ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。    
-        .forgot-password
-          = link_to "new_user_password" do
-            電話番号が必要な理由
-            = fa_icon "chevron-right", class: "arrow"
+          %button.btn-red
+            = link_to 'SMSを送信する', user_address_signup_index_path()
             
+          %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .forgot-password
+          = link_to '電話番号が必要な理由', new_user_password_path
+          %i.fa.fa-chevron-right.arrow
+
 = render "devise/user/user_footer"
