@@ -1,0 +1,337 @@
+.item-detail {
+  &__top-container {
+    background-color: $white;
+    width: 700px;
+    margin: 40px auto 0;
+    padding: 24px 40px 40px;
+    &__item-name {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+    }
+    &__main-content{
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      &__photos{
+        height: 420px;
+        width: 300px;
+        background-color: #fafafa;
+        &__selected-photo{
+          height: 300px;
+          width: 300px;
+          overflow: hidden;
+        }
+        &__all-photos{
+          display: flex;
+          flex-wrap: wrap;
+          &__photo{
+            height: 60px;
+            width: 60px;
+            overflow: hidden;
+          }
+        }
+      }
+      table,th,tr{
+        border: 1px solid #f5f5f5;
+      }
+      &__table{
+        width: 300px;
+        height: 420px;
+        border: 1px solid #f5f5f5;
+        th,td{
+          padding: 8px;
+        }
+        th {
+          width: 39%;
+          text-align: left;
+          font-weight: 400;
+          background: #fafafa;
+        }
+        td{
+          width: 61%;
+          background: $white;
+          a{
+            color: $light-blue;
+            display: block;
+            text-decoration: none;
+          }
+        }
+        &__user-ratings-box{
+          display: flex;
+          &__ratings{
+            margin: 8px 0 0 16px;
+            &:first-child{
+              margin-left: 0;
+            }
+            i{
+              font-size: 16px;
+              font-weight: 400;
+            }
+            i,span{
+              vertical-align: middle;
+            }
+            &__icon-good{
+              color: #ef5185;
+            }
+            &__icon-normal{
+              color: #fba933
+            }
+            &__icon-bad{
+              color: #6ab5d8;
+            }
+          }
+        }
+      }
+    }
+    &__price-box{
+      margin: 24px 0 0;
+      text-align: center;
+      &__price{
+        margin: 0 16px 0 0;
+        font-size: 50px;
+      }
+      &__tax{
+        font-size: 10px;
+      }
+      &__shipping-fee{
+        font-size: 16px;
+      }
+    }
+    &__item-description{
+      padding: 32px 0 0;
+      p{
+        font-size: 18px;
+      }
+    }
+    &__button-container{
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      &__left{
+        display: flex;
+        color: $black;
+        font-size: 14px;
+        &__like-btn{
+          padding: 8px 16px;
+          border-radius: 40px;
+          border: 1px solid $main-background;
+          background: $main-background;
+          cursor: pointer;
+          span{
+            margin: 1px 0 0 8px;
+          }
+        }
+        &__report-link{
+          margin: 0 0 0 16px;
+          padding: 8px 16px;
+          border-radius: 40px;
+          background: $main-background;
+          a{
+            text-decoration: none;
+            color: $black;
+            span{
+              margin: 1px 0 0 8px;
+            }
+          }
+        }
+      }
+      &__right{
+        margin: 8px 0 0;
+        a{
+          text-decoration: none;
+          color: $light-blue;
+          span{
+            margin: 1px 0 0 8px;
+          }
+        }
+      }
+    }
+  }
+  &__message{
+    margin: 8px auto;
+    &__message-container{
+      background-color: $white;
+      width: 700px;
+      margin: 0 auto;
+      padding: 24px;
+      p{
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;
+      }
+      textarea{
+        margin: 8px 0 0;
+        width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      &__submit-btn{
+        width: 100%;
+        margin: 8px 0 0;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        line-height: 48px;
+      }
+    }
+  }
+  &__nav-links{
+    margin: 24px auto 0;
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    &__link{
+      width: 45%;
+      list-style: none;
+      a{
+        color: $light-blue;
+        text-decoration: none;
+      }
+    }
+    &__link-next{
+      text-align: right;
+    }
+  }
+  &__social-media-container{
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+    background-color: $white;
+    &__btns{
+      margin: 16px 0 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      &__btn{
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        &:last-child{
+          margin: 0 0 8px;
+        }
+        &__link{
+          text-decoration: none;
+          i{
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            line-height: 44px;
+            color: $white;
+          }
+          &__icon-facebook{
+            font-size: 34px;
+            background: #385185;
+          }
+          &__icon-twitter{
+            font-size: 34px;
+            background: #5d9dc9;
+          }
+          &__icon-pinterest{
+            font-size: 22px;
+            background: #aa262a;
+          }
+
+        }
+      }
+    }
+  }
+  &__items-in-user-profile{
+    width: 700px;
+    margin: 0 auto;
+    &__items-box-container{
+      &__head{
+        font-size: 22px;
+        margin: 24px 0 8px;
+        color:$light-blue;
+        font-weight: 700;
+      }
+      &__content{
+        display: flex;
+        flex-wrap: wrap;
+        &__items-box{
+          width: 220px;
+          margin: 0 20px 20px 0;
+          background-color:$white;
+          text-decoration: none;
+          &:nth-child(3n){
+            margin-right: 0;
+          }
+          &__link{
+            color: $black;
+            text-decoration: none;
+            &__photo{
+              width: 220px;
+              height: 220px;
+              position: relative;
+              img{
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+              }
+              &__sold-out-badge{
+                &__caption{
+                  position: absolute;
+                  left: 0;
+                  z-index: 2;
+                  top: 20px;
+                  font-size: 26px;
+                  line-height: 26px;
+                  transform: rotate(-45deg);
+                  color:$white;
+                }
+                &:after{
+                  border-width: 100px 100px 0 0;
+                  border-color: $red transparent transparent;
+                  border-style: solid;
+                  display: block;
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  z-index: 1;
+                }
+              }
+            }
+            &__body{
+              padding: 16px;
+              height: 110px;
+              &__name{
+                overflow: hidden;
+                font-weight: 400;
+                height: 3rem;
+                line-height: 1.5;
+                font-size: 16px;
+              }
+              &__nums{
+                margin: 8px 0 0;
+                display: flex;
+                justify-content: space-between;
+                &__price{
+                  font-size: 17px;
+                  font-weight: 600;
+                }
+                &__like{
+                  font-size: 16px;
+                  font-weight: 400;
+                  i{
+                    color: #ccc;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
