@@ -16,7 +16,7 @@
               %label.form-mask
                 = image_tag "noavatar.png"
               %input{class: 'hidden'}
-              %input{class: 'input', value: "テストユーザーだよ"}
+              %input{class: 'input', value: "#{current_user.nickname}"}
         .content-chapter-profile
           %textarea{class: "textarea-default", placeholder: "(例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
           %button{type: "submit", class: "content-chapter-profile__button"}
