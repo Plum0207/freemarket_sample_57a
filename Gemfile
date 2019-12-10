@@ -44,6 +44,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+
 end
 
 group :development do
@@ -68,16 +73,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_hash'
 gem 'carrierwave'
 gem 'devise'
-gem 'factory_bot_rails'
-gem 'faker'
 gem 'fog-aws'
 gem "font-awesome-rails"
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'pry-rails'
-gem 'rails-controller-testing'
-gem 'rspec-rails'
 gem 'enum_help'
 gem 'rails-i18n'
 gem 'ancestry'
