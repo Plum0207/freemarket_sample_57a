@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   # MEMO??????????session?????????????
   # protected
 
-  # def configure_permitted_parameters
-  #   added_attrs = [:nickname, :email, :password, :password_confirmation, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday]
-  #   devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-  #   devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-  # end
+  def configure_permitted_parameters
+    added_attrs = [:nickname, :email, :password, :password_confirmation, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday]
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
+    # devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  end
   
   private
 

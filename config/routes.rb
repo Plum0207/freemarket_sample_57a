@@ -41,6 +41,11 @@ Rails.application.routes.draw do
     end
   end
   
+  resources "users", only: :show do
+    collection do
+      get 'show'
+    end
+  end
   
   patch 'mypage/profile/:id' => 'users#update', as: "mypage_profile"
   
