@@ -1,5 +1,5 @@
 10.times do |number|
-    Item.create!(id: "#{number+1}", seller_id: 2, name: "レディース", description: "[激レア] 良品です!!", category_id: 32, size: "M", brand_id: 8, condition: 0, postage_burden: 0, sending_method: 0, prefecture_from: 0, shipping_date: 0, price: 999)
+    Item.create!(id: "#{number+1}", seller_id: 2, name: "レディース", description: "[激レア] 良品です!!", category_id: 32, size: 0, brand_id: 8, condition: 0, postage_burden: 0, sending_method: 0, prefecture_from: 0, shipping_date: 0, price: 999)
   end
 
 10.times do |number|
