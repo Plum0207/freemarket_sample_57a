@@ -30,7 +30,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -53,7 +54,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -76,7 +78,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -100,7 +103,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -138,7 +142,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -162,7 +167,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -185,7 +191,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
@@ -208,7 +215,8 @@
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
                 = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
+                .items-detail 
+                  #{item.description}
                   .items-price
                     %span.price-yen
                       -# #{converting_to_jpy(item.price)}
