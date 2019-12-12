@@ -33,12 +33,12 @@
               =fa_icon 'check', class: "header-box__bottom__right__menu__link__icon"
               %span やることリスト
           %li.header-box__bottom__right__menu.header-box__bottom__right__menu--mypage
-            =link_to "/mypage", class: 'header-box__bottom__right__menu__link' do
+            =link_to users_path, class: 'header-box__bottom__right__menu__link' do
               =fa_icon 'user-circle', class: "header-box__bottom__right__menu__link__icon"
               %span マイページ
       - else
         .header-box__bottom__right
           .header-box__bottom__right__btn.header-box__bottom__right__btn--signup
-            =link_to '新規会員登録', "/users/show", class: 'header-box__bottom__right__btn__link header-box__bottom__right__btn__link--signup'
+            =link_to '新規会員登録', registration_users_path, class: 'header-box__bottom__right__btn__link header-box__bottom__right__btn__link--signup'
           .header-box__bottom__right__btn.header-box__bottom__right__btn--login
             =link_to 'ログイン', new_user_session_path, class: 'header-box__bottom__right__btn__link header-box__bottom__right__btn__link--login'

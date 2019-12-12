@@ -31,19 +31,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
+  resources "users",only: [:index,:profile,:card,:purchase,:registration], path: 'mypage' do
     collection do
       get 'profile'
       get 'card'
       get 'notifications'
       get 'todo'
       get 'purchase'
-    end
-  end
-  
-  resources "users", only: :show do
-    collection do
-      get 'show'
+      get 'registration'
     end
   end
   
