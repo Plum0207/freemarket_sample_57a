@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
     @categories = Category.all.roots
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+  
   def buy
   end
-end
