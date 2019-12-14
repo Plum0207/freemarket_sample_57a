@@ -1,12 +1,12 @@
 class CardsController < ApplicationController
-  before_action :get_payjp_info, only: [:create, :delete, :show]
+  before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
 
   def index
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
   end
 
-  def new
+  def edit
   end
 
   def create

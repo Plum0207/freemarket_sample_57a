@@ -5,7 +5,7 @@
     
     .user-card__content
       %h2 クレジットカード情報入力
-      = form_tag(pay_cards_path, method: :post, id: 'card__form',class: "card__form",  name: "inputForm") do
+      = form_tag(card_path, method: :post, id: 'card__form',class: "card__form",  name: "inputForm") do
         .card__form__content
           .card__form__content--number.form_space
             = label_tag "card_number", "カード番号"
