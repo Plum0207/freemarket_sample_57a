@@ -9,8 +9,7 @@
             = image_tag "noavatar.png"
           -# = image_tag current_user.icon
           .user
-            テストユーザーだよ
-            -# = link_to "#{current_user.nickname} ", show_profile_users_path(current_user)
+            = link_to "#{current_user.nickname}", profile_users_path
           .user-number
             .user-number-evaluation
               評価数０

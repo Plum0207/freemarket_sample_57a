@@ -9,7 +9,7 @@
 
       .signup-panel__inherit
         .sign-up-btn
-          = button_to new_user_registration_path, method: :get,class: "btn-mail" do
+          = button_to user_info_signup_index_path, method: :get,class: "btn-mail" do
             = fa_icon "far envelope", class: "mail-icon"
             メールアドレスで登録
       

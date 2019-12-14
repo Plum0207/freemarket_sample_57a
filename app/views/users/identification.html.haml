@@ -20,18 +20,15 @@
           %label
             お名前
           %p
-            山田太郎
-            -# ="#{current_user.first_name}#{current_user.last_name}"
+            = "#{current_user.first_name}#{current_user.last_name}"
         .text-name
           %label お名前カナ
           %p
-            ヤマダタロウ
-            -# ="#{current_user.first_name_kana}#{current_user.last_name_kana}"
+            = "#{current_user.first_name_kana}#{current_user.last_name_kana}"
         .text-name
           %label 生年月日
           %p
-            1月1日
-            -# =current_user.birthday
+            =current_user.birthday
         = fields_for :user_address do |p|
           .signup-form
             .field
