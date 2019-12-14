@@ -7,4 +7,7 @@ class ItemsController < ApplicationController
     @image = Image.new
     @categories = Category.all.roots
   end
+
+  def buy
+  end
 end
