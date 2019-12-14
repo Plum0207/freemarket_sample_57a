@@ -1,0 +1,112 @@
+= render "shared/header"
+
+.item-detail
+  %section.item-detail__top-container
+    %h1.item-detail__top-container__item-name サンプル
+    .item-detail__top-container__main-content
+      .item-detail__top-container__main-content__photos
+        .item-detail__top-container__main-content__photos__selected-photo
+          = image_tag 'https://placehold.jp/300x300.png?text=item', alt: ''
+        .item-detail__top-container__main-content__photos__all-photos
+          - 10.times do
+            .item-detail__top-container__main-content__photos__all-photos__photo
+              = image_tag 'https://placehold.jp/dddddd/333333/60x60.png?text=item', alt: ''
+      %table.item-detail__top-container__main-content__table
+        %tr
+          %th 出品者
+          %td
+            =link_to 'ユーザー', ''
+            .item-detail__top-container__main-content__table__user-ratings-box
+              .item-detail__top-container__main-content__table__user-ratings-box__ratings
+                =fa_icon 'smile-o', class:'item-detail__top-container__main-content__table__user-ratings-box__ratings__icon-good'
+                %span 100
+              .item-detail__top-container__main-content__table__user-ratings-box__ratings
+                =fa_icon 'meh-o', class:'item-detail__top-container__main-content__table__user-ratings-box__ratings__icon-normal'
+                %span 0
+              .item-detail__top-container__main-content__table__user-ratings-box__ratings
+                =fa_icon 'frown-o', class:'item-detail__top-container__main-content__table__user-ratings-box__ratings__icon-bad'
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to '親カテゴリー',''
+            = link_to '' do
+              =fa_icon 'chevron-right',text: '子カテゴリー'
+            = link_to '' do
+              =fa_icon 'chevron-right',text: '孫カテゴリー'
+
+        %tr
+          %th ブランド
+          %td
+            = link_to 'ブランド',''
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 配送元地域
+          %td
+            = link_to '都道府県',''
+        %tr
+          %th 発送日の目安
+          %td 1~2日で発送
+    .item-detail__top-container__price-box
+      %span.item-detail__top-container__price-box__price ¥1,000
+      %span.item-detail__top-container__price-box__tax &#040;税込&#041;
+      %span.item-detail__top-container__price-box__shipping-fee 送料込み
+    .item-detail__top-container__item-description
+      %p サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。サンプル商品の説明です。
+    .item-detail__top-container__button-container
+      .item-detail__top-container__button-container__left
+        %button.item-detail__top-container__button-container__left__like-btn
+          =fa_icon 'heart-o'
+          %span いいね!
+          %span 10
+        .item-detail__top-container__button-container__left__report-link
+          =link_to "" do
+            =fa_icon 'flag-o'
+            %span 不適切な商品の報告
+      .item-detail__top-container__button-container__right
+        =link_to "https://www.mercari.com/jp/safe/description/", target: '_blank' do
+          =fa_icon 'lock'
+          %span あんしん・あんぜんへの取り組み
+  .item-detail__message
+    .item-detail__message__message-container
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea
+      %input{type: "submit", value:"コメントする", class:"item-detail__message__message-container__submit-btn"}
+  .item-detail__nav-links
+    %li.item-detail__nav-links__link
+      =link_to "" do
+        =fa_icon 'chevron-left', text: '前のアイテム'
+    %li.item-detail__nav-links__link.item-detail__nav-links__link-next
+      =link_to "" do
+        =fa_icon 'chevron-right', text: '次のアイテム', right: true
+  .item-detail__social-media-container
+    %ul.item-detail__social-media-container__btns
+      %li.item-detail__social-media-container__btns__btn
+        =link_to "https://www.facebook.com/", class: 'item-detail__social-media-container__btns__btn__link' do
+          =fa_icon 'facebook-square', class: 'item-detail__social-media-container__btns__btn__link__icon-facebook'
+      %li.item-detail__social-media-container__btns__btn
+        =link_to "https://twitter.com/", class: 'item-detail__social-media-container__btns__btn__link' do
+          =fa_icon 'twitter', class: 'item-detail__social-media-container__btns__btn__link__icon-twitter'
+      %li.item-detail__social-media-container__btns__btn
+        =link_to "https://www.pinterest.jp/", class: 'item-detail__social-media-container__btns__btn__link' do
+          =fa_icon 'pinterest', class: "item-detail__social-media-container__btns__btn__link__icon-pinterest"
+  .item-detail__items-in-user-profile
+    %section.item-detail__items-in-user-profile__items-box-container.item-detail__items-in-user-profile__items-box-container__related-item-column
+      %h2.item-detail__items-in-user-profile__items-box-container__head ユーザーさんのその他の出品
+      .item-detail__items-in-user-profile__items-box-container__content
+        - 6.times do
+          =render "items-box"
+    %section.item-detail__items-in-user-profile__items-box-container.item-detail__items-in-user-profile__items-box-container__related-item-column
+      %h2.item-detail__items-in-user-profile__items-box-container__head 同カテゴリーその他の出品
+      .item-detail__items-in-user-profile__items-box-container__content
+        - 6.times do
+          =render "items-box"
+= render "shared/footer"

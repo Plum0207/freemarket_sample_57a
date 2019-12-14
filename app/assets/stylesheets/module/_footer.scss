@@ -1,7 +1,7 @@
 .banner{
   background-position: center;
   background-size: cover;
-  color: Swhite;
+  color: $white;
   height: 270px;
   position: relative;
   &__inner{
@@ -95,32 +95,15 @@
     }
   }
 }
-.footer-self-btn{
-  color: $white;
-  background-color: $red;
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 160px;
-  height: 160px;
-  font-size: 22px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 65px;
-  .camera{
-    font-size: 54px;
-    margin-bottom: 0px;
-  }
-}
 .sold-items{
   position: relative;
   .sold-item{
     width: 100px;
     height: 100px;
-    background-color: Sred;
+    background-color: $red;
     position: absolute;
     top:-219px;
-    color: swhite;
+    color: $white;
     font-weight: bold;
     font-size: 20px;
   }

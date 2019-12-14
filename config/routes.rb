@@ -31,16 +31,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
+  resources "users",only: [:index,:profile,:card,:purchase,:registration], path: 'mypage' do
     collection do
       get 'profile'
       get 'card'
       get 'notifications'
       get 'todo'
       get 'purchase'
+      get 'registration'
     end
   end
-  
   
   patch 'mypage/profile/:id' => 'users#update', as: "mypage_profile"
   
@@ -80,8 +80,7 @@ Rails.application.routes.draw do
     member do
       get 'index'
     end
-  end 
-  
+  end
 #   resource "products", path: "sell", only: :show, action: :new, as: "new_products"
 #   resource "products", path: "sell", only: :create
 #   resource "products", only: :edit, path: "/m:product_id"
