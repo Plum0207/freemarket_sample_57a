@@ -29,9 +29,9 @@
               = f.label :categories, 'カテゴリー', class: 'category__name'
               %span.required 必須
               .category__form
-                = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: 'form-box', id: 'parent_category'}
+                = f.collection_select :category_id, @parents_categories, :id, :name, {prompt: "---"}, {class: 'form-box', id: 'parent_category'}
             .size
-              = f.label :size, 'サイズ' ,class: 'size__name'
+              = f.label :size, 'サイズ', class: 'size__name'
               %span.required 必須
               .size__form
                 = f.select :size, Item.sizes.keys.map { |k| [t("enums.item.size.#{k}"), k]}, { include_blank: "---", selected: "---" }, {class: 'form-box'}

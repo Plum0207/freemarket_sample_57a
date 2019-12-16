@@ -1,22 +1,29 @@
 class ItemsController < ApplicationController
+  before_action :set_parents_categories, only: [:new, :create]
+
   def index
   end
 
   def new
     @item = Item.new
     @image = Image.new
-    @categories = Category.where(ancestry: nil)
     @brand = Brand.new
   end
 
   def create
-    @brand = Brand.where(name: brand_params[:name]).first_or_create
-    @item = Item.new(items_params)
-    @item.save
-    
-    images_params[:image].each do |img|
-      new_image = Image.new(image: img, item_id: @item.id)
-      new_image.save
+    if params[:image] == nil
+      render new_item_path
+    else
+      @brand = Brand.where(name: brand_params[:name]).first_or_create
+      @item = Item.new(items_params)
+      images_params[:image].each do |img|
+        @item.images.build(image: img)
+      end
+      if @item.save 
+        redirect_to root_path
+      else
+        render new_item_path
+      end
     end
   end
 
@@ -53,15 +60,17 @@ class ItemsController < ApplicationController
       :sending_method, 
       :prefecture_from, 
       :shipping_date, 
-      :price
-    )
-    .merge(brand_id: @brand.id)
+      :price,
+    ).merge(brand_id: @brand.id)
   end
 
   def images_params
-    params.require(:image).permit({image: []})
+    params.require(:image).permit({image: []}, item_id: @item.id)
   end
 
+  def set_parents_categories
+    @parents_categories = Category.where(ancestry: nil)
+  end
 
   def parent_id_params
     params.permit[:parent_id]
