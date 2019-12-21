@@ -29,12 +29,11 @@
           - @lady_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                     
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -52,12 +51,11 @@
           - @man_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                     
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -75,12 +73,11 @@
           - @appliance_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                     
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -99,12 +96,11 @@
           - @hobby_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                     
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -137,12 +133,11 @@
           - @channel_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                     
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -161,12 +156,11 @@
           - @vuitton_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                      
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -184,12 +178,11 @@
           - @supreme_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  #{item.description}
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                .items-detail
                   .items-price
                     %span.price-yen
-                      #{item.price}                      
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
@@ -207,12 +200,11 @@
           - @nike_items.each do |item|
             .items-list
               = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
                 .items-detail 
-                  #{item.description}
                   .items-price
                     %span.price-yen
-                      #{item.price}                     
+                      ¥#{item.price}
                   %h3.items-name
                     #{item.name}
         - else
