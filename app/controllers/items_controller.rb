@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
       :prefecture_from, 
       :shipping_date, 
       :price,
-    ).merge(brand_id: @brand.id)
+    ).merge(brand_id: @brand.id, seller_id: current_user.id)
   end
 
   def images_params
