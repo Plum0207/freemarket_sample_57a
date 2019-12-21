@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root 'items#index'
-  resources :items
+  resources :items do
+    collection do
+      get 'get_children_category', defaults: { format: 'json' }
+      get 'get_grandchildren_category', defaults: { format: 'json' }
+    end
+  end
 
   # devise_user_controller
   devise_for :users, controllers: {
@@ -31,16 +36,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources "users",only: [:index,:profile,:card,:purchase], path: 'mypage' do
+  resources "users",only: [:index,:profile,:card,:purchase,:registration], path: 'mypage' do
     collection do
       get 'profile'
       get 'card'
       get 'notifications'
       get 'todo'
       get 'purchase'
+      get 'registration'
     end
   end
-  
   
   patch 'mypage/profile/:id' => 'users#update', as: "mypage_profile"
   
@@ -74,12 +79,13 @@ Rails.application.routes.draw do
   
   resources :cards, only: [:index, :new, :show] do
     collection do
-      post 'show', to: 'cards#show'
-      post 'pay', to: 'cards#pay'
-      delete 'delete', to: 'cards#delete'
+      post 'delete', to: 'cards#delete'
+      post 'show'
+    end
+    member do
+      get 'index'
     end
   end
-  
 #   resource "products", path: "sell", only: :show, action: :new, as: "new_products"
 #   resource "products", path: "sell", only: :create
 #   resource "products", only: :edit, path: "/m:product_id"

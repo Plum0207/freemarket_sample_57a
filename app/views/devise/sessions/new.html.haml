@@ -22,9 +22,9 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login-form
         .field
-          = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "メールアドレス", value: "test@gmail.com"
+          = f.email_field :email, class: "field__input", autocomplete: "email", placeholder: "メールアドレス"
         .field
-          = f.password_field :password, class: "field__input", autocomplete: "current-password", placeholder: "パスワード", value: "123456"
+          = f.password_field :password, class: "field__input", autocomplete: "current-password", placeholder: "パスワード"
         .field
         -#  = recaptcha_tags
       .login-form__captcha
