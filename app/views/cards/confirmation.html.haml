@@ -10,7 +10,7 @@
         .user-card__content__inner--text
           %h3 クレジットカード一覧
         .user-card__content__inner--btn
-          = link_to edit_card_path(current_user),class: "user-card__content__inner--btn--add" do
+          = link_to new_card_path(current_user),class: "user-card__content__inner--btn--add" do
             %i.fas
               =fa_icon 'credit-card', class: 'fa-credit-card'
             クレジットカードを追加する
