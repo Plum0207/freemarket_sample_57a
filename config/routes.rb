@@ -77,15 +77,24 @@ Rails.application.routes.draw do
 #     end
 #   end
   
-  resources :cards, only: [:create, :edit, :show] do
-    collection do
-      post 'delete', to: 'cards#delete'
-      post 'show'
-    end
+  resources :cards, only: [:create, :new, :show] do
     member do
-      get 'confirmation'
+      post 'delete', to: 'cards#delete'
+      post 'show', to: 'cards#show'
+      get  'show', to: 'cards#show'
+    end
+    collection do
+      get  'confirmation'
     end
   end
+
+  # resources :cards, only: [:create, :new, :show] do
+  #   collection do
+  #     get 'confirmation'
+  #     post 'delete', to: 'cards#delete'
+  #     post 'show', to: 'cards#show'
+  #   end
+  # end
 #   resource "products", path: "sell", only: :show, action: :new, as: "new_products"
 #   resource "products", path: "sell", only: :create
 #   resource "products", only: :edit, path: "/m:product_id"
