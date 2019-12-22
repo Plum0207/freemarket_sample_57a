@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
+    @pref = Pref.find(@item.prefecture_from)
   end
 
   private
