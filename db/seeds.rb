@@ -7,15 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# ① まずはこのまま"rake db:seed"を実行することで、ローカルのDBに以下user, category, brandのデータが入力されます。
+# "rake db:seed"を実行することで、ローカルのDBにデータが入力されます。ユーザーが一番最初に入力されないとその他の項目が上手く反映されないので、順番はこのままにしてください。
 require './db/seeds/user.rb'
 require './db/seeds/category.rb'
 require './db/seeds/brand.rb'
-
-# ② 次に上記3行をコメントアウトし下記の行のコメントアウトを外して"rake db:seed"を実行することでitemのデータがローカルのDBに入力されます。
-# require './db/seeds/item.rb'
-
-# ③ 最後に上記itemの行をコメントアウトし下記の行のコメントアウトを外して"rake db:seed"を実行することで、各itemに紐づけられたimageのデータがローカルのDBに入力されます。
-# require './db/seeds/image.rb'
+require './db/seeds/item.rb'
+require './db/seeds/image.rb'
 
 # ローカルのDBのデータを全て消して一からやり直したい場合は、"rake db:migrate:reset"を実行してください。
