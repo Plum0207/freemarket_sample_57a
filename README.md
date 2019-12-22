@@ -75,6 +75,7 @@
 |prefecture_from|integer|null: false|
 |shipping_date|integer|null: false|
 |price|integer|null: false|
+|status|integer|null: false|
 
 ### Association
 - belongs_to :user
