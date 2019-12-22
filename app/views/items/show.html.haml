@@ -30,12 +30,12 @@
         %tr
           %th カテゴリー
           %td
-            = link_to '親カテゴリー',''
             = link_to '' do
-              =fa_icon 'chevron-right',text: '子カテゴリー'
+              = @item.category.root.name
             = link_to '' do
-              =fa_icon 'chevron-right',text: '孫カテゴリー'
-
+              =fa_icon 'chevron-right',text: "#{@item.category.parent.name}"
+            = link_to '' do
+              =fa_icon 'chevron-right',text: "#{@item.category.name}"
         %tr
           %th ブランド
           %td
