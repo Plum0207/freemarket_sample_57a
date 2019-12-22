@@ -60,6 +60,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def brand_params
@@ -97,7 +101,4 @@ class ItemsController < ApplicationController
     params.permit[:children_id]
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
 end
