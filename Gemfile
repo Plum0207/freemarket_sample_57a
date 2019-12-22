@@ -84,6 +84,7 @@ gem 'enum_help'
 gem 'rails-i18n'
 gem 'ancestry'
 gem 'payjp'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
