@@ -13,5 +13,6 @@ FactoryBot.define do
     prefecture_from     { 1 }
     shipping_date       { 0 }
     price               { 1000 }
+    status              { 0 }
   end
 end

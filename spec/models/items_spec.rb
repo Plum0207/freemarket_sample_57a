@@ -71,6 +71,12 @@ describe Item do
       item.invalid?
       expect(item.errors[:price]).to include("を入力してください")
     end
+
+    it "is invalid without a status" do
+      item = build(:item, status: nil)
+      item.invalid?
+      expect(item.errors[:status]).to include("を入力してください")
+    end
     
 
     # 検証：nameが40文字ちょうとで保存できる
