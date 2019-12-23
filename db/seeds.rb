@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# "rake db:seed"を実行することで、ローカルのDBにデータが入力されます。ユーザーが一番最初に入力されないとその他の項目が上手く反映されないので、順番はこのままにしてください。
-require './db/seeds/user.rb'
+# "rake db:seed"を実行することで、ローカルのDBにデータが入力されます。itemやimageより先にユーザーが入力されないと上手く反映されないので、順番はこのままにしてください。
 require './db/seeds/category.rb'
 require './db/seeds/brand.rb'
+require './db/seeds/user.rb'
 require './db/seeds/item.rb'
 require './db/seeds/image.rb'
 
