@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   require "payjp"
-  before_action :set_card, only: [:confirmation, :delete, :show]
+  before_action :set_card, only: [:confirmation, :destroy, :show]
 
   def confirmation
     redirect_to action: "show",id: current_user.id if @card.present?
@@ -28,13 +28,13 @@ class CardsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     if @card.present?
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
-    end
       redirect_to action: "confirmation"
+    end
   end
 
   def show
