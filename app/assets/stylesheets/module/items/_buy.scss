@@ -112,16 +112,15 @@
           }
           &--buy-btn {
             background-color: $red;
-            color: $header-background;
+            color: $white;
             font-size: 14px;
             font-weight: 700;
             height: 50px;
             line-height: 50px;
             text-align: center;
             margin-top: 32px;
-            text-decoration: none;
+            }
           }
         }
       }
     }
-  }
