@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_parents_categories, only: [:new, :create]
-  before_action :set_item, only: [:show, :buy, ]
 
   def index
     #レディース
@@ -104,10 +103,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-  end
-
-  def set_item
     @item = Item.find(params[:id])
   end
 end
