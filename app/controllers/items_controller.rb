@@ -44,6 +44,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy
+    @item = Item.find(params[:id])
+  end
+
   def get_children_category
     @children_categories = Category.children_of(params[:parent_id])
     respond_to do |format|
@@ -60,6 +64,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  
   private
 
   def brand_params
