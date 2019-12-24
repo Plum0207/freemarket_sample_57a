@@ -80,15 +80,17 @@ Rails.application.routes.draw do
 #     end
 #   end
   
-  resources :cards, only: [:index, :new, :show] do
-    collection do
-      post 'delete', to: 'cards#delete'
-      post 'show'
-    end
+  resources :cards, only: [:create, :new, :show, :destroy] do
     member do
-      get 'index'
+      post 'show', to: 'cards#show'
+      get  'show', to: 'cards#show'
+      delete 'destroy', as: 'destroy'
+    end
+    collection do
+      get  'confirmation'
     end
   end
+
 #   resource "products", path: "sell", only: :show, action: :new, as: "new_products"
 #   resource "products", path: "sell", only: :create
 #   resource "products", only: :edit, path: "/m:product_id"

@@ -76,12 +76,15 @@ gem 'devise'
 gem 'fog-aws'
 gem "font-awesome-rails"
 gem 'haml-rails'
+gem 'erb2haml'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'enum_help'
 gem 'rails-i18n'
 gem 'ancestry'
+gem 'payjp'
+gem 'dotenv-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
