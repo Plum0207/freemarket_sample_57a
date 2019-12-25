@@ -30,6 +30,11 @@
             height: 60px;
             width: 60px;
             overflow: hidden;
+            opacity: .4;
+            &:hover{
+              opacity: 1;
+              cursor: default;
+            }
           }
         }
       }
