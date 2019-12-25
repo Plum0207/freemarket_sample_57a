@@ -7,7 +7,7 @@
     .item-detail__top-container__main-content
       .item-detail__top-container__main-content__photos
         .item-detail__top-container__main-content__photos__selected-photo
-          = image_tag 'https://placehold.jp/300x300.png?text=item', alt: ''
+          = image_tag @item.images[0].image.url, alt: 'item-image', height: '300px', width: '300px'
         .item-detail__top-container__main-content__photos__all-photos
           - 10.times do
             .item-detail__top-container__main-content__photos__all-photos__photo
