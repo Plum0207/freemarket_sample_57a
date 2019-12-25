@@ -34,4 +34,8 @@ class Item < ApplicationRecord
   validates :prefecture_from, presence: true
   validates :shipping_date, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
+  # 該当item抽出のためのscopeの定義
+  scope :recent, -> (count) { order(id: :desc).limit(count) }
+
 end
