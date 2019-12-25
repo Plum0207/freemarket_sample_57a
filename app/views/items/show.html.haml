@@ -119,6 +119,8 @@
         - else
           =link_to "#{@item.category.name} その他の出品"
       .item-detail__items-in-user-profile__items-box-container__content
-        -# - 6.times do
-        -#   =render "items-box"
+        - if @item.brand
+          =render partial: "items-box", collection: @brand_items, as: :item
+        - else
+          =render partial: "items-box", collection: @category_items, as: :item
 = render "shared/footer"
