@@ -111,8 +111,7 @@
         %h2.item-detail__items-in-user-profile__items-box-container__head
           =link_to "#{@user.nickname}さんのその他の出品", ''
         .item-detail__items-in-user-profile__items-box-container__content
-          - 6.times do
-            =render "items-box"
+          =render partial: "items-box", collection: @user_items, as: :item
     %section.item-detail__items-in-user-profile__items-box-container.item-detail__items-in-user-profile__items-box-container__related-item-column
       %h2.item-detail__items-in-user-profile__items-box-container__head
         - if @item.brand
@@ -120,6 +119,6 @@
         - else
           =link_to "#{@item.category.name} その他の出品"
       .item-detail__items-in-user-profile__items-box-container__content
-        - 6.times do
-          =render "items-box"
+        -# - 6.times do
+        -#   =render "items-box"
 = render "shared/footer"

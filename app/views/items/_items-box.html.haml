@@ -1,5 +1,5 @@
 %section.item-detail__items-in-user-profile__items-box-container__content__items-box
-  =link_to "", class: "item-detail__items-in-user-profile__items-box-container__content__items-box__link" do
+  =link_to "/items/#{item.id}", class: "item-detail__items-in-user-profile__items-box-container__content__items-box__link" do
     %figure.item-detail__items-in-user-profile__items-box-container__content__items-box__link__photo
       = image_tag 'https://placehold.jp/220x220.png?text=item', alt: ''
       %figcaption.item-detail__items-in-user-profile__items-box-container__content__items-box__link__photo__sold-out-badge
