@@ -39,8 +39,9 @@
         %tr
           %th ブランド
           %td
-            = link_to '' do
-              = @item.brand.name
+            - if @item.brand
+              = link_to '' do
+                = @item.brand.name
         %tr
           %th 商品の状態
           %td= @item.condition_i18n
@@ -113,7 +114,10 @@
           =render "items-box"
     %section.item-detail__items-in-user-profile__items-box-container.item-detail__items-in-user-profile__items-box-container__related-item-column
       %h2.item-detail__items-in-user-profile__items-box-container__head
-        =link_to "#{@item.brand.name}の#{@item.category.name} その他の出品"
+        - if @item.brand
+          =link_to "#{@item.brand.name}の#{@item.category.name} その他の出品"
+        - else
+          =link_to "#{@item.category.name} その他の出品"
       .item-detail__items-in-user-profile__items-box-container__content
         - 6.times do
           =render "items-box"
