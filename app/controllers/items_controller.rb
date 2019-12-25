@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @pref = Pref.find(@item.prefecture_from)
+    @user_items = Item.where(seller_id: @user.id).where.not(id: @item.id).order("id DESC").limit(6)
   end
 
   private
