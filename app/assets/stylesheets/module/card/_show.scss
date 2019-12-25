@@ -1,0 +1,28 @@
+.customer-card{
+  display: flex; 
+  &__content {
+    padding: 30px 0;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2em;
+    .form_space {
+      margin-bottom: 20px;
+    }
+  }
+  &__btn {
+    margin: 80px auto;
+    .delete-btn {
+      padding: 8px;
+      background-color: $white;
+      color: orangered;
+      border-color: orangered;
+      border: solid, 1px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}

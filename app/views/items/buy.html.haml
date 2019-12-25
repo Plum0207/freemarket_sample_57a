@@ -1,0 +1,50 @@
+= render "devise/user/user_header"
+
+.buy-confirmation-main
+  .buy-confirmation-main__box
+    .buy-confirmation-main__box--title
+      購入内容の確認
+    .buy-confirmation-main__box--product
+      = image_tag @item.images[0].image.url, width:"80px", height:"80px"
+      .buy-confirmation-main__box--product--name
+        = @item.name
+        .buy-confirmation-main__box--product--price
+          = "¥#{@item.price.to_s(:delimited)}"
+          .buy-confirmation-main__box--product--price--shipping-fee
+            （税込）送料込み
+    .buy-confirmation-main__box--buy-form
+      .buy-confirmation-main__box--buy-form--info
+        .buy-confirmation-main__box--buy-form--info--payment
+          支払い金額
+          .buy-confirmation-main__box--buy-form--info--payment--amount
+            = "¥#{@item.price.to_s(:delimited)}"
+            .buy-confirmation-main__box--buy-form--info--payment--point
+              %i.fas.fa-square
+              .buy-confirmation-main__box--buy-form--info--payment--point--text
+                ポイントを使用 (所持ポイント: P0)
+        .buy-confirmation-main__box--buy-form--info--method-of-payment
+          支払い方法
+          .buy-confirmation-main__box--buy-form--info--method-of-payment--change
+            変更する
+          .buy-confirmation-main__box--buy-form--info--method-of-payment--card-info
+            %p クレジットカード
+            %p ************0000
+            %p 有効期限 00 / 00
+          .buy-confirmation-main__box--buy-form--info--method-of-payment--credit-card-icon
+            = image_tag "credit_cards/visa.svg",size: "40x20"
+            
+        .buy-confirmation-main__box--buy-form--info--destination
+          配送先
+          .buy-confirmation-main__box--buy-form--info--destination--change
+            変更する
+            .buy-confirmation-main__box--buy-form--info--destination--detail
+              〒150-0041
+              .buy-confirmation-main__box--buy-form--info--destination-place
+                東京都渋谷区神南1丁目12−16 
+                アジアビル9F
+                .buy-confirmation-main__box--buy-form--info--destination-name
+                  テストテスオ
+        .buy-confirmation-main__box--buy-form--info--buy-btn
+          購入する
+            
+= render "devise/user/user_footer"
