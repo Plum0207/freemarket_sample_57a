@@ -82,6 +82,7 @@ gem 'pry-rails'
 gem 'enum_help'
 gem 'rails-i18n'
 gem 'ancestry'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'
