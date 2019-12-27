@@ -44,8 +44,8 @@
           %input#user_address_telephone.field__input{placeholder:  "例）09012345678", type: "text"}
           .sign-up-btn
       .sign-up-btn 
-        %button.btn-red{type:  "submit"}
-          = link_to '次へ進む', user_card_signup_index_path()
+        %button.btn-red{type: "submit"}
+          = link_to '次へ進む', user_card_signup_index_path(), class: "btn-text"
         
 
 -# MEMO：以下、余裕があればsessionで登録できるようにするため
