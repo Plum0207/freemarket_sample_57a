@@ -10,8 +10,7 @@
         %p 会員登録が完了しました。
 
       .sign-up-btn
-        %button{type: "submit",class: "btn-red"}
-          = link_to 'メルカリをはじめる', root_path()
+        = link_to 'メルカリをはじめる', root_path(), class: "btn btn-red"
           
             
 = render "devise/user/user_footer"

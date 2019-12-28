@@ -52,7 +52,6 @@
             %input#user_email.field__input{placeholder: "カード背面4桁もしくは3桁の番号", type: "email"}
         .forgot-password--credit-card
           = link_to "カード背面番号とは?", new_user_session_path
-        .sign-up-btn
-          %button.btn-red
-            = link_to '次へ進む', user_complete_signup_index_path()
+        .sign-up-btn 
+          = link_to '次へ進む', user_complete_signup_index_path(), class: "btn btn-red"
 = render "devise/user/user_footer"
