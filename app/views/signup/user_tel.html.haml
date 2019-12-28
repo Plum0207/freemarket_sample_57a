@@ -13,8 +13,7 @@
           %p.form-info--tell
             本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .sign-up-btn
-          %button.btn-red{type: "submit"}
-            = link_to 'SMSを送信する', user_address_signup_index_path(), class: "btn-text"
+          = link_to 'SMSを送信する', user_address_signup_index_path(), class: "btn btn-red"
             
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
         .forgot-password

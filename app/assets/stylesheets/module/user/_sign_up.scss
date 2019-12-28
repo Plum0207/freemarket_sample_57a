@@ -188,11 +188,8 @@
           background: $red;
           border: 1px solid $red;
           color: $white;
-          @include btn-pass;
-        }
-        .btn-text{
-          color: $white;
           text-decoration: none;
+          @include btn-default;
         }
         p {
           margin: 8px 0 0;
