@@ -28,7 +28,7 @@
     }
     .form {
       .image {
-        height: 300px;
+        height: 460px;
         padding: 40px;
         &__title {
           font-size: 16px;
@@ -45,13 +45,54 @@
           margin: 8px 0 0;
         }
         &__upload {
-          height: 180px;
+          height: 370px;
           padding: 40px;
           margin-top: 16px;
-          border: 1px dashed #ccc;
+          border: 1px solid #ccc;
           display: block;
-          .upload-file {
-            display: none;
+          .upload-form {
+            margin-bottom: 10px;
+            display: flex;
+            &__num {
+              height: 20px;
+              font-weight: bold;
+              text-align: center;
+              line-height: 20px;
+            }
+            &__select-btn {
+              @include require;
+              height: 20px;
+              width: 40px;
+              text-align: center;
+              line-height: 16px;
+              background-color: #4DC9FF;
+              &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+              }
+              &--input_tag {
+                display: none;
+              }
+            }
+            &__remove-btn {
+              @include require;
+              height: 20px;
+              width: 40px;
+              background-color: $red;
+              line-height: 16px;
+              text-align: center;
+              &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+              }
+            }
+            &__name {
+              height: 20px;
+              width: 340px;
+              border-bottom: dotted 1px #A6A6A6;
+              margin-left: 20px;
+              text-align: center;
+            }
           }
           .upload-discription {
             text-align: center;
