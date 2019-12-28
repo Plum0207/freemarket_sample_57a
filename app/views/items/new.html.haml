@@ -146,13 +146,13 @@
                 %span.required 必須
               %div.price__form
                 %p.yen ¥
-                = f.text_field :price, class: 'input', placeholder: '例）300'
+                = f.text_field :price, class: 'input', id: 'input_item_price', placeholder: '例）300'
             %li.fee
               .fee__left 販売手数料(10%)
-              .fee__right -
+              #item_fee.fee__right -
             %li.profit
               .profit__left 販売利益
-              .profit__right -
+              #item_profit.sprofit__right -
         .btn-box
           %div.btn-box__attention
             %p
