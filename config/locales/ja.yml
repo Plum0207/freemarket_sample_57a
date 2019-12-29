@@ -36,6 +36,11 @@ ja:
         within_two_days: "１〜２日で発送"
         within_three_days: "２〜３日で発送" 
         within_seven_days: "４〜７日で発送"
+      status:
+        sale: "販売中"
+        stop: "販売停止中"
+        negotiation: "交渉中"
+        sold: "完売"
   activerecord:
     errors:
       messages:
