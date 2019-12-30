@@ -35,6 +35,7 @@ class Item < ApplicationRecord
   validates :sending_method, presence: true
   validates :prefecture_from, presence: true
   validates :shipping_date, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :status, presence: true
 
   # 該当item抽出のためのscopeの定義
