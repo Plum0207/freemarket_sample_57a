@@ -5,7 +5,7 @@
   .signup-panel
     %p.signup-panel__title 会員情報入力
 
-    = form_for @user, url: user_tel_signup_index_path, method: :get, html: {class: "inputForm"} do |f|
+    = form_for @user, url: signup_index_path, method: :post, html: {class: "inputForm"} do |f|
       .signup-form
         .field
           = f.label :nickname, "ニックネーム"
@@ -18,11 +18,11 @@
         .field
           = f.label :password, "パスワード"
           %span.form-require
-          = f.text_field :password, class: "field__input", placeholder: "6文字以上"
+          = f.password_field :password, class: "field__input", placeholder: "6文字以上"
         .field
           = f.label :password_confirmation, "パスワード（確認）"
           %span.form-require
-          = f.text_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
+          = f.password_field :password_confirmation, class: "field__input", placeholder: "6文字以上（確認）"
 
         .field
           %h3 本人確認

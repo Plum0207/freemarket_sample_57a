@@ -12,6 +12,8 @@ class Item < ApplicationRecord
   enum postage_burden: { including_postage: 0, cash_on_delivery: 1 }
   enum sending_method: { undecided: 0, mercari_bin: 1, yu_mail: 2, letter_pack: 3, post: 4, kuroneko: 5, yu_pack: 6, click_post: 7, yu_packet: 8 }
   enum shipping_date: { within_two_days: 0, within_three_days: 1, within_seven_days: 2 }
+  enum status: { sale: 0, stop: 1, negotiation: 2, sold: 3 }
+
 
   # 都道府県のactive_hash
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -33,9 +35,8 @@ class Item < ApplicationRecord
   validates :sending_method, presence: true
   validates :prefecture_from, presence: true
   validates :shipping_date, presence: true
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  validates :status, presence: true
 
   # 該当item抽出のためのscopeの定義
   scope :recent, -> (count) { order(id: :desc).limit(count) }
-
 end

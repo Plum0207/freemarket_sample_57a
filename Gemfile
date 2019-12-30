@@ -48,7 +48,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
-
+  gem 'rails-env-credentials'
 end
 
 group :development do
@@ -85,6 +85,7 @@ gem 'rails-i18n'
 gem 'ancestry'
 gem 'payjp'
 gem 'dotenv-rails'
+gem 'gretel'
 
 group :production do
   gem 'unicorn', '5.4.1'
