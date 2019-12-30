@@ -1,5 +1,5 @@
 %section.item-detail__items-in-user-profile__items-box-container__content__items-box
-  =link_to "/items/#{item.id}", class: "item-detail__items-in-user-profile__items-box-container__content__items-box__link" do
+  =link_to item_path(item), class: "item-detail__items-in-user-profile__items-box-container__content__items-box__link" do
     %figure.item-detail__items-in-user-profile__items-box-container__content__items-box__link__photo
       = image_tag item.images[0].image.url, alt: 'main-photo', height: '220px', width: '220px'
       -# 別ブランチでconditonカラムを増設後、条件分岐を設定予定
