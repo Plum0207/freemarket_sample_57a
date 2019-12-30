@@ -3,99 +3,48 @@
 %main.main
   .signup-panel
     %p.signup-panel__title 住所入力
-    %form#new_user.inputForm
+    = form_for @user, url: signup_index_path, method: :post, html: {class: "inputForm"} do |f|
       %input{type: "hidden"}
       .signup-panel
         .signup-form
           .field
-            %label お名前
+            = f.label "お名前"
             %span.form-require
-            %input#user_last_name.field__input{placeholder: "例）山田", type: "text"}
-            %input#user_first_name.field__input{placeholder:  "例）太郎", type: "text"}
+            = f.text_field :last_name, class: "field__input", placeholder: "例）山田", value: current_user.last_name
+            = f.text_field :first_name, class: "field__input", placeholder: "例）太郎", value: current_user.first_name
           .field
-            %label お名前カナ
+            = f.label "お名前カナ"
             %span.form-require
-            %input#user_last_name_kana.field__input{placeholder:  "例）ヤマダ", type: "text"}
-            %input#user_first_name_kana.field__input{placeholder:  "例）タロウ", type: "text"}
+            = f.text_field :last_name, class: "field__input", placeholder: "例）ヤマダ", value: current_user.last_name_kana
+            = f.text_field :first_name, class: "field__input", placeholder: "例）タロウ", value: current_user.first_name_kana
       .signup-form
         .field
-          %label 郵便番号
+          = f.label :postal_code, "郵便番号"
           %span.form-require
-          %input#user_address_postal_code.field__input{placeholder:  "例）123−4567", type: "text"}
+          = f.text_field :postal_code, class: "field__input", placeholder: "例）123-4567"
         .field
-          %label 都道府県
+          = f.label :prefecture, "都道府県"
           %span.form-require
-          %input#user_address_prefecture.field__input{placeholder:  "例）東京都", type: "text"}
+          = f.text_field :prefecture, class: "field__input", placeholder: "例）東京都"
+
         .field
-          %label 市区町村
+          = f.label :city, "市区町村"
           %span.form-require
-          %input#user_address_city.field__input{placeholder:  "例）港区", type: "text"}
+          = f.text_field :city, class: "field__input", placeholder: "例）港区"
         .field
-          %label 番地
+          = f.label :address, "番地"
           %span.form-require
-          %input#user_address_address.field__input{placeholder:  "例）青山1-1-1", type: "text"}
+          = f.text_field :address, class: "field__input", placeholder: "例）青山1-1-1"
         .field
-          %label 建物名
+          = f.label :building, "建物名"
           %span.form-require--gray
-          %input#user_address_building.field__input{placeholder:  "例）テキスパタワー101", type: "text"}
+          = f.text_field :building, class: "field__input", placeholder: "例）テキスパタワー101"
         .field
-          %label 電話
+          = f.label :telephone, "電話"
           %span.form-require--gray
-          %input#user_address_telephone.field__input{placeholder:  "例）09012345678", type: "text"}
+          = f.text_field :telephone, class: "field__input", placeholder: "例）09012345678"
           .sign-up-btn
-      .sign-up-btn 
-        = link_to '次へ進む', user_card_signup_index_path(), class: "btn btn-red"
+      .sign-up-btn
+        = f.submit "次へ進む", class: "btn-red"
         
-
--# MEMO：以下、余裕があればsessionで登録できるようにするため
-
--# %main.main
-
--#   .signup-panel
--#     %p.signup-panel__title 住所入力
-
--#     = form_for @user, url: user_card_signup_index_path, method: :post, html: {class: "inputForm"} do |f|
--#       .signup-panel
--#         .signup-form
--#           .field
--#             =f.label :name, "お名前"
--#             %span.form-require
--#             = f.text_field :last_name, class: "field__input", placeholder: "例）山田"
--#             = f.text_field :first_name, class: "field__input", placeholder: "例）太郎"
--#           .field
--#             =f.label :name_kana, "お名前（カナ）"
--#             %span.form-require
--#             = f.text_field :last_name_kana, class: "field__input", placeholder: "例）ヤマダ"
--#             = f.text_field :first_name_kana, class: "field__input", placeholder: "例）タロウ"
-        
--#       = fields_for :user_address do |p|
--#         .signup-form
--#           .field
--#             =f.label :postal_code,"郵便番号"
--#             %span.form-require
--#             = p.text_field :postal_code, class: "field__input", placeholder: "例）123−4567"
--#           .field
--#             =f.label :prefecture, "都道府県"
--#             %span.form-require
--#             = p.text_field :prefecture, class: "field__input", placeholder: "例）東京都"
--#           .field  
--#             =f.label :city, "市区町村"
--#             %span.form-require
--#             = p.text_field :city, class: "field__input", placeholder: "例）港区"
--#           .field
--#             =f.label :address, "番地"
--#             %span.form-require
--#             = p.text_field :address, class: "field__input", placeholder: "例）青山1-1-1"
--#           .field
--#             =f.label :building, "建物名"
--#             %span.form-require--gray
--#             = p.text_field :building, class: "field__input", placeholder: "例）テキスパタワー101"
--#           .field
--#             =f.label :telephone, "電話"
--#             %span.form-require--gray
--#             = p.text_field :telephone, class: "field__input", placeholder: "例）09012345678"
--#             .sign-up-btn
--#       .sign-up-btn
--#         = f.submit "次へ進む", class: "btn-red"
-
 = render "devise/user/user_footer"
