@@ -30,6 +30,11 @@
             height: 60px;
             width: 60px;
             overflow: hidden;
+            opacity: .4;
+            &:hover{
+              opacity: 1;
+              cursor: default;
+            }
           }
         }
       }
@@ -249,8 +254,15 @@
       &__head{
         font-size: 22px;
         margin: 24px 0 8px;
-        color:$light-blue;
         font-weight: 700;
+        a {
+          color: $light-blue;
+          text-decoration: none;
+          &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
       }
       &__content{
         display: flex;
