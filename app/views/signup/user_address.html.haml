@@ -5,7 +5,6 @@
     %p.signup-panel__title 住所入力
     = form_for @user, url: signup_index_path, method: :post, html: {class: "inputForm"} do |f|
       = f.fields_for :user_address do |p|
-        %input{type: "hidden"}
         .signup-panel
           .signup-form
             .field

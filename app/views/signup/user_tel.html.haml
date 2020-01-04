@@ -5,7 +5,6 @@
     %p.signup-panel__title 電話番号の確認
     = form_for @user, url: user_address_signup_index_path, method: :post, html: {class: "inputForm"} do |f|
       = f.fields_for :user_address do |p|
-        %input{type: "hidden"}
         .signup-form
           .field
             = p.label :telephone, "携帯電話の番号"
