@@ -3,18 +3,19 @@
 %main.main
   .signup-panel
     %p.signup-panel__title 電話番号の確認
-    %form#new_user.inputForm
-      %input{type: "hidden"}
-      .signup-form
-        .field
-          %label 携帯電話の番号
-          %span.form-require
-          %input#user_telephone.field__input{placeholder: "携帯電話の番号を入力", type: "text"}
-          %p.form-info--tell
-            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+    = form_for @user, url: user_address_signup_index_path, method: :post, html: {class: "inputForm"} do |f|
+      = f.fields_for :user_address do |p|
+        %input{type: "hidden"}
+        .signup-form
+          .field
+            = p.label :telephone, "携帯電話の番号"
+            %span.form-require
+            = p.text_field :telephone, class: "field__input", placeholder: "携帯電話の番号を入力"
+            %p.form-info--tell
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
         .sign-up-btn
-          = link_to 'SMSを送信する', user_address_signup_index_path(), class: "btn btn-red"
-            
+          = f.submit "次へ進む", class: "btn-red"
+    
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
         .forgot-password
           = link_to '電話番号が必要な理由', new_user_password_path

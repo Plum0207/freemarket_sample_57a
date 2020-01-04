@@ -4,46 +4,43 @@
   .signup-panel
     %p.signup-panel__title 住所入力
     = form_for @user, url: signup_index_path, method: :post, html: {class: "inputForm"} do |f|
-      %input{type: "hidden"}
-      .signup-panel
+      = f.fields_for :user_address do |p|
+        %input{type: "hidden"}
+        .signup-panel
+          .signup-form
+            .field
+              = p.label "お名前"
+              %span.form-require
+              = p.text_field :last_name, class: "field__input", placeholder: "例）山田"
+              = p.text_field :first_name, class: "field__input", placeholder: "例）太郎"
+            .field
+              = p.label "お名前カナ"
+              %span.form-require
+              = p.text_field :last_name_kana, class: "field__input", placeholder: "例）ヤマダ"
+              = p.text_field :first_name_kana, class: "field__input", placeholder: "例）タロウ"
         .signup-form
           .field
-            = f.label "お名前"
+            = p.label :postal_code, "郵便番号"
             %span.form-require
-            = f.text_field :last_name, class: "field__input", placeholder: "例）山田", value: current_user.last_name
-            = f.text_field :first_name, class: "field__input", placeholder: "例）太郎", value: current_user.first_name
+            = p.text_field :postal_code, class: "field__input", placeholder: "例）123-4567"
           .field
-            = f.label "お名前カナ"
+            = p.label :prefecture, "都道府県"
             %span.form-require
-            = f.text_field :last_name, class: "field__input", placeholder: "例）ヤマダ", value: current_user.last_name_kana
-            = f.text_field :first_name, class: "field__input", placeholder: "例）タロウ", value: current_user.first_name_kana
-      .signup-form
-        .field
-          = f.label :postal_code, "郵便番号"
-          %span.form-require
-          = f.text_field :postal_code, class: "field__input", placeholder: "例）123-4567"
-        .field
-          = f.label :prefecture, "都道府県"
-          %span.form-require
-          = f.text_field :prefecture, class: "field__input", placeholder: "例）東京都"
+            = p.collection_select :prefecture, Pref.all, :id, :name
 
-        .field
-          = f.label :city, "市区町村"
-          %span.form-require
-          = f.text_field :city, class: "field__input", placeholder: "例）港区"
-        .field
-          = f.label :address, "番地"
-          %span.form-require
-          = f.text_field :address, class: "field__input", placeholder: "例）青山1-1-1"
-        .field
-          = f.label :building, "建物名"
-          %span.form-require--gray
-          = f.text_field :building, class: "field__input", placeholder: "例）テキスパタワー101"
-        .field
-          = f.label :telephone, "電話"
-          %span.form-require--gray
-          = f.text_field :telephone, class: "field__input", placeholder: "例）09012345678"
-          .sign-up-btn
+          .field
+            = p.label :city, "市区町村"
+            %span.form-require
+            = p.text_field :city, class: "field__input", placeholder: "例）港区"
+          .field
+            = p.label :address, "番地"
+            %span.form-require
+            = p.text_field :address, class: "field__input", placeholder: "例）青山1-1-1"
+          .field
+            = p.label :building, "建物名"
+            %span.form-require--gray
+            = p.text_field :building, class: "field__input", placeholder: "例）テキスパタワー101"
+            .sign-up-btn
       .sign-up-btn
         = f.submit "次へ進む", class: "btn-red"
         
