@@ -32,5 +32,5 @@
 app/assets/.DS_Store
 /.env
 
-# Ignore master key for decrypting credentials and more.
-/config/master-development.key
+
+

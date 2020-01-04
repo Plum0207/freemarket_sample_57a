@@ -10,7 +10,12 @@ class CardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
+    if Rails.env.development? || Rails.env.test?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
+    end
+    
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -38,6 +43,11 @@ class CardsController < ApplicationController
   end
 
   def show
+    if Rails.env.development? || Rails.env.test?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
+    end
     if @card.blank?
       redirect_to action: "confirmation"
     else
