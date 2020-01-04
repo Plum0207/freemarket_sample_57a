@@ -1,6 +1,7 @@
 class UserAddress < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user, inverse_of: :user_address
-  belongs_to :prefecture
+  belongs_to_active_hash :pref
   
   validates :last_name, presence: true
   validates :first_name, presence: true
