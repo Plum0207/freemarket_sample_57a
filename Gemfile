@@ -48,7 +48,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker'
-  gem 'rails-env-credentials'
+  gem 'dotenv-rails'
+
 end
 
 group :development do
@@ -84,7 +85,6 @@ gem 'enum_help'
 gem 'rails-i18n'
 gem 'ancestry'
 gem 'payjp'
-gem 'dotenv-rails'
 gem 'gretel'
 
 group :production do
