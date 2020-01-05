@@ -1,4 +1,3 @@
-
 // items/show.htmal.hamlのphotoshow
 
 $(function(){
@@ -11,13 +10,13 @@ $(function(){
       currentIndex = index;
     }
 
+    $thumnail.first().addClass("active");
+
     $thumnail.on({
       mouseenter: function(){
         goToPhoto($(this).index());
+        $(".thumnail-photo.active").removeClass("active");
         $(this).addClass("active");
       },
-      mouseleave: function(){
-        $(this).removeClass("active");
-      }
     });
 });
