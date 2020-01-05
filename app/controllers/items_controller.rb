@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_parents_categories, only: [:new, :create]
-  before_action :set_item, only: [:buy, :show, :destroy]
+  before_action :set_item, only: [:buy, :pay, :show, :destroy]
+  before_action :set_card, only: [:buy, :pay]
   require "payjp"
 
   def index
@@ -49,14 +50,6 @@ class ItemsController < ApplicationController
   def buy
     @user = UserAddress.find_by(user_id: current_user.id)
     @pref = Pref.find(@user.prefecture)
-# ----------------------------------------------------------------------------------------------↓before_action予定
-    @card = Card.find_by(user_id: current_user.id)
-    if Rails.env.development? || Rails.env.test?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    else
-      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
-    end
-# ----------------------------------------------------------------------------------------------↑before_action予定
     if @card.blank?
       redirect_to confirmation_cards_path
     else
@@ -66,16 +59,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-# ----------------------------------------------------------------------------------------------↓before_action予定
-    @item = Item.find(params[:id])
-    @card = Card.find_by(user_id: current_user.id)
-
-    if Rails.env.development? || Rails.env.test?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    else
-      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
-    end
-# ----------------------------------------------------------------------------------------------↑before_action予定
     card = Card.where(user_id: current_user.id).first
     Payjp::Charge.create(
       amount: @item.price,
@@ -163,6 +146,15 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+    if Rails.env.development? || Rails.env.test?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
+    end
   end
 
 end
