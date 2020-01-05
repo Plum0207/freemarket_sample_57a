@@ -73,8 +73,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to action: :delete_confirmation
+    if @item.destroy
+      redirect_to action: :delete_confirmation
+    else
+      redirect_to item_path, alert: "削除が失敗しました"  
+    end
   end
 
   def delete_confirmation   
