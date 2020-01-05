@@ -1,0 +1,39 @@
+.delete{
+  width: 100%;
+  height: 100vh;
+  background-color: $white;
+  padding: 60px 0px 30px;
+  p{
+    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .btn-box {
+    padding: 40px;
+    }
+    .mypage-btn {
+      display: block;
+      width: 30%;
+      height: 50px;
+      background-color: $red;
+      color: $white;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      margin: auto;
+      margin-top: 40px;
+    }
+    .back-btn {
+      display: block;
+      width: 30%;
+      height: 50px;
+      background-color: $darkgray;
+      color: $white;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      margin: auto;
+      margin-top: 40px;
+    }
+  }
