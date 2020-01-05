@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_parents_categories, only: [:new, :create]
+  before_action :set_item, only: [:buy, :show, :destroy]
+  require "payjp"
 
   def index
     #レディース
@@ -45,7 +47,46 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @user = UserAddress.find_by(user_id: current_user.id)
+    @pref = Pref.find(@user.prefecture)
+# ----------------------------------------------------------------------------------------------↓before_action予定
+    @card = Card.find_by(user_id: current_user.id)
+    if Rails.env.development? || Rails.env.test?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
+    end
+# ----------------------------------------------------------------------------------------------↑before_action予定
+    if @card.blank?
+      redirect_to confirmation_cards_path
+    else
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def pay
+# ----------------------------------------------------------------------------------------------↓before_action予定
     @item = Item.find(params[:id])
+    @card = Card.find_by(user_id: current_user.id)
+
+    if Rails.env.development? || Rails.env.test?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:payjp_private_key]
+    end
+# ----------------------------------------------------------------------------------------------↑before_action予定
+    card = Card.where(user_id: current_user.id).first
+    Payjp::Charge.create(
+      amount: @item.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
+    )
+    if @item.present? && @item.update(status: 3, buyer_id: current_user.id)
+      redirect_to root_path
+    else
+      redirect_to buy_item_path
+    end
   end
 
   def get_children_category
@@ -108,6 +149,10 @@ class ItemsController < ApplicationController
 
   def children_id_params
     params.permit[:children_id]
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
