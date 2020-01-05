@@ -76,6 +76,7 @@
 |shipping_date|integer|null: false|
 |price|integer|null: false|
 |status|integer|null: false|
+|buyer_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -110,13 +111,3 @@
 ### Association
 - has_many :items
 - has_ancestry
-
-## ordersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :item
