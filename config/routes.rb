@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'buy'
-      delete 'destroy', as: 'destroy'
+      get 'delete_confirmation'
     end
   end
 

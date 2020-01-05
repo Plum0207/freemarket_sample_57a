@@ -74,7 +74,10 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to action: :show
+    redirect_to action: :delete_confirmation
+  end
+
+  def delete_confirmation   
   end
 
   private
