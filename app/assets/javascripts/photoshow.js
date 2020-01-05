@@ -10,6 +10,9 @@ $(function(){
       $photoGroup.animate({ left: -100 * index + '%' }, 1000);
       currentIndex = index;
     }
-    goToPhoto(1);
+
+    $thumnail.on('click', function(){
+      goToPhoto($(this).index());
+    });
 
 });
