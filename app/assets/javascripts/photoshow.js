@@ -7,7 +7,7 @@ $(function(){
       $thumnail = $container.find('.thumnail-photo');
 
     function goToPhoto(index){
-      $photoGroup.animate({ left: -100 * index + '%' }, 1000);
+      $photoGroup.stop(true).animate({ left: -100 * index + '%' }, 1000);
       currentIndex = index;
     }
 
