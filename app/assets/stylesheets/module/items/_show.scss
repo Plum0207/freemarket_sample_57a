@@ -14,24 +14,26 @@
       margin: 16px 0 0;
       display: flex;
       justify-content: space-between;
-      &__photos{
+      &__photoshow{
         height: 420px;
         width: 300px;
         background-color: #fafafa;
-        &__selected-photo{
-          height: 300px;
-          width: 300px;
-          overflow: hidden;
+        position: relative;
+        overflow: hidden;
+        &__photoshow-photos{
+          position: absolute;
+          display: flex;
         }
-        &__all-photos{
+        &__thumnail-photos{
           display: flex;
           flex-wrap: wrap;
-          &__photo{
+          position: absolute;
+          top: 300px;
+          &__thumnail-photo{
             height: 60px;
             width: 60px;
-            overflow: hidden;
             opacity: .4;
-            &:hover{
+            &.active{
               opacity: 1;
               cursor: default;
             }
