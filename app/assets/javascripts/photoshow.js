@@ -11,8 +11,13 @@ $(function(){
       currentIndex = index;
     }
 
-    $thumnail.on('click', function(){
-      goToPhoto($(this).index());
+    $thumnail.on({
+      mouseenter: function(){
+        goToPhoto($(this).index());
+        $(this).addClass("active");
+      },
+      mouseleave: function(){
+        $(this).removeClass("active");
+      }
     });
-
 });
