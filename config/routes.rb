@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'items#index'
+  
   resources :items do
     collection do
       get 'get_children_category', defaults: { format: 'json' }
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'buy'
+      delete 'destroy', as: 'destroy'
     end
   end
 
