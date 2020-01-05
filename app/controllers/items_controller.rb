@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_parents_categories, only: [:new, :create]
+  before_action :set_item, only: [:buy, :show, :destroy]
 
   def index
     #レディース
@@ -45,7 +46,6 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    @item = Item.find(params[:id])
   end
 
   def get_children_category
@@ -65,12 +65,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.find(@item.seller_id)
     @pref = Pref.find(@item.prefecture_from)
     @user_items = Item.where(seller_id: @user.id).where.not(id: @item.id).recent(6)
     @brand_items = Item.where(brand_id: @item.brand_id, category_id: @item.category_id).where.not(id: @item.id).recent(6)
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).recent(6)
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to action: :show
   end
 
   private
@@ -110,4 +114,7 @@ class ItemsController < ApplicationController
     params.permit[:children_id]
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
