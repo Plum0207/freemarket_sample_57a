@@ -1,0 +1,42 @@
+.wrapper{
+  text-align: center;
+  margin: 0 auto;
+  .item-complete{
+    padding: 16px;
+    margin-bottom: 32px;
+    height: 80px;
+    background-color: #FFFFCC;
+    line-height: normal;
+    h2{
+      font-size: 20px;
+      color: $red;
+    }
+    p{
+      color: $darkgray;
+    }
+    &--message{
+      margin-bottom: 32px;
+      font-size: 24px;
+      h1{
+        font-weight: bolder;
+      }
+    }
+    &--image{
+      margin-bottom: 16px;
+    }
+    &--name{
+      margin-bottom: 32px;
+      font-size: 16px;
+    }
+    &--btn{
+      .btn-red{
+        @include btn-default;
+        max-width: 320px;
+        margin: 0 auto;
+        background: $red;
+        color: $white;
+        text-decoration: none;
+      }
+    }
+  }
+}

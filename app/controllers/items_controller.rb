@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_parents_categories, only: [:new, :create]
-  before_action :set_item, only: [:buy, :pay, :show, :destroy]
+  before_action :set_item, only: [:buy, :pay, :done, :show, :destroy]
   before_action :set_card, only: [:buy, :pay]
   require "payjp"
 
@@ -66,10 +66,13 @@ class ItemsController < ApplicationController
       currency: 'jpy',
     )
     if @item.present? && @item.update(status: 3, buyer_id: current_user.id)
-      redirect_to root_path
+      redirect_to done_item_path
     else
       redirect_to buy_item_path
     end
+  end
+
+  def done
   end
 
   def get_children_category
