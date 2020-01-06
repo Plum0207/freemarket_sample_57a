@@ -11,5 +11,6 @@
   .item-complete--name
     = @item.name
   .item-complete--btn
-    = link_to 'トップページへ戻る', root_path, class: "btn-red"
+    = link_to 'マイページで確認する', users_path, class: "btn-red"
+    
 = render "devise/user/user_footer"
