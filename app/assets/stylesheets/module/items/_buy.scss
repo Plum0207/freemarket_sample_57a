@@ -78,7 +78,6 @@
               text-align: right;
               color: $light-blue;
               font-weight: normal;
-              margin: 2px;
               }
             &--card-info {
               font-size: 13px;
@@ -86,9 +85,6 @@
               text-align: left;
               margin: 2px;
               }
-            &--credit-card-icon {
-              margin: 2px;
-            }
           }
           &--destination {
             display: flex;
@@ -104,6 +100,7 @@
               margin-top: 2px;
             }
             &--detail {
+              line-height: normal;
               color: $black;
               left: 549px;
               margin-top: 4px;
@@ -111,16 +108,14 @@
             }
           }
           &--buy-btn {
-            background-color: $red;
-            color: $white;
-            font-size: 14px;
-            font-weight: 700;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
             margin-top: 32px;
+            button{
+              @include btn-default;
+              background-color: $red;
+              color: $white;
             }
           }
         }
       }
     }
+}

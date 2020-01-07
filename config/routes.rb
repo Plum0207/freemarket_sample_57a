@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
     member do
       get 'buy'
+      post 'pay'
+      get 'done'
       get 'delete_confirmation'
     end
   end

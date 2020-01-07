@@ -1,0 +1,16 @@
+= render "devise/user/user_header"
+
+.wrapper
+  .item-complete
+    %h2 発送をお待ちください
+    %p 出品者からの発送通知をお待ちください
+  .item-complete--message
+    %h1 購入が完了しました
+  .item-complete--image
+    = image_tag @item.images[0].image.url, width:"160px", height:"160px"
+  .item-complete--name
+    = @item.name
+  .item-complete--btn
+    = link_to 'マイページで確認する', users_path, class: "btn-red"
+    
+= render "devise/user/user_footer"

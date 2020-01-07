@@ -12,8 +12,8 @@
       padding-top: 70px;
       background-repeat: no-repeat;
       img {
+        margin: 0 auto;
         border-radius: 50%; 
-        margin-left: 320px;
         height: 60px;
         width: 60px;
       }
@@ -26,18 +26,17 @@
         }
       }
       .user-number {
-        width: 500px;
+        width: 200px;
         font-weight: 545;
-        padding-left: 290px;
+        margin: 0 auto;
+        display: flex;
         .user-number-evaluation {
-          width:70px;
+          width: 100px;
           height: 16px;
-          float: left;
         }
         .user-number-exhibitin {
-          width:70px;
+          width: 100px;
           height: 16px;
-          display: inline-block
         }
       }
     }
@@ -196,6 +195,14 @@
         margin-left: 150px;
         background-size: 70%;
       }    
+    }
+    .list-content-transaction{
+      height: 300px;
+      img{
+        margin: 50px;
+        width: 400px;
+        height: 200px;
+      }
     }
   }
 }

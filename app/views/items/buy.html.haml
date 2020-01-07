@@ -27,24 +27,28 @@
           .buy-confirmation-main__box--buy-form--info--method-of-payment--change
             変更する
           .buy-confirmation-main__box--buy-form--info--method-of-payment--card-info
-            %p クレジットカード
-            %p ************0000
-            %p 有効期限 00 / 00
-          .buy-confirmation-main__box--buy-form--info--method-of-payment--credit-card-icon
-            = image_tag "credit_cards/visa.svg",size: "40x20"
+            %h3 クレジットカード
+            %p
+              = "**** **** **** " + @default_card_information.last4
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            .buy-confirmation-main__box--buy-form--info--method-of-payment--credit-card-icon
+              = image_tag "credit_cards/visa.svg",size: "40x20"
             
         .buy-confirmation-main__box--buy-form--info--destination
           配送先
           .buy-confirmation-main__box--buy-form--info--destination--change
             変更する
             .buy-confirmation-main__box--buy-form--info--destination--detail
-              〒150-0041
+              = "〒#{@user.postal_code}"
               .buy-confirmation-main__box--buy-form--info--destination-place
-                東京都渋谷区神南1丁目12−16 
-                アジアビル9F
+                = "#{@pref.name}#{@user.city}#{@user.address}"
+                = @user.building
                 .buy-confirmation-main__box--buy-form--info--destination-name
-                  テストテスオ
+                  = @user.first_name + @user.last_name
         .buy-confirmation-main__box--buy-form--info--buy-btn
-          購入する
+          = form_tag(pay_item_path, method: :post, action: "pay") do
+            %button 購入する
             
 = render "devise/user/user_footer"
