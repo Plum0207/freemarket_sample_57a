@@ -46,7 +46,7 @@ class SignupController < ApplicationController
       sign_in User.find(@user.id)
       redirect_to user_complete_signup_index_path
     else
-      redirect_to user_info_signup_index_path
+      render user_info_signup_index_path
     end
   end
 
