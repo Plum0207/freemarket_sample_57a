@@ -54,7 +54,7 @@ class SignupController < ApplicationController
     @user.build_user_address(session[:user_address_attributes_after_user_address])
     if @user.save
       sign_in User.find(@user.id)
-      redirect_to user_card_signup_index_path
+      redirect_to user_complete_signup_index_path
     else
       redirect_to user_info_signup_index_path
     end
