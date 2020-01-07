@@ -10,7 +10,6 @@ class SignupController < ApplicationController
 
   def save_user_info_to_session
     session[:user_params] = user_params
-    session[:user_attributes_after_user_info] = user_params[:user_attributes]
     @user = User.new(session[:user_params])
     render '/signup/user_info' unless @user.valid?
   end 
@@ -18,15 +17,6 @@ class SignupController < ApplicationController
   def user_tel
     @user = User.new(session[:user_params])
     @user.build_user_address
-    session[:nickname] = params[:user][:nickname]
-    session[:email] = params[:user][:email]
-    session[:password] = params[:user][:password]
-    session[:password_confirmation] = params[:user][:password_confirmation]
-    session[:last_name] = params[:user][:last_name]
-    session[:first_name] = params[:user][:first_name]
-    session[:last_name_kana] = params[:user][:last_name_kana]
-    session[:first_name_kana] = params[:user][:first_name_kana]
-    session[:birthday] = params[:user][:birthday]
   end
 
   def save_user_tel_to_session
@@ -38,7 +28,7 @@ class SignupController < ApplicationController
 
   def user_address
     @user = User.new(session[:user_params])
-    @user.build_user_address(session[:user_address])
+    @user.build_user_address
   end
 
   def save_user_address_to_session
