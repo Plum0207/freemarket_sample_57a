@@ -20,22 +20,14 @@ Rails.application.routes.draw do
     registrations: 'signup'
   }
 
-  resources "signup", only: [:user_info, :create, :user_tel, :user_address, :user_card, :user_complete], path: "/signup" do
+  resources "signup", only: [:user_info, :create, :user_tel, :user_address, :user_complete], path: "/signup" do
     collection do
       get 'user_info'
       post 'user_tel'
       post 'user_address'
-      get 'user_card' # カード登録を本ページで実装するかは今後検討
       get 'user_complete' # 登録完了後のページ
     end
   end
-
-# resource "users", path: 'sign_up' , only: :registration do
-#   collection do
-#     get "registration", action: :show
-#     get "done"
-#   end
-# end
 
   resources "users",only: :logout, path: '' do
     collection do

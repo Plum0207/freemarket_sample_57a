@@ -26,9 +26,9 @@
       ol {
         display: inline-flex;
         li {
-          margin: 0 40px 0 0;
+          margin: 0 60px 0 0;
           position: relative;
-          min-width: 60px;
+          width: 100px;
           font-size: 12px;
           .border-radius {
             @include border-radius;

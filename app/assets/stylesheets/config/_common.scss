@@ -95,13 +95,13 @@ body {
 // signup-header-border
 @mixin signup-border {
   display: block;
-  width: 170%;
+  width: 150%;
   height: 1px;
   border: 1px solid $border-color;
   z-index: 1;
   position: absolute;
   top: 80%;
-  left: 50%;
+  left: 55%;
 }
 
 @mixin a-no-change {
