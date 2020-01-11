@@ -120,6 +120,8 @@ class ItemsController < ApplicationController
   end
 
   def update
+    binding.pry
+    @brand = Brand.where(name: brand_params[:name]).first_or_create
     @item.update(update_params)
   end
 
@@ -156,7 +158,8 @@ class ItemsController < ApplicationController
       :prefecture_from, 
       :shipping_date, 
       :price,
-      images_attributes: [:image, :id, :_destroy])
+      images_attributes: [:image, :id, :_destroy]
+      ).merge(brand_id: @brand.id)
   end
 
   def images_params
