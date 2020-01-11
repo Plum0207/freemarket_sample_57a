@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :buy]
   before_action :set_parents_categories, only: [:new, :create, :edit]
-  before_action :set_item, only: [:buy, :pay, :done, :show, :destroy]
+  before_action :set_item, only: [:buy, :pay, :done, :show, :destroy, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
   require "payjp"
 
@@ -113,7 +113,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @brand = @item.brand
     @grandchildren_categories = @item.category.siblings
     @children_categories = @item.category.parent.siblings
@@ -121,7 +120,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(update_params)
   end
 
@@ -158,7 +156,7 @@ class ItemsController < ApplicationController
       :prefecture_from, 
       :shipping_date, 
       :price,
-      images_attributes: [:image, :id])
+      images_attributes: [:image, :id, :_destroy])
   end
 
   def images_params

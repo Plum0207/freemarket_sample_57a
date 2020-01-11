@@ -18,8 +18,10 @@
                   %p.upload-form__num 
                   = fi.label :image, class: 'upload-form__select-btn', for: "image#{i}" do
                     = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id: "image#{i}"
-                    選択
-                  .upload-form__remove-btn{id: "image#{i}_rmv"} 削除
+                    変更
+                  .upload-form__remove-btn
+                    = fi.check_box :_destroy
+                    削除
                   .upload-form__name{id: "image#{i}_name"}= image.image.identifier
         .item
           = f.label :name, '商品名', class: 'item__title'
