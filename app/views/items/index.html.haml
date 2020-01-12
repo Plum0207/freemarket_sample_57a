@@ -27,15 +27,7 @@
       .items-container__lower-part
         - if @lady_items.present?
           - @lady_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @lady_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -49,15 +41,7 @@
       .items-container__lower-part
         - if @man_items.present?
           - @man_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @man_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -71,15 +55,7 @@
       .items-container__lower-part
         - if @appliance_items.present?
           - @appliance_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @appliance_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -94,15 +70,7 @@
       .items-container__lower-part
         - if @hobby_items.present?
           - @hobby_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @hobby_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -131,15 +99,7 @@
       .items-container__lower-part
         - if @channel_items.present?
           - @channel_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @channel_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -154,15 +114,7 @@
       .items-container__lower-part
         - if @vuitton_items.present?
           - @vuitton_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @vuitton_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -176,15 +128,7 @@
       .items-container__lower-part
         - if @supreme_items.present?
           - @supreme_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @supreme_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -198,15 +142,7 @@
       .items-container__lower-part
         - if @nike_items.present?
           - @nike_items.each do |item|
-            .items-list
-              = link_to "/items/#{item.id}", class: "items-list-link" do
-                = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
-                .items-detail 
-                  .items-price
-                    %span.price-yen
-                      ¥#{item.price}
-                  %h3.items-name
-                    #{item.name}
+            =render partial: "items-list", collection: @nike_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
