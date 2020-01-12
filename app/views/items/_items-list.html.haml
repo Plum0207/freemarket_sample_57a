@@ -1,0 +1,10 @@
+.items-list
+  = link_to items_path(item), class: "items-list-link" do
+    = image_tag item.images[0].image.url, alt: 'items-image', height: '188px', width: '188px', class: 'items-image'
+    .items-detail
+      .items-price
+        %span.price-yen
+          ¥
+          = item.price.to_s(:delimited)
+        %h3.items-name
+          = item.name
