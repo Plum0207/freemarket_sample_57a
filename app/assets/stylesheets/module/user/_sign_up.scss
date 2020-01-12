@@ -83,6 +83,17 @@
       font-weight: bold;
       border-bottom: 1px solid #eee;
     }
+    
+    .alert-warning{
+      padding: 10px;
+      line-height: normal;
+      width: 100%;
+      background-color: #FFFFCC;
+      color: $red;
+      border: solid 1px;
+      border-color: #FFCC00;
+      border-radius: 4px;
+    }
 
     #new_user {
       padding: 24px 0px  32px;
