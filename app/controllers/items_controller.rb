@@ -121,7 +121,9 @@ class ItemsController < ApplicationController
 
   def update
     @brand = Brand.where(name: brand_params[:name]).first_or_create
-    @item.update(update_params)
+    unless @item.update(update_params)
+      redirect_to edit_item_path
+    end
   end
 
   private
