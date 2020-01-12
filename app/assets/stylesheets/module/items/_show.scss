@@ -172,6 +172,36 @@
       }
     }
   }
+  &__edit-btns-container{
+    width: 700px;
+    margin: 0 auto;
+    &__btns-box{
+      margin: 24px 0;
+      background-color: $white;
+      padding: 8px 16px;
+      &__btn{
+        margin: 16px 0;
+        display: block;
+        line-height: 48px;
+        font-size: 14px;
+        text-align: center;
+        text-decoration: none;
+        color: $white;
+        &__edit-btn{
+          background-color: $red;
+          border: 1px solid $red;
+        }
+        &__stop-btn, &__delete-btn{
+          background-color: $gray;
+          border: 1px solid$gray;
+        }
+      }
+      &__text{
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
   &__message{
     margin: 8px auto;
     &__message-container{

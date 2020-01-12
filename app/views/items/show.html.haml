@@ -89,6 +89,12 @@
         =link_to "https://www.mercari.com/jp/safe/description/", target: '_blank' do
           =fa_icon 'lock'
           %span あんしん・あんぜんへの取り組み
+  .item-detail__edit-btns-container
+    .item-detail__edit-btns-container__btns-box
+      =link_to '商品の編集', edit_item_path, class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__edit-btn'
+      %p.item-detail__edit-btns-container__btns-box__text or
+      =link_to '出品を一旦停止する', '', class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__stop-btn'
+      =link_to 'この商品を削除する', item_path, method: :delete, class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__delete-btn'
   .item-detail__message
     .item-detail__message__message-container
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
