@@ -66,11 +66,12 @@
         = @item.price.to_s(:delimited)
       %span.item-detail__top-container__price-box__tax &#040;税込&#041;
       %span.item-detail__top-container__price-box__shipping-fee 送料込み
-    - if @item.status == "sale"
-      = link_to '購入画面に進む', buy_item_path, class: 'item-detail__top-container__buy-btn'
-    - elsif @item.status == "sold"
-      .item-detail__top-container__buy-btn.item-detail__top-container__buy-btn__disabled
-        売り切れました
+    - unless @user == current_user
+      - if @item.status == "sale"
+        = link_to '購入画面に進む', buy_item_path, class: 'item-detail__top-container__buy-btn'
+      - elsif @item.status == "sold"
+        .item-detail__top-container__buy-btn.item-detail__top-container__buy-btn__disabled
+          売り切れました
     .item-detail__top-container__item-description
       %p
         =@item.description
