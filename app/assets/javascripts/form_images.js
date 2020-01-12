@@ -10,7 +10,7 @@ $(function(){
   // 削除
   $(document).on('click', '#image0_rmv', function(e){
     event.preventDefault(e);
-    $('#image_id_0').val(null);
+    $('#image0').val(null);
     $('#image0_name').empty();
   });
 
@@ -25,7 +25,7 @@ $(function(){
   // 削除
   $(document).on('click', '#image1_rmv', function(e){
     event.preventDefault(e);
-    $('#image_id_1').val(null);
+    $('#image1').val(null);
     $('#image1_name').empty();
   });
 

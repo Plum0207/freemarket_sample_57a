@@ -120,7 +120,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     @brand = Brand.where(name: brand_params[:name]).first_or_create
     @item.update(update_params)
   end
