@@ -1,6 +1,21 @@
 $(function(){
   // 1枚目
   // 表示
+  $('#image0').on('change', function(e){
+    event.preventDefault(e);
+    var fileName0 = document.getElementById("image0").files[0].name;
+    $('#image0_name').text(fileName0);
+  });
+
+  // 削除
+  $(document).on('click', '#image0_rmv', function(e){
+    event.preventDefault(e);
+    $('#image0').val(null);
+    $('#image0_name').empty();
+  });
+
+  // 2枚目
+  // 表示
   $('#image1').on('change', function(e){
     event.preventDefault(e);
     var fileName1 = document.getElementById("image1").files[0].name;
@@ -14,7 +29,7 @@ $(function(){
     $('#image1_name').empty();
   });
 
-  // 2枚目
+  // 3枚目
   // 表示
   $('#image2').on('change', function(e){
     event.preventDefault(e);
@@ -29,7 +44,7 @@ $(function(){
     $('#image2_name').empty();
   });
 
-  // 3枚目
+  // 4枚目
   // 表示
   $('#image3').on('change', function(e){
     event.preventDefault(e);
@@ -44,7 +59,7 @@ $(function(){
     $('#image3_name').empty();
   })
 
-  // 4枚目
+  // 5枚目
   // 表示
   $('#image4').on('change', function(e){
     event.preventDefault(e);
@@ -59,7 +74,7 @@ $(function(){
     $('#image4_name').empty();
   })
 
-  // 5枚目
+  // 6枚目
   // 表示
   $('#image5').on('change', function(e){
     event.preventDefault(e);
@@ -74,7 +89,7 @@ $(function(){
     $('#image5_name').empty();
   })
 
-  // 6枚目
+  // 7枚目
   // 表示
   $('#image6').on('change', function(e){
     event.preventDefault(e);
@@ -89,7 +104,7 @@ $(function(){
     $('#image6_name').empty();
   })
 
-  // 7枚目
+  // 8枚目
   // 表示
   $('#image7').on('change', function(e){
     event.preventDefault(e);
@@ -104,7 +119,7 @@ $(function(){
     $('#image7_name').empty();
   })
 
-  // 8枚目
+  // 9枚目
   // 表示
   $('#image8').on('change', function(e){
     event.preventDefault(e);
@@ -119,7 +134,7 @@ $(function(){
     $('#image8_name').empty();
   })
 
-  // 9枚目
+  // 10枚目
   // 表示
   $('#image9').on('change', function(e){
     event.preventDefault(e);
@@ -132,20 +147,5 @@ $(function(){
     event.preventDefault(e);
     $('#image9').val(null);
     $('#image9_name').empty();
-  })
-
-  // 10枚目
-  // 表示
-  $('#image10').on('change', function(e){
-    event.preventDefault(e);
-    var fileName10 = document.getElementById("image10").files[0].name;
-    $('#image10_name').text(fileName10);
-  });
-
-  // 削除
-  $(document).on('click', '#image10_rmv', function(e){
-    event.preventDefault(e);
-    $('#image10').val(null);
-    $('#image10_name').empty();
   })
 });

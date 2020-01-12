@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :buy]
-  before_action :set_parents_categories, only: [:new, :create]
-  before_action :set_item, only: [:buy, :pay, :done, :show, :destroy]
+  before_action :set_parents_categories, only: [:new, :create, :edit]
+  before_action :set_item, only: [:buy, :pay, :done, :show, :destroy, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
   require "payjp"
+
 
   def index
     #レディース
@@ -108,7 +109,21 @@ class ItemsController < ApplicationController
     end
   end
 
-  def delete_confirmation   
+  def delete_confirmation  
+  end
+
+  def edit
+    @brand = @item.brand
+    @grandchildren_categories = @item.category.siblings
+    @children_categories = @item.category.parent.siblings
+    @fee = @item.price * 0.1
+  end
+
+  def update
+    @brand = Brand.where(name: brand_params[:name]).first_or_create
+    unless @item.update(update_params)
+      redirect_to edit_item_path
+    end
   end
 
   private
@@ -130,6 +145,22 @@ class ItemsController < ApplicationController
       :shipping_date, 
       :price,
     ).merge(brand_id: @brand.id, seller_id: current_user.id, status: 0)
+  end
+
+  def update_params
+    params.require(:item).permit(
+      :name, 
+      :description, 
+      :category_id, 
+      :size, 
+      :condition, 
+      :postage_burden, 
+      :sending_method, 
+      :prefecture_from, 
+      :shipping_date, 
+      :price,
+      images_attributes: [:image, :id, :_destroy]
+      ).merge(brand_id: @brand.id)
   end
 
   def images_params

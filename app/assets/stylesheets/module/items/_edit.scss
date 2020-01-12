@@ -1,0 +1,394 @@
+.item-edit {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  .header {
+    height: 128px;
+    text-align: center;
+    padding-top: 40px;
+    .link {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      &__logo {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  } 
+  .item-container {
+    width: 700px;
+    margin: 0 auto;
+    .title {
+      height: 97px;
+      text-align: center;
+      padding: 32px 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .form {
+      .image {
+        height: 460px;
+        padding: 40px;
+        &__title {
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 16px;
+          .required {
+            background-color: $red;
+            @include require;
+          }
+        }
+        &__attention {
+          font-size: 14px;
+          line-height: 1.5;
+          margin: 8px 0 0;
+        }
+        &__upload {
+          height: 370px;
+          padding: 40px;
+          margin-top: 16px;
+          border: 1px solid #ccc;
+          display: block;
+          .upload-form {
+            margin-bottom: 10px;
+            display: flex;
+            &__num {
+              height: 20px;
+              font-weight: bold;
+              text-align: center;
+              line-height: 20px;
+            }
+            &__select-btn {
+              @include require;
+              height: 20px;
+              width: 40px;
+              text-align: center;
+              line-height: 16px;
+              background-color: #4DC9FF;
+              &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+              }
+              &--input_tag {
+                // width: 100%;
+                display: none;
+              }
+            }
+            &__remove-btn {
+              @include require;
+              height: 20px;
+              width: 60px;
+              background-color: $red;
+              line-height: 16px;
+              text-align: center;
+              &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+              }
+            }
+            &__name {
+              height: 20px;
+              width: 340px;
+              border-bottom: dotted 1px #A6A6A6;
+              margin-left: 20px;
+              text-align: center;
+            }
+          }
+          .upload-discription {
+            text-align: center;
+            font-size: 15px;
+            line-height: 90px;
+          }
+        }
+      }
+      .item {
+        height: 355px;
+        padding: 40px;
+        .required {
+          background-color: $red;
+          @include require;
+        }
+        &__title {
+          display: inline-block;
+          font-size: 14px;
+          line-height: 14px;
+          font-weight: 600;
+        }
+        
+        &__text {
+          width: 100%;
+          height: 50px;
+          display: block;
+          margin: 10px 0 20px;
+          padding: 0 10px;
+        }
+        &__textarea {
+          width: 100%;
+          height: 140px;
+          display: block;
+          margin: 10px 0 20px;
+          padding: 10px;
+          border-color: #bfbfbf;
+        }
+      }
+      .detail {
+        height: 600px;
+        @include new-form-box;
+        &__title {
+          @include form-title;
+        }
+        &__form {
+          width: 60%;
+          .category {
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+                margin-top: 8px;
+              }
+            }
+          }
+          .size {
+            margin-top: 40px;
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+          .brand {
+            margin-top: 40px;
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $gray;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+          .condition {
+            margin-top: 40px;
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+        }
+      }
+      .delivery {
+        height: 500px;
+        @include new-form-box;
+        &__title {
+          @include form-title;
+        }
+        &__form {
+          width: 60%;
+          .postage-burden {
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+          .sending-method {
+            margin-top: 40px;
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+          .prefecture-from {
+            margin-top: 40px;
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+          .shipping-date {
+            margin-top: 40px;
+            &__name {
+              font-weight: 600;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 100%;
+              margin-top: 8px;
+              .form-box {
+                @include form-box;
+              }
+            }
+          }
+        }
+      }
+      .selling-price {
+        height: 300px;
+        @include new-form-box;
+        &__title {
+          @include form-title;
+        }
+        &__form {
+          height: 220px;
+          width: 60%;
+          .price {
+            height: 75px;
+            padding-bottom: 24px;
+            border-bottom: thin solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &__name {
+              font-weight: 600;
+              width: 50px;
+            }
+            .required {
+              background-color: $red;
+              @include require;
+            }
+            &__form {
+              width: 60%;
+              display: flex;
+              .yen {
+                display: block;
+                width: 10%;
+                line-height: 75px;
+                text-align: center;
+              }
+              .input {
+                height: 50px;
+                width: 90%;
+                margin: 10px 0 10px 16px;
+                padding: 8px 16px;
+                text-align: right;
+                &::placeholder {
+                  text-align: right;
+                }
+              }
+            }
+          }
+          .fee {
+            height: 75px;
+            padding: 24px 0;
+            border-bottom: thin solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &__left {
+              
+            }
+            &__right {
+              
+            }
+          }
+          .profit {
+            height: 75px;
+            padding: 24px 0;
+            border-bottom: thin solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &__left {
+              font-size: 16px;
+              font-weight: 600;
+            }
+            &__right {
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+      .btn-box {
+        padding: 40px;
+        .list-btn {
+          width: 100%;
+          height: 50px;
+          background-color: $red;
+          color: $white;
+          margin-top: 40px;
+        }
+        .back-btn {
+          display: block;
+          width: 50%;
+          height: 50px;
+          background-color: $darkgray;
+          color: $white;
+          text-align: center;
+          line-height: 50px;
+          text-decoration: none;
+          margin: auto;
+          margin-top: 40px;
+        }
+      }
+    }
+  
+  }  
+    
+
+}
