@@ -83,17 +83,6 @@
       font-weight: bold;
       border-bottom: 1px solid #eee;
     }
-    
-    .alert-warning{
-      padding: 10px;
-      line-height: normal;
-      width: 100%;
-      background-color: #FFFFCC;
-      color: $red;
-      border: solid 1px;
-      border-color: #FFCC00;
-      border-radius: 4px;
-    }
 
     #new_user {
       padding: 24px 0px  32px;
@@ -107,9 +96,6 @@
         .field {
           text-align: left;
           margin: 40px 0 0;
-          .field_with_errors {
-            display: contents;
-          }
           label {
             font-weight: 600;
           }
@@ -188,6 +174,19 @@
               margin: 0 5px;
               line-height: 50px;
             }
+          }
+          // エラーメッセージ
+          .field_with_errors{
+            display: inline
+          }          
+          .field_with_errors input,
+          .field_with_errors select{
+            outline: 0;
+            border-color: $red !important;
+          }
+          .errors{
+            margin-top: 8px;
+            color: $red;
           }
         }
       }
