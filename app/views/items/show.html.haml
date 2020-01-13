@@ -92,7 +92,7 @@
         =link_to "https://www.mercari.com/jp/safe/description/", target: '_blank' do
           =fa_icon 'lock'
           %span あんしん・あんぜんへの取り組み
-  - if @user == current_user
+  - if @user == current_user && @item.status != "sold"
     .item-detail__edit-btns-container
       .item-detail__edit-btns-container__btns-box
         =link_to '商品の編集', edit_item_path, class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__edit-btn'
