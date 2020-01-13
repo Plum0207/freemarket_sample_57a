@@ -13,6 +13,8 @@
           - @item.images.each do |image|
             .item-detail__top-container__main-content__photoshow__thumnail-photos__thumnail-photo.thumnail-photo
               = image_tag image.image.url, alt: 'thumnail-photo', height: '60px', width: '60px'
+        .item-detail__top-container__main-content__photoshow__sold-out-badge
+        .item-detail__top-container__main-content__photoshow__sold-out-badge__caption SOLD
       %table.item-detail__top-container__main-content__table
         %tr
           %th 出品者

@@ -39,6 +39,30 @@
             }
           }
         }
+        &__sold-out-badge{
+          &__caption{
+            position: absolute;
+            top: 24px;
+            left: 0;
+            z-index: 2;
+            color:$white;
+            transform: rotate(-45deg);
+            font-size: 28px;
+            line-height: 28px;
+            font-weight: 600;
+          }
+          &:after{
+            border-width: 120px 120px 0 0;
+            border-color: $red transparent transparent;
+            border-style: solid;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          }
+        }
       }
       table,th,tr{
         border: 1px solid #f5f5f5;
