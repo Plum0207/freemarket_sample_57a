@@ -6,6 +6,7 @@
     = form_for @user, url: signup_index_path, method: :post, html: {class: "inputForm"} do |f|
       = f.fields_for :user_address do |p|
         .signup-panel
+          = render 'shared/error_message', model: f.object
           .signup-form
             .field
               = p.label "お名前"
@@ -25,7 +26,7 @@
           .field
             = p.label :prefecture, "都道府県"
             %span.form-require
-            = p.collection_select :prefecture, Pref.all, :id, :name, {prompt: "---"}
+            = p.collection_select :prefecture, Pref.all, :id, :name, {prompt: value = ""}
 
           .field
             = p.label :city, "市区町村"
