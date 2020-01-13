@@ -42,6 +42,22 @@ ja:
         negotiation: "交渉中"
         sold: "完売"
   activerecord:
+    models: 
+      items: "商品"
+      category: "カテゴリー"
+    attributes:
+      item:
+        name: "商品名"
+        description: "商品の説明"
+        category_id: "カテゴリー"
+        condition: "商品の状態"
+        postage_burden: "配送料の負担"
+        sending_method: "配送の方法"
+        prefecture_from: "配送元の地域"
+        shipping_date: "発送までの日数"
+        price: "価格"
+      category:
+        name: "カテゴリー"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
