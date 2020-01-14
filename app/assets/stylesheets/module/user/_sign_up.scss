@@ -175,6 +175,19 @@
               line-height: 50px;
             }
           }
+          // エラーメッセージ
+          .field_with_errors{
+            display: inline
+          }          
+          .field_with_errors input,
+          .field_with_errors select{
+            outline: 0;
+            border-color: $red !important;
+          }
+          .errors{
+            margin-top: 8px;
+            color: $red;
+          }
         }
       }
       .thankyou { 
