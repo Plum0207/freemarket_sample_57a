@@ -13,6 +13,9 @@
           - @item.images.each do |image|
             .item-detail__top-container__main-content__photoshow__thumnail-photos__thumnail-photo.thumnail-photo
               = image_tag image.image.url, alt: 'thumnail-photo', height: '60px', width: '60px'
+        - if @item.sold?
+          .item-detail__top-container__main-content__photoshow__sold-out-badge
+          .item-detail__top-container__main-content__photoshow__sold-out-badge__caption SOLD
       %table.item-detail__top-container__main-content__table
         %tr
           %th 出品者
@@ -66,6 +69,12 @@
         = @item.price.to_s(:delimited)
       %span.item-detail__top-container__price-box__tax &#040;税込&#041;
       %span.item-detail__top-container__price-box__shipping-fee 送料込み
+    - unless @user == current_user
+      - if @item.sale?
+        = link_to '購入画面に進む', buy_item_path, class: 'item-detail__top-container__buy-btn'
+      - elsif @item.sold?
+        .item-detail__top-container__buy-btn.item-detail__top-container__buy-btn__disabled
+          売り切れました
     .item-detail__top-container__item-description
       %p
         =@item.description
@@ -83,6 +92,13 @@
         =link_to "https://www.mercari.com/jp/safe/description/", target: '_blank' do
           =fa_icon 'lock'
           %span あんしん・あんぜんへの取り組み
+  - if @user == current_user && @item.status != "sold"
+    .item-detail__edit-btns-container
+      .item-detail__edit-btns-container__btns-box
+        =link_to '商品の編集', edit_item_path, class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__edit-btn'
+        %p.item-detail__edit-btns-container__btns-box__text or
+        =link_to '出品を一旦停止する', '', class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__stop-btn'
+        =link_to 'この商品を削除する', item_path, method: :delete, class: 'item-detail__edit-btns-container__btns-box__btn item-detail__edit-btns-container__btns-box__btn__delete-btn'
   .item-detail__message
     .item-detail__message__message-container
       %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

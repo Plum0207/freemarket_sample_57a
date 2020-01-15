@@ -39,6 +39,30 @@
             }
           }
         }
+        &__sold-out-badge{
+          &__caption{
+            position: absolute;
+            top: 24px;
+            left: 0;
+            z-index: 2;
+            color:$white;
+            transform: rotate(-45deg);
+            font-size: 28px;
+            line-height: 28px;
+            font-weight: 600;
+          }
+          &:after{
+            border-width: 120px 120px 0 0;
+            border-color: $red transparent transparent;
+            border-style: solid;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          }
+        }
       }
       table,th,tr{
         border: 1px solid #f5f5f5;
@@ -106,6 +130,22 @@
         font-size: 16px;
       }
     }
+    &__buy-btn{
+      display: block;
+      height: 60px;
+      background: $red;
+      margin-top: 16px;
+      color: $white;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 60px;
+      text-align: center;
+      text-decoration: none;
+      &__disabled{
+        background: $darkgray;
+        cursor: not-allowed;
+      }
+    }
     &__item-description{
       padding: 32px 0 0;
       p{
@@ -153,6 +193,36 @@
             margin: 1px 0 0 8px;
           }
         }
+      }
+    }
+  }
+  &__edit-btns-container{
+    width: 700px;
+    margin: 0 auto;
+    &__btns-box{
+      margin: 24px 0;
+      background-color: $white;
+      padding: 8px 16px;
+      &__btn{
+        margin: 16px 0;
+        display: block;
+        line-height: 48px;
+        font-size: 14px;
+        text-align: center;
+        text-decoration: none;
+        color: $white;
+        &__edit-btn{
+          background-color: $red;
+          border: 1px solid $red;
+        }
+        &__stop-btn, &__delete-btn{
+          background-color: $gray;
+          border: 1px solid$gray;
+        }
+      }
+      &__text{
+        font-size: 16px;
+        text-align: center;
       }
     }
   }
@@ -300,6 +370,7 @@
                   top: 20px;
                   font-size: 26px;
                   line-height: 26px;
+                  font-weight: 600;
                   transform: rotate(-45deg);
                   color:$white;
                 }
