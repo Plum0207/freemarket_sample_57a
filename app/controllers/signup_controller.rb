@@ -23,7 +23,7 @@ class SignupController < ApplicationController
     session[:user_address_attributes_after_user_tel] = user_params[:user_address_attributes]
     @user = User.new(session[:user_params])
     @user.build_user_address(session[:user_address_attributes_after_user_tel])
-    render '/signup/user_tel' unless session[:user_address_attributes_after_user_tel][:telephone].present?
+    render '/signup/user_tel' unless @user.valid?
   end
 
   def user_address
@@ -36,7 +36,7 @@ class SignupController < ApplicationController
     session[:user_address_attributes_after_user_address].merge!(session[:user_address_attributes_after_user_tel])
     @user = User.new(session[:user_params])
     @user.build_user_address(session[:user_address_attributes_after_user_address])
-    render '/signup/user_address' unless @user.valid?
+    render '/signup/user_address' unless session[:user_address_attributes_after_user_address].present?
   end
 
   def create
@@ -46,7 +46,7 @@ class SignupController < ApplicationController
       sign_in User.find(@user.id)
       redirect_to user_complete_signup_index_path
     else
-      render user_info_signup_index_path
+      render user_address_signup_index_path
     end
   end
 
