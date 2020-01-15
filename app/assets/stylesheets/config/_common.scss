@@ -185,3 +185,14 @@ body {
   height: 45px;
   padding: 10px;
 }
+
+.error-alert {
+  color: $red;
+  border: thin solid $red;
+  margin: 40px;
+  padding: 10px 50px;
+  &__list {
+    margin: 0.7rem 0;
+    list-style-type: disc;
+  }
+}

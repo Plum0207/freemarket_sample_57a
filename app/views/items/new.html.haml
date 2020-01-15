@@ -4,9 +4,9 @@
       = image_tag('logo.svg', class: 'link__logo')
   .item-container
     %h2.title 商品の情報を入力
-    %ul
     - if flash[:alert].present?
-      %li #{flash[:alert]}
+      %ul.error-alert
+        %li.error-alert__list #{flash[:alert]}
     .form
       = form_with(model: @item, local: true, multipart: true) do |f|
         .image
