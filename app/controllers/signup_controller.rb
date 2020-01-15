@@ -42,7 +42,7 @@ class SignupController < ApplicationController
   def create
     @user = User.new(session[:user_params])
     @user.build_user_address(session[:user_address_attributes_after_user_address])
-    if @user.save
+    if @user.save(context: :user_signup)
       sign_in User.find(@user.id)
       redirect_to user_complete_signup_index_path
     else
