@@ -32,6 +32,7 @@ ja:
         first_name_kana: 名カナ（全角）
         birthday: 誕生日
       user_address: 
+        telephone: 携帯電話の番号
         last_name: 姓
         first_name: 名
         last_name_kana: 姓（カナ）
