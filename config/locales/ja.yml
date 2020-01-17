@@ -45,6 +45,7 @@ ja:
     models: 
       items: "商品"
       category: "カテゴリー"
+      image: "画像"
     attributes:
       item:
         name: "商品名"
@@ -56,8 +57,11 @@ ja:
         prefecture_from: "配送元の地域"
         shipping_date: "発送までの日数"
         price: "価格"
+        images: "画像"
       category:
         name: "カテゴリー"
+      image: 
+        image: "画像"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -37,6 +37,8 @@ class Item < ApplicationRecord
   validates :shipping_date, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :status, presence: true
+  validates :images, length: { maximum: 10, message: "は最大10枚までです" }
+  validates :images, presence: { message: "は１枚以上登録してください"}
 
   # 該当item抽出のためのscopeの定義
   scope :recent, -> (count) { order(id: :desc).limit(count) }
