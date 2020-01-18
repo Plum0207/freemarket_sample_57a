@@ -18,10 +18,10 @@
           支払い金額
           .buy-confirmation-main__box--buy-form--info--payment--amount
             = "¥#{@item.price.to_s(:delimited)}"
-            .buy-confirmation-main__box--buy-form--info--payment--point
-              %i.fas.fa-square
-              .buy-confirmation-main__box--buy-form--info--payment--point--text
-                ポイントを使用 (所持ポイント: P0)
+          .buy-confirmation-main__box--buy-form--info--payment--point
+            %i.fas.fa-square
+            .buy-confirmation-main__box--buy-form--info--payment--point--text
+              ポイントを使用 (所持ポイント: P0)
         .buy-confirmation-main__box--buy-form--info--method-of-payment
           支払い方法
           .buy-confirmation-main__box--buy-form--info--method-of-payment--change
@@ -40,13 +40,13 @@
           配送先
           .buy-confirmation-main__box--buy-form--info--destination--change
             変更する
-            .buy-confirmation-main__box--buy-form--info--destination--detail
-              = "〒#{@user.postal_code}"
-              .buy-confirmation-main__box--buy-form--info--destination-place
-                = "#{@pref.name}#{@user.city}#{@user.address}"
-                = @user.building
-                .buy-confirmation-main__box--buy-form--info--destination-name
-                  = @user.first_name + @user.last_name
+          .buy-confirmation-main__box--buy-form--info--destination--detail
+            = "〒#{@user.postal_code}"
+            .buy-confirmation-main__box--buy-form--info--destination-place
+              = "#{@pref.name}#{@user.city}#{@user.address}"
+              = @user.building
+              .buy-confirmation-main__box--buy-form--info--destination-name
+                = @user.first_name + @user.last_name
         .buy-confirmation-main__box--buy-form--info--buy-btn
           = form_tag(pay_item_path, method: :post, action: "pay") do
             %button 購入する
