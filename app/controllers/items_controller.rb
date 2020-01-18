@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_parents_categories, only: [:new, :create, :edit]
   before_action :set_item, only: [:buy, :pay, :done, :show, :destroy, :edit, :update]
   before_action :set_card, only: [:buy, :pay]
+  before_action :set_new_item, :set_new_image, :set_new_brand, only: [:new, :create]
   require "payjp"
 
 
@@ -27,13 +28,11 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
-    @image = Image.new
-    @brand = Brand.new
   end
 
   def create
     if params[:image] == nil
+      flash.now[:alert] = "必須事項を入力してください"
       render new_item_path
     else
       @brand = Brand.where(name: brand_params[:name]).first_or_create
@@ -41,9 +40,10 @@ class ItemsController < ApplicationController
       images_params[:image].each do |img|
         @item.images.build(image: img)
       end
-      if @item.save 
+      if @item.save
         redirect_to root_path
       else
+        flash.now[:alert] = "必要事項を入力してください"
         render new_item_path
       end
     end
@@ -122,9 +122,12 @@ class ItemsController < ApplicationController
   def update
     @brand = Brand.where(name: brand_params[:name]).first_or_create
     unless @item.update(update_params)
+      flash[:alert] = @item.errors.full_messages
       redirect_to edit_item_path
     end
   end
+
+
 
   private
 
@@ -181,6 +184,18 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_new_item
+    @item = Item.new
+  end
+
+  def set_new_image
+    @image = Image.new
+  end
+
+  def set_new_brand
+    @brand = Brand.new
   end
 
   def set_card
