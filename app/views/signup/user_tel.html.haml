@@ -3,7 +3,7 @@
 %main.main
   .signup-panel
     %p.signup-panel__title 電話番号の確認
-    = form_for @user, url: user_address_signup_index_path, builder: WithErrorFormBuilder, method: :post, html: {class: "inputForm"} do |f|
+    = form_for @user, url: user_tel_verification_signup_index_path, builder: WithErrorFormBuilder, method: :post, html: {class: "inputForm"} do |f|
       = f.fields_for :user_address do |p|
         .signup-form
           .field
