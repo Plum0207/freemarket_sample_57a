@@ -19,17 +19,14 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :pref
 
-  # # 今後実装：孫カテゴリーのみを許可する検証
-  # カテゴリの孫idを取得
-  # grand_children_ids = Category.where("ancestry LIKE ?", "%/%").pluck(:id)
+  # カテゴリの孫idを取得（バリデーション用）
+  grand_children_ids = Category.where("ancestry LIKE ?", "%/%").pluck(:id)
 
   # バリデーション
   validates :seller_id, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
-  validates :category_id, presence: true
-            # 今後実装：孫カテゴリーのみを許可する検証
-            #, inclusion: { in: grand_children_ids }
+  validates :category_id, presence: true , inclusion: { in: grand_children_ids, message: "を最後まで選択してください" }
   validates :condition, presence: true
   validates :postage_burden, presence: true
   validates :sending_method, presence: true

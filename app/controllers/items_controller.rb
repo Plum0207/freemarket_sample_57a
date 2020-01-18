@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
       images_params[:image].each do |img|
         @item.images.build(image: img)
       end
-      if @item.save 
+      if @item.save
         redirect_to root_path
       else
         flash.now[:alert] = "必要事項を入力してください"
