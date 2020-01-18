@@ -26,8 +26,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @lady_items.present?
-          - @lady_items.each do |item|
-            =render partial: "items-list", collection: @lady_items, as: :item
+          =render partial: "items-list", collection: @lady_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -40,8 +39,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @man_items.present?
-          - @man_items.each do |item|
-            =render partial: "items-list", collection: @man_items, as: :item
+          =render partial: "items-list", collection: @man_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -54,8 +52,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @appliance_items.present?
-          - @appliance_items.each do |item|
-            =render partial: "items-list", collection: @appliance_items, as: :item
+          =render partial: "items-list", collection: @appliance_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -69,8 +66,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @hobby_items.present?
-          - @hobby_items.each do |item|
-            =render partial: "items-list", collection: @hobby_items, as: :item
+          =render partial: "items-list", collection: @hobby_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -98,8 +94,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @channel_items.present?
-          - @channel_items.each do |item|
-            =render partial: "items-list", collection: @channel_items, as: :item
+          =render partial: "items-list", collection: @channel_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -113,8 +108,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @vuitton_items.present?
-          - @vuitton_items.each do |item|
-            =render partial: "items-list", collection: @vuitton_items, as: :item
+          =render partial: "items-list", collection: @vuitton_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -127,8 +121,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @supreme_items.present?
-          - @supreme_items.each do |item|
-            =render partial: "items-list", collection: @supreme_items, as: :item
+          =render partial: "items-list", collection: @supreme_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
@@ -141,8 +134,7 @@
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
         - if @nike_items.present?
-          - @nike_items.each do |item|
-            =render partial: "items-list", collection: @nike_items, as: :item
+          =render partial: "items-list", collection: @nike_items, as: :item
         - else
           .nothing-block
             = fa_icon "ban", class: "nothing-block-icon"
