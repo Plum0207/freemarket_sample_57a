@@ -55,10 +55,9 @@
             }
             &--point {
               display: flex;
-              left: 549px;
-              color: #cccccc;
+              color: #ccc;
               font-size: 23px;
-              margin-top: 16px;
+              margin-top: 45px;
               position: absolute;
               &--text {
                 color: $darkgray;
@@ -100,10 +99,10 @@
               margin-top: 2px;
             }
             &--detail {
+              font-weight: 500;
               line-height: normal;
               color: $black;
-              left: 549px;
-              margin-top: 4px;
+              margin-top: 20px;
               position: absolute;
             }
           }
