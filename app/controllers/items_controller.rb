@@ -9,22 +9,22 @@ class ItemsController < ApplicationController
 
   def index
     #レディース
-    @lady_items = Item.where(category: 33..215).recent(10)
+    @lady_items = Item.where(category: 33..215, status:"sale").recent(10)
     #メンズ
-    @man_items = Item.where(category: 230..360).recent(10)
+    @man_items = Item.where(category: 230..360, status:"sale").recent(10)
     #家電
-    @appliance_items = Item.where(category: 916..989).recent(10)
+    @appliance_items = Item.where(category: 916..989, status:"sale").recent(10)
     #おもちゃ・ホビー・グッズ
-    @hobby_items = Item.where(category: 705..806).recent(10)
+    @hobby_items = Item.where(category: 705..806, status:"sale").recent(10)
   
     #シャネル
-    @channel_items = Item.where(brand: 1).recent(10)
+    @channel_items = Item.where(brand: 1, status:"sale").recent(10)
     #ルイ・ヴィトン
-    @vuitton_items = Item.where(brand: 3).recent(10)
+    @vuitton_items = Item.where(brand: 3, status:"sale").recent(10)
     #シュプリーム
-    @supreme_items = Item.where(brand: 4).recent(10)
+    @supreme_items = Item.where(brand: 4, status:"sale").recent(10)
     #ナイキ
-    @nike_items = Item.where(brand: 6).recent(10)
+    @nike_items = Item.where(brand: 6, status:"sale").recent(10)
   end
 
   def new
