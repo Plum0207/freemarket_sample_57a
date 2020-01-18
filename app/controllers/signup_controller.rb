@@ -85,6 +85,13 @@ class SignupController < ApplicationController
     end
   end
 
+  def user_complete
+    session[:user_params].clear
+    session[:secure_code].clear
+    session[:input_code].clear
+    session[:user_address_attributes_after_user_address].clear
+  end
+
   private
 
   def user_params
