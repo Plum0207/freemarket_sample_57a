@@ -71,12 +71,6 @@ Rails.application.routes.draw do
     end
   end
 
-#   resources "users", path: "/u/:id", only: :show_profile do
-#     collection do
-#       get 'show_profile', path: ""
-#     end
-#   end
-  
   resources :cards, only: [:create, :new, :show, :destroy] do
     member do
       post 'show', to: 'cards#show'
@@ -87,51 +81,4 @@ Rails.application.routes.draw do
       get  'confirmation'
     end
   end
-
-#   resource "products", path: "sell", only: :show, action: :new, as: "new_products"
-#   resource "products", path: "sell", only: :create
-#   resource "products", only: :edit, path: "/m:product_id"
-#   resource "products", only: :destroy, path: "/m:product_id",as: "products_destroy"
-#   resource "products", only: :update, path: "/m:product_id",as: "products_update"
-  
-#   resource :products,  only: :show_mine, path: "m:product_id" do
-#     collection do
-#       get 'show_mine'
-#     end
-#   end
-  
-#   resource :products, action: :search, path: "/search", only: :show, as: :search_products
-  
-#   resource "products", path: "/m:product_id", only: :show, as: :show_products do
-#     resources "comments", only: :create
-#     resources :cards, only: :buy do
-#       collection do
-#         post "buy", to: "cards#buy"
-#       end
-#     end
-#   end
-
-#   namespace :api do
-#     resources "sell", controller: :products, only: :child, defaults: { format: 'json' } do
-#       collection do
-#         get 'child'
-#       end
-#     end
-#     resources "sell", controller: :products, only: :grand_child, defaults: { format: 'json' } do
-#       collection do
-#         get 'grand_child'
-#       end
-#     end
-#     resources "destroy", controller: :products, only: :image_destroy, defaults: { format: 'json' } do
-#       collection do
-#         delete "image_destroy"
-#       end
-#     end
-
-#   end
-
-#   resources "category", only: [:index, :show]
-#   resources "brand", only: [:index, :show]
-#   resources "areas", only: :show
-
 end
