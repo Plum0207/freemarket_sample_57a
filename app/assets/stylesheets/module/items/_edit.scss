@@ -163,7 +163,7 @@
               font-weight: 600;
             }
             .required {
-              background-color: $red;
+              background-color: $gray;
               @include require;
             }
             &__form {

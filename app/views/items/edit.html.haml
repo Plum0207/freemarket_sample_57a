@@ -22,7 +22,7 @@
                   %p.upload-form__num 
                   = fi.label :image, class: 'upload-form__select-btn', for: "image#{i}" do
                     = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id: "image#{i}"
-                    変更
+                    選択
                   .upload-form__remove-btn
                     = fi.check_box :_destroy
                     削除
@@ -46,7 +46,7 @@
                 = f.collection_select :category_id, @grandchildren_categories, :id, :name, {prompt: "---"}, {class: 'form-box', id: 'grandchildren_category'}
             .size
               = f.label :size, 'サイズ', class: 'size__name'
-              %span.required 必須
+              %span.required 任意
               .size__form
                 = f.select :size, Item.sizes.keys.map { |k| [t("enums.item.size.#{k}"), k]}, { prompt: "---" }, {class: 'form-box'}
             .brand
