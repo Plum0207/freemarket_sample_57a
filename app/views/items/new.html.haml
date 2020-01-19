@@ -6,7 +6,8 @@
     %h2.title 商品の情報を入力
     - if flash[:alert].present?
       %ul.error-alert
-        %li.error-alert__list #{flash[:alert]}
+        - flash[:alert].each do |message|
+          %li.error-alert__list #{message}
     .form
       = form_with(model: @item, local: true, multipart: true) do |f|
         .image
@@ -14,78 +15,16 @@
             出品画像
             %span.required 必須
           %p.image__attention 最大10枚までアップロードできます（選択ボタンを押してください）
-          = fields_for @image do |fi|
-            %ul.image__upload
-              %li.upload-form
-                %p.upload-form__num ①
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image0' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id:'image0'
-                  選択
-                #image0_rmv.upload-form__remove-btn 削除
-                #image0_name.upload-form__name 
-              %li.upload-form
-                %p.upload-form__num ②
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image1' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image1'
-                  選択
-                #image1_rmv.upload-form__remove-btn 削除
-                #image1_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ③
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image2' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image2'
-                  選択
-                #image2_rmv.upload-form__remove-btn 削除
-                #image2_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ④ 
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image3' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image3'
-                  選択
-                #image3_rmv.upload-form__remove-btn 削除
-                #image3_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ⑤ 
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image4' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image4'
-                  選択
-                #image4_rmv.upload-form__remove-btn 削除
-                #image4_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ⑥
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image5' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image5'
-                  選択
-                #image5_rmv.upload-form__remove-btn 削除
-                #image5_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ⑦
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image6' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image6'
-                  選択
-                #image6_rmv.upload-form__remove-btn 削除
-                #image6_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ⑧
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image7' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image7'
-                  選択
-                #image7_rmv.upload-form__remove-btn 削除
-                #image7_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ⑨
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image8' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image8'
-                  選択
-                #image8_rmv.upload-form__remove-btn 削除
-                #image8_name.upload-form__name
-              %li.upload-form
-                %p.upload-form__num ⑩
-                = fi.label :image, class: 'upload-form__select-btn', for: 'image9' do
-                  = fi.file_field :image, multiple: true, class: 'upload-form__select-btn--input_tag', id: 'image9'
-                  選択
-                #image9_rmv.upload-form__remove-btn 削除
-                #image9_name.upload-form__name
+          %ul.image__upload
+            - @item.images.each_with_index do |image, i|
+              = f.fields_for :images, image do |fi|
+                %li.upload-form
+                  %p.upload-form__num
+                  = fi.label :image, class: 'upload-form__select-btn', for: "image#{i}" do
+                    = fi.file_field :image, class: 'upload-form__select-btn--input_tag', id:"image#{i}"
+                    選択
+                  .upload-form__remove-btn{id: "image#{i}_rmv"} 削除
+                  .upload-form__name{id: "image#{i}_name"} 
         .item
           = f.label :name, '商品名', class: 'item__title'
           %span.required 必須
@@ -103,7 +42,7 @@
                 = f.collection_select :category_id, @parents_categories, :id, :name, {prompt: "---"}, {class: 'form-box', id: 'parent_category'}
             .size
               = f.label :size, 'サイズ', class: 'size__name'
-              %span.required 必須
+              %span.required 任意
               .size__form
                 = f.select :size, Item.sizes.keys.map { |k| [t("enums.item.size.#{k}"), k]}, { include_blank: "---", selected: "---" }, {class: 'form-box'}
             .brand

@@ -28,22 +28,15 @@ class ItemsController < ApplicationController
   end
 
   def new
+    10.times { @item.images.build }
   end
 
   def create
-    if params[:image] == nil
-      flash.now[:alert] = "必須事項を入力してください"
-      render new_item_path
-    else
-      @brand = Brand.where(name: brand_params[:name]).first_or_create
-      @item = Item.new(items_params)
-      images_params[:image].each do |img|
-        @item.images.build(image: img)
-      end
-      unless @item.save
-        flash.now[:alert] = "必要事項を入力してください"
-        render new_item_path
-      end
+    @brand = Brand.where(name: brand_params[:name]).first_or_create
+    @item = Item.new(items_params)
+    unless @item.save
+      flash[:alert] = @item.errors.full_messages
+      redirect_to new_item_path
     end
   end
 
@@ -115,6 +108,8 @@ class ItemsController < ApplicationController
     @grandchildren_categories = @item.category.siblings
     @children_categories = @item.category.parent.siblings
     @fee = @item.price * 0.1
+    num = 10 - @item.images.length
+    num.times {@item.images.build}
   end
 
   def update
@@ -145,6 +140,7 @@ class ItemsController < ApplicationController
       :prefecture_from, 
       :shipping_date, 
       :price,
+      images_attributes: [:image]
     ).merge(brand_id: @brand.id, seller_id: current_user.id, status: 0)
   end
 
@@ -162,10 +158,6 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image, :id, :_destroy]
       ).merge(brand_id: @brand.id)
-  end
-
-  def images_params
-    params.require(:image).permit({image: []}, item_id: @item.id)
   end
 
   def set_parents_categories
