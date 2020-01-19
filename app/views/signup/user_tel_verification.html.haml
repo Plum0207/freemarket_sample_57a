@@ -1,0 +1,24 @@
+= render "devise/user/user_header"
+
+%main.main
+  .signup-panel
+    %p.signup-panel__title
+      電話番号認証
+    = form_for @user, url: user_address_signup_index_path, method: :post, html: {class: "inputForm"} do |f|
+      = f.fields_for :user_address do |p|
+        .signup-form
+          .field
+            = p.label :telephone, "認証番号"
+            %span.form-require
+            = p.text_field :telephone,  class: "field__input", placeholder: "認証番号を入力"
+            %p.form-info--tell
+              SMSで届いた認証番号を入力してください
+        .sign-up-btn
+          = f.submit "次へ進む", class: "btn-red"
+
+        .not-password
+          60秒たっても認証番号が届かない方へ
+        .not-password__info
+          ※SMSが届かない場合はSMS受信設定を確認して、</br>もう一度電話番号を入力してください。
+
+= render "devise/user/user_footer"

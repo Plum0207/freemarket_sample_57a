@@ -211,7 +211,6 @@
           text-align: left;
         }
       }
-
       .forgot-password {
         margin: 40px 0 0;    
         @include link_to_bulue;
@@ -219,6 +218,10 @@
       .forgot-password--credit-card {
         margin: 5px 0 0 ;    
         @include link_to_bulue;
+      }
+      .not-password{
+        margin-bottom: 16px;
+        font-weight: bolder;
       }
     }
   }

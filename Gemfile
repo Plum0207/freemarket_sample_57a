@@ -86,6 +86,8 @@ gem 'rails-i18n'
 gem 'ancestry'
 gem 'payjp'
 gem 'gretel'
+gem 'twilio-ruby'
+gem 'phony_rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
