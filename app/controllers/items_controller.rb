@@ -28,7 +28,14 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new(flash[:data]) if flash[:data].present?
     10.times { @item.images.build }
+    if @item.category.present?
+      @selected_children_category = @item.category.parent
+      @selected_parents_category = @selected_children_category.parent
+      @grandchildren_categories = @item.category.siblings
+      @children_categories = @item.category.parent.siblings
+    end
   end
 
   def create
@@ -36,6 +43,7 @@ class ItemsController < ApplicationController
     @item = Item.new(items_params)
     unless @item.save
       flash[:alert] = @item.errors.full_messages
+      flash[:data] = Item.new(items_params)
       redirect_to new_item_path
     end
   end
