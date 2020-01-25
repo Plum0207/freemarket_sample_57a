@@ -110,3 +110,6 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+# ER図
+https://cacoo.com/diagrams/O2SXw5N9jSP6AnS2/C6890
