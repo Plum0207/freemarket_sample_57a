@@ -3,7 +3,7 @@ class UserAddress < ApplicationRecord
   belongs_to :user, inverse_of: :user_address
   belongs_to_active_hash :pref
   
-  validates :telephone, length: { maximum: 11, too_long: 'は11文字以内で記入してください'}, presence: true
+  validates :telephone, length: { maximum: 11, too_long: 'は11文字以内で記入してください'}
   validates :last_name, presence: true, on: :user_signup
   validates :first_name, presence: true, on: :user_signup
   validates :last_name_kana, presence: true, on: :user_signup

@@ -2,9 +2,15 @@ class Item < ApplicationRecord
   #アソシエーション
   belongs_to :user
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :reject_image_blank
   belongs_to :brand
   belongs_to :category
+
+  # 空白のimages_attributesを削除
+  def reject_image_blank(attributes)
+    attributes['id'].blank? && attributes['image'].blank?
+  end
+
 
   # enumの定義
   enum size: { XXS: 0, XS: 1, S: 2, M: 3, L: 4, XL: 5, XXL: 6, XXXL: 7, XXXXXL: 8, free_size: 9 }

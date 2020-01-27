@@ -135,6 +135,24 @@
             color: $black;
           }
           
+          .form-info--caution {
+            color: $red;
+            margin: 10px 0 40px;
+            padding: 10px 2px;
+            border: thin solid $pale-yellow;
+            background-color: $pale-yellow;
+            border-radius: 5px;
+            &__title {
+              margin: 0;
+              font-weight: bold;
+            }
+            &__list {
+              margin-top: 10px;
+              padding: 0 10px;
+              list-style: circle;
+              list-style-position: inside;
+            }
+          }
           &__input, #user_user_address_attributes_area_id {
             width: 100%;
             @include input-status;

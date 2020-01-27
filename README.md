@@ -27,6 +27,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
@@ -109,3 +110,6 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+# ER図
+https://cacoo.com/diagrams/O2SXw5N9jSP6AnS2/C6890
