@@ -19,7 +19,7 @@ class SignupController < ApplicationController
   end 
 
   def user_tel
-    @user = User.new(session[:user_params])
+    @user = User.new
     @user.build_user_address
   end
 
@@ -31,10 +31,10 @@ class SignupController < ApplicationController
 
   def send_sms_code
     if session[:user_address_attributes_after_user_tel][:telephone].present?
-      @user = User.new(session[:user_params])
-      @user.build_user_address(session[:user_address_attributes_after_user_tel])
-      send_phone_number      =   PhonyRails.normalize_number session[:user_address_attributes_after_user_tel][:telephone], country_code:'JP'
-      session[:secure_code]  =   random_number_generator(4)
+      @user = User.new
+      @user.build_user_address
+      send_phone_number = PhonyRails.normalize_number session[:user_address_attributes_after_user_tel][:telephone], country_code:'JP'
+      session[:secure_code] = random_number_generator(4)
       begin
         client = Twilio::REST::Client.new
         if Rails.env.development? || Rails.env.test?
@@ -55,30 +55,30 @@ class SignupController < ApplicationController
   end
 
   def user_tel_verification
-    @user = User.new(session[:user_params])
+    @user = User.new
     @user.build_user_address
   end
 
   def check_sms_code
     if user_params[:user_address_attributes][:telephone].present?
       session[:input_code] = user_params[:user_address_attributes]
-      @user = User.new(session[:user_params])
-      @user.build_user_address(session[:user_address_attributes_after_user_tel])
+      @user = User.new
+      @user.build_user_address
       redirect_to action: :user_tel_verification unless session[:input_code].present?
       render '/signup/user_tel_verification' and return unless session[:secure_code] == session[:input_code][:telephone]
     end
   end
 
   def user_address
-    @user = User.new(session[:user_params])
+    @user = User.new
     @user.build_user_address
   end
 
   def save_user_address_to_session
     session[:user_address_attributes_after_user_address] = user_params[:user_address_attributes]
     session[:user_address_attributes_after_user_address].merge!(session[:user_address_attributes_after_user_tel])
-    @user = User.new(session[:user_params])
-    @user.build_user_address(session[:user_address_attributes_after_user_address])
+    @user = User.new
+    @user.build_user_address
     render '/signup/user_address' unless session[:user_address_attributes_after_user_address].present?
   end
 
