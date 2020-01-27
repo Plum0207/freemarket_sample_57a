@@ -8,6 +8,9 @@
       = f.fields_for :user_address do |p|
         .signup-form
           .field
+            .form-info--caution
+              .form-info--caution__title【電話番号承認をしない場合】
+              %p.form-info--caution__list そのまま「次へ進む」をクリックしてください
             = p.label :telephone, "認証番号"
             %span.form-require
             = p.text_field :telephone,  class: "field__input", placeholder: "認証番号を入力"
