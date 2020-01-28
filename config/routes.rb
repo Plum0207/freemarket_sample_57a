@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     registrations: 'signup'
   }
 
-  resources "signup", only: [:user_info, :create, :user_tel, :user_tel_verification, :user_address, :user_complete], path: "/signup" do
+  resources "signup", only: [:index, :create], path: "/signup" do
     collection do
       get 'user_info'
       post 'user_tel'

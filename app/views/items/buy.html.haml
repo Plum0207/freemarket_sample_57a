@@ -46,7 +46,7 @@
               = "#{@pref.name}#{@user.city}#{@user.address}"
               = @user.building
               .buy-confirmation-main__box--buy-form--info--destination-name
-                = @user.first_name + @user.last_name
+                = @user.last_name + @user.first_name
         .buy-confirmation-main__box--buy-form--info--buy-btn
           = form_tag(pay_item_path, method: :post, action: "pay") do
             %button 購入する

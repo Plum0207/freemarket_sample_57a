@@ -1,0 +1,9 @@
+.now-content
+  = link_to item_path(item), class: "now-content-list" do
+    %figure
+      = image_tag item.images[0].image.url, alt: 'items-image'
+    .now-content-list__text
+      = "#{item.name}を購入しました。取引が完了しました"
+      .now-content-list__status
+        取引完了
+    %i.fa.fa-chevron-right
