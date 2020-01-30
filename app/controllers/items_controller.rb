@@ -51,25 +51,33 @@ class ItemsController < ApplicationController
   def buy
     @user = UserAddress.find_by(user_id: current_user.id)
     @pref = Pref.find(@user.prefecture)
-    if @card.blank?
-      redirect_to confirmation_cards_path
+    unless @item.seller_id == current_user.id || @item.status == "sold"
+      if @card.blank?
+        redirect_to confirmation_cards_path
+      else
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @default_card_information = customer.cards.retrieve(@card.card_id)
+      end
     else
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
+      redirect_to item_path
     end
   end
 
   def pay
     card = Card.where(user_id: current_user.id).first
-    Payjp::Charge.create(
-      amount: @item.price,
-      customer: @card.customer_id,
-      currency: 'jpy',
-    )
-    if @item.present? && @item.update(status: 3, buyer_id: current_user.id)
-      redirect_to done_item_path
+    unless @item.seller_id == current_user.id || @item.status == "sold"
+      Payjp::Charge.create(
+        amount: @item.price,
+        customer: @card.customer_id,
+        currency: 'jpy',
+      )
+      if @item.present? && @item.update(status: 3, buyer_id: current_user.id)
+        redirect_to done_item_path
+      else
+        redirect_to buy_item_path
+      end
     else
-      redirect_to buy_item_path
+      redirect_to item_path
     end
   end
 
