@@ -109,10 +109,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      render action: :delete_confirmation
+    if current_user.id == @item.seller_id && @item.status != "sold"
+      if @item.destroy 
+        render action: :delete_confirmation
+      else
+        render item_path, alert: "削除が失敗しました"  
+      end
     else
-      render item_path, alert: "削除が失敗しました"  
+      redirect_to item_path
     end
   end
 
@@ -120,19 +124,27 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @brand = @item.brand
-    @grandchildren_categories = @item.category.siblings
-    @children_categories = @item.category.parent.siblings
-    @fee = @item.price * 0.1
-    num = 10 - @item.images.length
-    num.times {@item.images.build}
+    if current_user.id == @item.seller_id && @item.status != "sold"
+      @brand = @item.brand
+      @grandchildren_categories = @item.category.siblings
+      @children_categories = @item.category.parent.siblings
+      @fee = @item.price * 0.1
+      num = 10 - @item.images.length
+      num.times {@item.images.build}
+    else
+      redirect_to item_path
+    end
   end
 
   def update
-    @brand = Brand.where(name: brand_params[:name]).first_or_create
-    unless @item.update(update_params)
-      flash[:alert] = @item.errors.full_messages
-      redirect_to edit_item_path
+    if current_user.id == @item.seller_id && @item.status != "sold"
+      @brand = Brand.where(name: brand_params[:name]).first_or_create
+      unless @item.update(update_params)
+        flash[:alert] = @item.errors.full_messages
+        redirect_to edit_item_path
+      end
+    else
+      redirect_to item_path
     end
   end
 
