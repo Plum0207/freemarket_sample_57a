@@ -10,18 +10,18 @@
       .popular-menu__links
         %ul.popular-menu__links__list
           %li.popular-menu__links__list__link
-            =link_to 'レディース', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'レディース', "#ladies", class: 'popular-menu__links__list__link_btn'
           %li.popular-menu__links__list__link
-            =link_to 'メンズ', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'メンズ', "#mens", class: 'popular-menu__links__list__link_btn'
           %li.popular-menu__links__list__link
-            =link_to '家電・スマホ・カメラ', "", class: 'popular-menu__links__list__link_btn'
+            =link_to '家電・スマホ・カメラ', "#electrics", class: 'popular-menu__links__list__link_btn'
           %li.popular-menu__links__list__link
-            =link_to 'おもちゃ・ホビー・グッズ', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'おもちゃ・ホビー・グッズ', "#toys", class: 'popular-menu__links__list__link_btn'
   
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#ladies.items-container__upper-part__title
           レディース新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -34,7 +34,7 @@
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#mens.items-container__upper-part__title
           メンズ新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -47,7 +47,7 @@
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#electrics.items-container__upper-part__title
           家電・スマホ・カメラ新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -61,7 +61,7 @@
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#toys.items-container__upper-part__title
           おもちゃ・ホビー・グッズ新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -77,19 +77,19 @@
       .popular-menu__links
         %ul.popular-menu__links__list
           %li.popular-menu__links__list__link
-            =link_to 'シャネル', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'シャネル', "#chanel", class: 'popular-menu__links__list__link_btn'
           %li.popular-menu__links__list__link
-            =link_to 'ルイヴィトン', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'ルイヴィトン', "#vuitton", class: 'popular-menu__links__list__link_btn'
           %li.popular-menu__links__list__link
-            =link_to 'シュプリーム', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'シュプリーム', "#supreme", class: 'popular-menu__links__list__link_btn'
           %li.popular-menu__links__list__link
-            =link_to 'ナイキ', "", class: 'popular-menu__links__list__link_btn'
+            =link_to 'ナイキ', "#nike", class: 'popular-menu__links__list__link_btn'
   
   
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#chanel.items-container__upper-part__title
           シャネル新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -103,7 +103,7 @@
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#vuitton.items-container__upper-part__title
           ルイヴィトン新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -116,7 +116,7 @@
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#supreme.items-container__upper-part__title
           シュプリーム新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
@@ -129,7 +129,7 @@
   .items-container-wrapper
     .items-container
       .items-container__upper-part
-        %h3.items-container__upper-part__title
+        %h3#nike.items-container__upper-part__title
           ナイキ新着アイテム
         =link_to 'もっと見る', "", class: 'items-container__upper-part__more'
       .items-container__lower-part
